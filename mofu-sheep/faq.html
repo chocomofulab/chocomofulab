@@ -217,10 +217,34 @@ body.en span[data-lang="en"] { display: inline; }
 body.en span[data-lang="ja"] { display: none; }
 
 @media (max-width: 600px) {
-  .content { padding: 2rem 1rem 4rem; }
-  .faq-q { padding: 1.1rem 1.2rem; }
-  .faq-a { padding: 0 1.2rem 1.2rem; }
-  .closing-box { padding: 1.8rem 1.2rem; }
+  nav {
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-logo {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 78px);
+    line-height: 1.2;
+  }
+
+  .content {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .faq-q {
+    padding: 1.1rem 1.2rem;
+  }
+
+  .faq-a {
+    padding: 0 1.2rem 1.2rem;
+  }
+
+  .closing-box {
+    padding: 1.8rem 1.2rem;
+  }
 }
 
 
@@ -231,7 +255,6 @@ body.en span[data-lang="ja"] { display: none; }
 <nav>
   <a href="../index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
   <div class="nav-right">
-    <a href="index.html" class="nav-back">← <span data-lang="ja">アプリページへ</span><span data-lang="en">App Page</span></a>
     <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
   </div>
 </nav>
