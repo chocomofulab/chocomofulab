@@ -238,9 +238,27 @@
     body.en span[data-lang="ja"] { display: none; }
 
     @media (max-width: 600px) {
-      .content { padding: 2rem 1rem 4rem; }
-      .policy-section { padding: 1.5rem; }
-    }
+  nav {
+    padding: 0.7rem 1rem;
+  }
+
+  .nav-logo {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 78px);
+    line-height: 1.2;
+  }
+
+  .content {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .policy-section {
+    padding: 1.5rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -248,7 +266,6 @@
 <nav>
   <a href="index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
   <div style="display:flex;gap:0.8rem;align-items:center;">
-    <a href="index.html" class="nav-back">← <span data-lang="ja">トップへ</span><span data-lang="en">Home</span></a>
     <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
   </div>
 </nav>
