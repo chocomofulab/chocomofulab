@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -559,6 +559,15 @@ button, input, textarea, select {
   nav { padding: 0.7rem 1rem; }
   .nav-links { display: none; }
 
+  .nav-logo {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 92px);
+  line-height: 1.2;
+}
+     
   .hero {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -823,19 +832,7 @@ button, input, textarea, select {
   </footer>
 
   <script>
-    const starsEl = document.getElementById('stars');
-    const emojis = ['✦', '✧', '⋆', '✵', '✴'];
-
-    for (let i = 0; i < 18; i++) {
-      const s = document.createElement('span');
-      s.className = 'star';
-      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.animationDuration = (12 + Math.random() * 18) + 's';
-      s.style.animationDelay = (Math.random() * 15) + 's';
-      s.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
-      starsEl.appendChild(s);
-    }
+   
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -860,4 +857,4 @@ button, input, textarea, select {
 
 </body>
 </html>
-```
+
