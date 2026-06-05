@@ -555,19 +555,30 @@ button, input, textarea, select {
       margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 680px) {
-      nav { padding: 0.7rem 1rem; }
-      .nav-links { display: none; }
-      .app-card { grid-template-columns: 1fr; }
-      .app-visual { order: -1; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-icon-wrap { flex-direction: row; }
-      .gallery-grid {
-        grid-template-columns: minmax(0, 280px);
-        justify-content: center;
-      }
-      .contact-box { padding: 2rem 1.5rem; }
-    }
+   @media (max-width: 680px) {
+  nav { padding: 0.7rem 1rem; }
+  .nav-links { display: none; }
+
+  .hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-title-ja {
+    font-size: clamp(2.2rem, 11vw, 2.8rem);
+    white-space: nowrap;
+  }
+
+  .app-card { grid-template-columns: 1fr; }
+  .app-visual { order: -1; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-icon-wrap { flex-direction: row; }
+  .gallery-grid {
+    grid-template-columns: minmax(0, 280px);
+    justify-content: center;
+  }
+  .contact-box { padding: 2rem 1.5rem; }
+}
 
     [data-lang="en"] { display: none; }
 
