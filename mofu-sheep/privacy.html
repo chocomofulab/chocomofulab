@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | おやすみもふ羊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+  font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+  background: var(--sky-light);
+  color: var(--text);
+}
+
+h1, h2, h3, h4,
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  background: rgba(255,254,248,0.92);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2.5px solid var(--sky);
+  box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+}
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--brown);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--pink); }
+.nav-right { display: flex; gap: 0.8rem; align-items: center; }
+.nav-back {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--sky);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.nav-back:hover { background: var(--sky-dark); }
+.lang-btn {
+  background: var(--sky);
+  border: none;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--brown);
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.lang-btn:hover { background: var(--sky-dark); }
+
+.page-hero {
+  background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+  padding: 7rem 2rem 3rem;
+  text-align: center;
+}
+.page-hero .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--brown);
+}
+.page-hero .sub {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+.page-hero .app-name {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: white;
+  border: 2px solid var(--pink);
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--pink);
+}
+
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.intro-box {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--sky);
+  font-size: 0.97rem;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+.policy-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(184,228,245,0.5);
+  box-shadow: 0 4px 16px rgba(135,200,230,0.1);
+}
+.policy-section h2 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--sky);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.policy-section h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-light);
+  margin: 1.2rem 0 0.6rem;
+}
+.policy-section p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+}
+.policy-section p:last-child { margin-bottom: 0; }
+.policy-section ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.policy-section ul li {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+.notice-box {
+  background: #f0faf7;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--mint);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-top: 0.8rem;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--mint);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 2px solid var(--mint);
+  transition: opacity 0.2s;
+}
+.contact-link:hover { opacity: 0.7; }
+
+.policy-date {
+  text-align: right;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-top: 1.5rem;
+  padding: 0 0.5rem;
+}
+.policy-date p {
+  margin-bottom: 0.2rem;
+}
+
+footer {
+  background: var(--brown);
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  line-height: 2;
+}
+.footer-logo { font-size: 1.2rem; font-weight: 900; color: white; }
+.footer-links { margin-top: 0.5rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  margin: 0 0.8rem;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: white; }
+
+[data-lang="en"] { display: none; }
+body.en [data-lang="ja"] { display: none; }
+body.en [data-lang="en"] { display: block; }
+body.en span[data-lang="en"] { display: inline; }
+body.en span[data-lang="ja"] { display: none; }
+
+@media (max-width: 600px) {
+  .content { padding: 2rem 1rem 4rem; }
+  .policy-section { padding: 1.5rem; }
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo"> <span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">アプリページへ</span><span data-lang="en">App Page</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="icon">🔒</div>
+  <h1><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></h1>
+  <span class="app-name"><span data-lang="ja">おやすみもふ羊 / Mofu Sheep</span><span data-lang="en">Mofu Sheep / おやすみもふ羊</span></span>
+</div>
+
+<div class="content">
+
+  <div class="intro-box">
+    <p data-lang="ja">ちょこもふらぼ（個人開発者、以下「開発者」といいます。）は、アプリ「おやすみもふ羊」（以下「本アプリ」といいます。）における利用者の情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+    <p data-lang="en">Chocomofu Lab (individual developer, hereinafter "Developer") establishes the following Privacy Policy regarding the handling of user information in the app "Mofu Sheep" (hereinafter "the App").</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>1. <span data-lang="ja">取得する情報について</span><span data-lang="en">Information We Collect</span></h2>
+
+    <h3><span data-lang="ja">（1）利用者が入力する情報</span><span data-lang="en">(1) Information Entered by Users</span></h3>
+    <p data-lang="ja">本アプリでは、利用者がアプリ内で入力・編集できるメッセージ（「わたしのことば」）があります。これらの情報は、利用者の端末内にのみ保存されます。</p>
+    <p data-lang="en">The App allows users to enter and edit personal messages ("My Words"). This information is stored only on the user's device.</p>
+    <div class="notice-box">
+      <span data-lang="ja">✅ 開発者が、これらの情報を取得、閲覧、保管、または外部に送信することはありません。</span>
+      <span data-lang="en">✅ The Developer does not collect, view, store, or transmit this information externally.</span>
+    </div>
+
+    <h3><span data-lang="ja">（2）広告表示に関する情報</span><span data-lang="en">(2) Information Related to Advertising</span></h3>
+    <p data-lang="ja">本アプリでは、Google LLC が提供する広告配信サービス「Google AdMob」を利用しています。広告配信事業者は、広告表示に必要な範囲で、端末情報や広告配信に関する技術情報等を自動的に取得する場合があります。</p>
+    <p data-lang="en">The App uses Google AdMob, an advertising service provided by Google LLC. The advertising provider may automatically collect device information and technical data related to ad delivery, within the scope necessary for displaying ads.</p>
+    <p data-lang="ja">これらの情報は広告配信事業者が取得・管理するものであり、開発者が直接取得または保管するものではありません。</p>
+    <p data-lang="en">This information is collected and managed by the advertising provider, not directly by the Developer.</p>
+    <p data-lang="ja">本アプリでは、広告表示に関して、利用者がトラッキングの使用有無を選択できる仕組みを採用しています。</p>
+    <p data-lang="en">The App allows users to choose whether to permit tracking for advertising purposes.</p>
+    <ul>
+      <li><span data-lang="ja">トラッキングを許可した場合：広告配信事業者により広告識別子等が利用されることがあります。</span><span data-lang="en">If tracking is permitted: The advertising provider may use advertising identifiers and similar data.</span></li>
+     <li>
+  <span data-lang="ja">トラッキングを許可しない場合：パーソナライズされない広告が表示される場合があります。</span>
+  <span data-lang="en">If tracking is not permitted: Non-personalized ads may be displayed.</span>
+</li>
+    </ul>
+    <p data-lang="ja">なお、広告はメニュー画面下部に表示されるバナー広告のみです。</p>
+    <p data-lang="en">Ads are displayed only as a banner at the bottom of the menu screen.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. <span data-lang="ja">情報の利用目的</span><span data-lang="en">Purpose of Use</span></h2>
+    <p data-lang="ja">広告配信事業者により取得される情報は、広告の表示および配信等の目的で利用される場合があります。詳細については、広告配信事業者のプライバシーポリシーをご確認ください。</p>
+    <p data-lang="en">Information collected by the advertising provider may be used for the purpose of displaying and delivering ads. For details, please refer to the advertising provider's privacy policy.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. <span data-lang="ja">解析ツールについて</span><span data-lang="en">Usage Analysis Tools</span></h2>
+    <p data-lang="ja">本アプリでは、開発者独自の利用状況解析ツールは使用していません。開発者が、アプリの使い方やメッセージ内容を記録・分析することはありません。</p>
+<p data-lang="en">The App does not use any developer-operated usage analysis tools. The Developer does not record or analyze how the App is used or the content of messages entered in the App.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. <span data-lang="ja">第三者による情報の取扱いについて</span><span data-lang="en">Third-Party Data Handling</span></h2>
+    <p data-lang="ja">広告配信事業者が取得する情報の取扱いについては、各事業者が定めるプライバシーポリシー等をご確認ください。</p>
+    <p data-lang="en">For information on how the advertising provider handles data, please refer to the privacy policy and related information provided by the respective provider.</p>
+
+    <p data-lang="ja">
+      Google AdMob による情報の取扱いについては、
+      <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer" style="color: var(--mint); text-decoration: underline;">Google の広告に関する説明</a>
+      もあわせてご確認ください。
+    </p>
+    <p data-lang="en">
+      For information about how Google AdMob handles data, please also refer to
+      <a href="https://policies.google.com/technologies/ads?hl=en" target="_blank" rel="noopener noreferrer" style="color: var(--mint); text-decoration: underline;">Google's explanation about advertising</a>.
+    </p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. <span data-lang="ja">情報の第三者提供について</span><span data-lang="en">Sharing with Third Parties</span></h2>
+    <p data-lang="ja">開発者は、法令に基づく場合を除き、開発者が取得する情報を第三者に提供することはありません。</p>
+    <p data-lang="en">The Developer will not provide information collected by the Developer to third parties, except as required by law.</p>
+  </div>
+
+  <div class="policy-section">
+  <h2>6. <span data-lang="ja">開発元「ちょこもふらぼ」公式サイトについて</span><span data-lang="en">About the Chocomofu Lab Official Website</span></h2>
+
+  <p data-lang="ja">本アプリのプライバシーポリシー、お問い合わせフォーム、ご質問等は、本アプリの開発元である「ちょこもふらぼ」の公式サイトに掲載されています。</p>
+  <p data-lang="en">The App’s Privacy Policy, contact form, and FAQ are posted on the official website of Chocomofu Lab, the developer of this App.</p>
+
+  <p data-lang="ja">お問い合わせフォームで入力された情報の取扱いについては、ちょこもふらぼ公式サイトのプライバシーポリシーをご確認ください。</p>
+  <p data-lang="en">For information on how information entered through the contact form is handled, please refer to the Privacy Policy of the Chocomofu Lab official website.</p>
+</div>
+
+  <div class="policy-section">
+    <h2>7. <span data-lang="ja">未成年の利用について</span><span data-lang="en">Use by Minors</span></h2>
+    <p data-lang="ja">未成年の方は、保護者の同意のもとで本アプリをご利用ください。</p>
+    <p data-lang="en">Minors should use the App with the consent of a parent or guardian.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. <span data-lang="ja">プライバシーポリシーの変更</span><span data-lang="en">Changes to This Policy</span></h2>
+    <p data-lang="ja">開発者は、法令の変更やサービス内容の見直し等に応じて、本プライバシーポリシーを変更することがあります。変更後の内容は、公式サイトに掲載された時点で効力を生じるものとします。</p>
+    <p data-lang="en">The Developer may update this Privacy Policy in response to changes in laws or service content. Any changes will take effect when posted on the official website.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. <span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></h2>
+    <p data-lang="ja">本プライバシーポリシーに関するお問い合わせは、公式サイトのお問い合わせフォームよりご連絡ください。</p>
+    <p data-lang="en">For inquiries regarding this Privacy Policy, please use the contact form on our official website.</p>
+    <a href="../contact.html" class="contact-link"><span data-lang="ja">お問い合わせフォームへ</span><span data-lang="en">Go to Contact Form</span></a>
+  </div>
+
+ <div class="policy-date">
+  <p data-lang="ja">本ページは日本語を正本とし、英語表記は参考訳として掲載しています。</p>
+  <p data-lang="en">The Japanese version of this page is the original, and the English version is provided as a reference translation.</p>
+
+  <p data-lang="ja">制定日：2026年6月5日</p>
+<p data-lang="ja">最終更新日：2026年6月5日</p>
+<p data-lang="en">Established: June 5, 2026</p>
+<p data-lang="en">Last updated: June 5, 2026</p>
+</div>
+
+</div>
+
+<footer>
+  <p class="footer-logo"> おやすみもふ羊 / Mofu Sheep</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">アプリページ</span><span data-lang="en">App Page</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="terms.html"><span data-lang="ja">利用規約</span><span data-lang="en">Terms</span></a>
+    <a href="../contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>

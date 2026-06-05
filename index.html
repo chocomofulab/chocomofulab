@@ -1,0 +1,852 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ちょこもふらぼ | iPhoneアプリの個人開発ラボ</title>
+<meta name="description" content="ちょこもふらぼは、生成AIの力を借りながらiPhoneアプリをコツコツつくる個人開発ラボです。作品紹介、プライバシーポリシー、お問い合わせをご案内しています。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://chocomofulab.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ちょこもふらぼ | Chocomofu Lab">
+<meta property="og:title" content="ちょこもふらぼ | iPhoneアプリの個人開発ラボ">
+<meta property="og:description" content="生成AIの力を借りながら、iPhoneアプリをコツコツつくる個人開発ラボです。">
+<meta property="og:url" content="https://chocomofulab.com/">
+<meta property="og:image" content="https://chocomofulab.com/images/ogp-chocomofu.png">
+<meta property="og:locale" content="ja_JP">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ちょこもふらぼ | iPhoneアプリの個人開発ラボ">
+<meta name="twitter:description" content="生成AIの力を借りながら、iPhoneアプリをコツコツつくる個人開発ラボです。">
+<meta name="twitter:image" content="https://chocomofulab.com/images/ogp-chocomofu.png">
+<meta name="theme-color" content="#dff2fb">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ちょこもふらぼ / Chocomofu Lab",
+  "url": "https://chocomofulab.com/",
+  "logo": "https://chocomofulab.com/images/choco.png",
+  "description": "生成AIの力を借りながら、iPhoneアプリをコツコツつくる個人開発ラボです。"
+}
+</script>
+
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --yellow: #ffe066;
+      --coral: #ff8a70;
+      --purple: #c9a8e8;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+  font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+  background: var(--sky-light);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4,
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+.stars {
+  position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 1.2rem;
+      animation: floatStar linear infinite;
+      opacity: 0.35;
+    }
+
+    @keyframes floatStar {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.35; }
+      90% { opacity: 0.35; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255,254,248,0.88);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid var(--sky);
+      box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--brown);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo span { color: var(--pink); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown);
+      background: var(--sky);
+    }
+
+    .lang-btn {
+      background: var(--sky);
+      border: none;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--brown);
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .lang-btn:hover { background: var(--sky-dark); }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+      background: linear-gradient(160deg, #dff2fb 0%, #c8ebf8 40%, #b8e4f5 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: var(--white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-badge {
+      background: var(--white);
+      border: 2px solid var(--pink);
+      border-radius: 30px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .hero-title-ja {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--brown);
+      animation: fadeDown 0.7s ease 0.1s both;
+      text-shadow: 3px 3px 0 rgba(255,255,255,0.6);
+    }
+
+    .hero-title-ja .ch { color: var(--coral); }
+    .hero-title-ja .ko { color: var(--pink); }
+    .hero-title-ja .mo { color: var(--mint); }
+    .hero-title-ja .fu { color: var(--purple); }
+
+    .hero-title-en {
+      font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 0.15em;
+      margin-top: 0.3rem;
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+
+    .hero-tagline {
+      margin-top: 1.5rem;
+      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+      color: var(--text-light);
+      max-width: 560px;
+      line-height: 1.8;
+      animation: fadeDown 0.7s ease 0.3s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+      animation: fadeDown 0.7s ease 0.5s both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      color: white;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      box-shadow: 0 4px 15px rgba(247,168,196,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(247,168,196,0.5);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--brown);
+      border: 2.5px solid var(--sky-dark);
+      padding: 0.85rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      background: var(--sky-light);
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .section-title-en {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 2.5rem;
+    }
+
+    #app { background: var(--white); }
+
+    .app-card {
+      background: linear-gradient(135deg, #c8ebf8, #dff2fb);
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 8px 40px rgba(135,200,230,0.2);
+    }
+
+    .app-card-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .app-card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 44px rgba(135,200,230,0.24);
+    }
+
+    .app-number {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--mint);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .app-name-ja {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      color: var(--brown);
+      line-height: 1.2;
+    }
+
+    .app-name-ja .oya { color: var(--pink); }
+    .app-name-ja .su { color: var(--coral); }
+    .app-name-ja .mi { color: var(--mint); }
+
+    .app-name-en {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-top: 0.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .app-desc {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .app-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      border: 2px solid var(--mint);
+      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--mint);
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--mint);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .app-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .app-screenshots {
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.5);
+      border-radius: 16px;
+      padding: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
+    }
+
+    .app-screenshots img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    #about { background: linear-gradient(160deg, #f0faf7, #dff2fb); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-icon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+    }
+
+    .about-text .about-sub {
+      font-size: 0.9rem;
+      color: var(--mint);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    #gallery { background: var(--white); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 280px);
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .gallery-card {
+      display: block;
+      background: linear-gradient(135deg, #f0faf7, #dff2fb);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 4px 20px rgba(135,200,230,0.15);
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(135,200,230,0.25);
+    }
+
+    .gallery-icon { font-size: 3rem; margin-bottom: 0.8rem; }
+
+    .gallery-thumb-wrap {
+      margin-bottom: 0.8rem;
+    }
+
+    .gallery-thumb {
+  display: block;
+  width: 80px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+    .gallery-card h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    #contact { background: linear-gradient(160deg, #dff2fb, #c8ebf8); }
+
+    .contact-box {
+      background: white;
+      border-radius: 28px;
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 8px 40px rgba(135,200,230,0.15);
+    }
+
+    .contact-box p {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+
+    footer .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 0.7rem 1rem; }
+      .nav-links { display: none; }
+      .app-card { grid-template-columns: 1fr; }
+      .app-visual { order: -1; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-icon-wrap { flex-direction: row; }
+      .gallery-grid {
+        grid-template-columns: minmax(0, 280px);
+        justify-content: center;
+      }
+      .contact-box { padding: 2rem 1.5rem; }
+    }
+
+    [data-lang="en"] { display: none; }
+
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    img[data-lang="ja"] { display: block; }
+    img[data-lang="en"] { display: none; }
+
+    body.en img[data-lang="ja"] { display: none; }
+    body.en img[data-lang="en"] { display: block; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <nav>
+    <a href="#" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+    <ul class="nav-links">
+      <li><a href="#app"><span data-lang="ja">アプリ</span><span data-lang="en">App</span></a></li>
+      <li><a href="#about"><span data-lang="ja">ラボについて</span><span data-lang="en">About</span></a></li>
+      <li><a href="#gallery"><span data-lang="ja">ギャラリー</span><span data-lang="en">Gallery</span></a></li>
+      <li><a href="#contact"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Toggle language">EN</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">🌙 <span data-lang="ja">個人開発ラボ</span><span data-lang="en">Independent Development Lab</span></div>
+
+    <h1 class="hero-title-ja" data-lang="ja">
+  <span class="ch">ち</span><span class="ko">ょ</span><span class="mo">こ</span><span class="fu">も</span>ふらぼ
+</h1>
+
+<h1 class="hero-title-ja" data-lang="en">
+  <span class="ch">Cho</span><span class="ko">co</span><span class="mo">mofu</span> <span class="fu">Lab</span>
+</h1>
+
+<p class="hero-title-en" data-lang="ja">chocomofu lab</p>
+<p class="hero-title-en" data-lang="en">ちょこもふらぼ</p>
+
+    <p class="hero-tagline" data-lang="ja">
+      「つくってみたい」を形に。<br>
+      生成AIの力を借りながら、<br>
+      iPhoneアプリをコツコツつくる個人開発ラボです。
+    </p>
+
+    <p class="hero-tagline" data-lang="en">
+      Turning “I want to create” into something real.<br>
+      With the help of generative AI,<br>
+      this is an independent development lab<br>
+      that creates iPhone apps step by step.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#app" class="btn-primary"><span data-lang="ja">最新アプリを見る</span><span data-lang="en">See Our App</span></a>
+      <a href="#about" class="btn-secondary"><span data-lang="ja">ラボについて</span><span data-lang="en">About the Lab</span></a>
+    </div>
+  </section>
+
+  <section id="app">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label"><span data-lang="ja">最新作品</span><span data-lang="en">LATEST WORK</span></p>
+        <h2 class="section-title"><span data-lang="ja">アプリ紹介</span><span data-lang="en">Our App</span></h2>
+        <p class="section-title-en"><span data-lang="ja">App Introduction</span><span data-lang="en">App Introduction</span></p>
+      </div>
+
+      <a href="mofu-sheep/index.html" class="app-card app-card-link reveal">
+        <div class="app-info">
+          <p class="app-number">🌟 <span data-lang="ja">1作目アプリ</span><span data-lang="en">1st App</span></p>
+          <h3 class="app-name-ja"><span class="oya">おやすみ</span><span class="mi">もふ</span><span class="su">羊</span></h3>
+          <p class="app-name-en">Mofu Sheep</p>
+
+          <div class="app-status">
+            <div class="status-dot"></div>
+            <span data-lang="ja">Apple 公開準備中</span><span data-lang="en">Coming Soon on App Store</span>
+          </div>
+
+      <p class="app-desc" data-lang="ja">
+        「おやすみもふ羊」は、<br>
+        一日の終わりに羊を眺めながら<br>
+        のんびり過ごす<br>
+        静かな時間のためのiPhoneアプリです。
+      </p>
+
+      <p class="app-desc" data-lang="en">
+        Mofu Sheep is a quiet iPhone app<br>
+        for spending a gentle moment<br>
+        at the end of the day<br>
+        while watching sheep.
+      </p>
+        </div>
+
+        <div class="app-visual">
+          <div class="app-screenshots">
+            <img
+              src="images/screenshots_ja.png"
+              data-lang="ja"
+              alt="おやすみもふ羊 スクリーンショット"
+              width="1200"
+              height="900"
+              loading="lazy">
+            <img
+              src="images/screenshots_en.png"
+              data-lang="en"
+              alt="Mofu Sheep screenshots"
+              width="1200"
+              height="900"
+              loading="lazy">
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-inner">
+      <div class="reveal">
+        <h2 class="section-title"><span data-lang="ja">ラボについて</span><span data-lang="en">About the Lab</span></h2>
+        <p class="section-title-en"><span data-lang="ja">About Chocomofu Lab</span><span data-lang="en">About Chocomofu Lab</span></p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="about-icon-wrap">
+          <img
+            src="images/choco.png"
+            alt="ちょこもふらぼキャラクター"
+            width="160"
+            height="160"
+            loading="lazy"
+            style="width:160px;height:160px;object-fit:contain;">
+        </div>
+
+        <div class="about-text">
+          <h3>ちょこもふらぼ</h3>
+          <p class="about-sub">Chocomofu Lab</p>
+
+          <p data-lang="ja">
+            プログラミング経験ゼロから、<br>
+            生成AIの力を借りながら<br>
+            iPhoneアプリ開発を始めました。
+          </p>
+
+          <p data-lang="en">
+            Starting with no programming experience,<br>
+            I began developing iPhone apps<br>
+            with the help of generative AI.
+          </p>
+
+          <p data-lang="ja">
+            自分のペースで<br>
+            つくることを楽しみながら<br>
+            続けていきたいと思っています。
+          </p>
+
+          <p data-lang="en">
+            At my own pace,<br>
+            I hope to keep creating<br>
+            while enjoying the act of making.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label"><span data-lang="ja">WORKS</span><span data-lang="en">WORKS</span></p>
+<h2 class="section-title"><span data-lang="ja">作品一覧</span><span data-lang="en">Works</span></h2>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <a href="mofu-sheep/index.html" class="gallery-card">
+          <div class="gallery-thumb-wrap">
+            <img
+              src="images/sheep-icon1.png"
+              alt="おやすみもふ羊の羊イラスト"
+              class="gallery-thumb"
+              width="800"
+              height="800"
+              loading="lazy">
+          </div>
+          <h4><span data-lang="ja">おやすみもふ羊</span><span data-lang="en">Mofu Sheep</span></h4>
+        <p data-lang="ja">眠る前に<br>のんびり過ごすアプリ<br>Apple 公開準備中</p>
+<p data-lang="en">A quiet app for before sleep<br>Coming soon on App Store</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label"><span data-lang="ja"></span><span data-lang="en"></span></p>
+        <h2 class="section-title"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></h2>
+        <p class="section-title-en"><span data-lang="ja">Get in touch</span><span data-lang="en">Get in touch</span></p>
+      </div>
+
+      <div class="contact-box reveal" style="text-align:center;">
+        <p data-lang="ja" style="margin-bottom:0.8rem;">ご意見・ご質問・不具合のご報告などがありましたら、<br>下記よりご連絡ください。</p>
+        <p data-lang="en" style="margin-bottom:0.8rem;">If you have any feedback, questions, or bug reports, please reach out below.</p>
+
+        <p data-lang="ja" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">お問い合わせフォームへ進む前に、<br>プライバシーポリシーへの同意をお願いしています。</p>
+        <p data-lang="en" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">Before sending your inquiry, you will be asked to agree to our Privacy Policy.</p>
+
+        <a href="contact.html" class="btn-primary">✉️ <span data-lang="ja">お問い合わせはこちら</span><span data-lang="en">Contact Us</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-logo"> ちょこもふらぼ / Chocomofu Lab</p>
+
+    <div style="margin-top:0.5rem;">
+      <a href="privacy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 0.8rem;font-size:0.82rem;">
+        <span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span>
+      </a>
+      <a href="contact.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 0.8rem;font-size:0.82rem;">
+        <span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span>
+      </a>
+    </div>
+
+    <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+  </footer>
+
+  <script>
+    const starsEl = document.getElementById('stars');
+    const emojis = ['✦', '✧', '⋆', '✵', '✴'];
+
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('span');
+      s.className = 'star';
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.animationDuration = (12 + Math.random() * 18) + 's';
+      s.style.animationDelay = (Math.random() * 15) + 's';
+      s.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+      starsEl.appendChild(s);
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(r => observer.observe(r));
+
+    let isEn = false;
+
+    function toggleLang() {
+      isEn = !isEn;
+      document.body.classList.toggle('en', isEn);
+      document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+      document.documentElement.lang = isEn ? 'en' : 'ja';
+    }
+  </script>
+
+</body>
+</html>
+```

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>おやすみもふ羊 | Mofu Sheep</title>
+
+  <meta name="description" content="おやすみもふ羊は、眠る前に羊を眺めながら、のんびり過ごすためのiPhone向けアプリです。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chocomofulab.com/mofu-sheep/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ちょこもふらぼ | Chocomofu Lab">
+  <meta property="og:title" content="おやすみもふ羊 | Mofu Sheep">
+  <meta property="og:description" content="眠る前に、のんびり過ごすiPhoneアプリ。">
+  <meta property="og:url" content="https://chocomofulab.com/mofu-sheep/">
+  <meta property="og:image" content="https://chocomofulab.com/mofu-sheep/images/ogp-mofu-sheep.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="おやすみもふ羊 | Mofu Sheep">
+  <meta name="twitter:description" content="眠る前に、のんびり過ごすiPhoneアプリ。">
+  <meta name="twitter:image" content="https://chocomofulab.com/mofu-sheep/images/ogp-mofu-sheep.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #d7edf8;
+      --bg-soft: #dff2fb;
+      --bg-deeper: #cfe8f5;
+      --nav: #f8f6f1;
+      --white: #fffdf8;
+      --pink: #f1a4c0;
+      --mint: #78d1be;
+      --coral: #ff8d72;
+      --brown: #7a542e;
+      --brown-soft: #8b6540;
+      --sky-btn: #b9dff1;
+      --sky-border: #a9d7ec;
+      --line: rgba(169, 215, 236, 0.9);
+      --shadow: rgba(122, 84, 46, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(248, 246, 241, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--sky-border);
+      box-shadow: 0 2px 14px rgba(122, 84, 46, 0.04);
+      z-index: 100;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--pink);
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .nav-link,
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      background: var(--sky-btn);
+      color: var(--brown);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .lang-btn { min-width: 86px; }
+
+    .nav-link:hover,
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg) 0%, #d4edf8 52%, #d0eaf6 100%);
+      padding: 7.8rem 2rem 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 68px;
+      background: var(--white);
+      clip-path: ellipse(56% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-title-ja {
+      font-size: clamp(2.8rem, 8.2vw, 5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.45rem;
+      text-shadow: 5px 5px 0 rgba(255, 255, 255, 0.58);
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .app-title-ja .oya { color: var(--pink); }
+    .app-title-ja .mi  { color: var(--mint); }
+    .app-title-ja .fu  { color: var(--coral); }
+
+    .app-title-en {
+      font-size: clamp(1rem, 2.6vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--brown);
+      margin-bottom: 1.35rem;
+      animation: fadeDown 0.7s ease 0.08s both;
+    }
+
+    .sheep-wrap {
+      position: relative;
+      display: block;
+      width: fit-content;
+      margin: 0.2rem auto 0.7rem;
+    }
+
+    .sheep-hero-img {
+      width: clamp(180px, 28vw, 320px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 26px rgba(122, 84, 46, 0.10));
+      animation: floatBob 3.2s ease-in-out infinite, fadeDown 0.8s ease 0.18s both;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: fit-content;
+      margin: 1rem auto 1.6rem;
+      background: rgba(255, 253, 248, 0.92);
+      border: 2px solid var(--mint);
+      color: var(--mint);
+      border-radius: 999px;
+      padding: 0.7rem 1.55rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+      box-shadow: 0 3px 12px rgba(120, 209, 190, 0.08);
+      animation: fadeDown 0.75s ease 0.28s both;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+      line-height: 1.95;
+      color: var(--brown-soft);
+      max-width: 620px;
+      margin: 0 auto;
+      animation: fadeDown 0.75s ease 0.38s both;
+    }
+
+    .hero-pills {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      animation: fadeDown 0.75s ease 0.5s both;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1.5px solid rgba(120, 209, 190, 0.5);
+      color: var(--brown-soft);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .section-shell {
+      padding: 4.5rem 2rem;
+      background: var(--white);
+    }
+
+    .section-shell.sky { background: var(--bg-soft); }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--pink);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 2rem;
+    }
+
+    .panel {
+      background: rgba(255, 253, 248, 0.92);
+      border: 2px solid var(--line);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 8px 26px var(--shadow);
+    }
+
+    .screenshots-set { display: none; }
+
+    body:not(.en) .screenshots-set[data-lang="ja"] { display: block; }
+    body.en .screenshots-set[data-lang="en"] { display: block; }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .screenshot-card {
+      background: linear-gradient(180deg, #233f88 0%, #2f4f9b 100%);
+      border-radius: 22px;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(35, 63, 136, 0.16);
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 68%;
+      display: block;
+    }
+
+    .desc-box p {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--brown-soft);
+      margin-bottom: 1rem;
+    }
+
+    .desc-box p:last-child { margin-bottom: 0; }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      background: linear-gradient(180deg, #eef8fd 0%, #e4f3fb 100%);
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(169, 215, 236, 0.14);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .link-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(169, 215, 236, 0.2);
+    }
+
+    .link-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .link-text {
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .link-arrow {
+      font-size: 1rem;
+      color: var(--brown-soft);
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.76);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.84rem;
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .footer-links { margin-top: 0.5rem; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    [data-lang="en"] { display: none; }
+
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes floatBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.22); }
+    }
+
+    @media (max-width: 860px) {
+      nav { padding: 0.8rem 1rem; }
+      .nav-logo { font-size: 0.94rem; }
+      .nav-link,
+      .lang-btn {
+        min-height: 48px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav { gap: 0.5rem; padding: 0.6rem 0.8rem; }
+
+      .nav-logo {
+  font-size: 0.82rem;
+  flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 70px);
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+      .nav-right { gap: 0.45rem; }
+
+      .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        min-height: 42px;
+      }
+
+      .lang-btn {
+        min-width: 58px;
+        font-size: 0.8rem;
+        min-height: 42px;
+        padding: 0.4rem;
+      }
+
+      .hero {
+        padding: 7rem 1.2rem 3.8rem;
+      }
+
+      .hero-desc br { display: none; }
+
+      .panel {
+        padding: 1.5rem 1rem;
+        border-radius: 24px;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+      }
+
+      .screenshot-card { border-radius: 14px; }
+
+      .footer-links a {
+        display: inline-block;
+        margin: 0.18rem 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <nav>
+  <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
+  <div class="nav-right">
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-title-wrap">
+
+        <!-- 日本語表示 -->
+        <h1 class="app-title-ja" data-lang="ja">
+          <span class="oya">おやすみ</span><span class="mi">もふ</span><span class="fu">羊</span>
+        </h1>
+        <p class="app-title-en" data-lang="ja">Mofu Sheep</p>
+
+        <!-- 英語表示 -->
+        <h1 class="app-title-ja" data-lang="en">
+          <span class="oya">Mofu</span> <span class="mi">Sheep</span>
+        </h1>
+        <p class="app-title-en" data-lang="en">おやすみもふ羊</p>
+
+      </div>
+      <div class="sheep-wrap">
+        <img
+          src="images/sheep-icon.png"
+          alt="おやすみもふ羊の羊イラスト"
+          class="sheep-hero-img"
+        >
+      </div>
+
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span data-lang="ja">Apple 公開準備中</span>
+        <span data-lang="en">Preparing for App Store release</span>
+      </div>
+
+      <p class="hero-desc" data-lang="ja">
+        「おやすみもふ羊」は、<br>
+        一日の終わりに羊を眺めながら<br>
+        のんびり過ごす<br>
+        静かな時間のためのiPhoneアプリです。
+      </p>
+
+      <p class="hero-desc" data-lang="en">
+        Mofu Sheep is a quiet iPhone app<br>
+        for spending a gentle moment<br>
+        at the end of the day<br>
+        while watching sheep.
+      </p>
+
+      <div class="hero-pills" data-lang="ja">
+        <span class="hero-pill">iPhone専用</span>
+        <span class="hero-pill">無料アプリ</span>
+        <span class="hero-pill">音なし</span>
+      </div>
+
+      <div class="hero-pills" data-lang="en">
+        <span class="hero-pill">iPhone Only</span>
+        <span class="hero-pill">Free App</span>
+        <span class="hero-pill">No Sound</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner reveal">
+      <p class="section-label">
+        <span data-lang="ja">スクリーンショット</span>
+        <span data-lang="en">SCREENSHOTS</span>
+      </p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">アプリ画面</span>
+        <span data-lang="en">App Preview</span>
+      </h2>
+
+      <div class="panel">
+        <div class="screenshots-set" data-lang="ja">
+          <div class="screenshots-grid">
+            <div class="screenshot-card">
+              <img src="images/screenshot-ja-1.png" alt="おやすみもふ羊のスクリーンショット1">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/screenshot-ja-2.png" alt="おやすみもふ羊のスクリーンショット2">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/screenshot-ja-3.png" alt="おやすみもふ羊のスクリーンショット3">
+            </div>
+          </div>
+        </div>
+
+        <div class="screenshots-set" data-lang="en">
+          <div class="screenshots-grid">
+            <div class="screenshot-card">
+              <img src="images/screenshot-en-1.png" alt="Mofu Sheep screenshot 1">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/screenshot-en-2.png" alt="Mofu Sheep screenshot 2">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/screenshot-en-3.png" alt="Mofu Sheep screenshot 3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell sky">
+    <div class="section-inner reveal">
+      <p class="section-label">
+        <span data-lang="ja">アプリについて</span>
+        <span data-lang="en">ABOUT</span>
+      </p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">どんなアプリ？</span>
+        <span data-lang="en">About the App</span>
+      </h2>
+
+      <div class="panel desc-box">
+        <p data-lang="ja">
+          羊が1匹、また1匹とゆっくり歩いていく。<br>
+          ただそれだけの、のんびりとした時間が流れるアプリです。
+        </p>
+
+        <p data-lang="en">
+          Sheep walk by, one at a time, at a gentle pace.<br>
+          An app where quiet, unhurried moments simply pass by.
+        </p>
+
+        <p data-lang="ja">
+          カウント羊・カウントなし羊・メッセージ羊の3つのモードから、お好みでお選びいただけます。
+        </p>
+
+        <p data-lang="en">
+          Choose from three modes: Count Mode, Relax Mode, and Message Mode.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner reveal">
+      <p class="section-label">GUIDE</p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">ご案内</span>
+        <span data-lang="en">Guidance</span>
+      </h2>
+
+      <div class="panel">
+        <div class="link-list">
+          <a href="howto.html" class="link-item">
+            <span class="link-icon">📖</span>
+            <span class="link-text">
+              <span data-lang="ja">使い方</span>
+              <span data-lang="en">How to Use</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+
+          <a href="faq.html" class="link-item">
+            <span class="link-icon">❓</span>
+            <span class="link-text">
+              <span data-lang="ja">ご質問（Q&amp;A）</span>
+              <span data-lang="en">FAQ</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+
+          <a href="privacy.html" class="link-item">
+            <span class="link-icon">🔒</span>
+            <span class="link-text">
+              <span data-lang="ja">プライバシーポリシー</span>
+              <span data-lang="en">Privacy Policy</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+
+          <a href="terms.html" class="link-item">
+            <span class="link-icon">📋</span>
+            <span class="link-text">
+              <span data-lang="ja">利用規約</span>
+              <span data-lang="en">Terms of Use</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+
+          <a href="../contact.html" class="link-item">
+            <span class="link-icon">✉️</span>
+            <span class="link-text">
+              <span data-lang="ja">お問い合わせ</span>
+              <span data-lang="en">Contact</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+
+          <a href="../index.html" class="link-item">
+            <span class="link-icon">🏡</span>
+            <span class="link-text">
+              <span data-lang="ja">ちょこもふらぼ トップ</span>
+              <span data-lang="en">Chocomofu Lab Home</span>
+            </span>
+            <span class="link-arrow">›</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-logo">おやすみもふ羊 / Mofu Sheep</p>
+    <div class="footer-links">
+      <a href="../index.html">
+        <span data-lang="ja">ちょこもふらぼ</span>
+        <span data-lang="en">Chocomofu Lab</span>
+      </a>
+      <a href="privacy.html">
+        <span data-lang="ja">プライバシーポリシー</span>
+        <span data-lang="en">Privacy Policy</span>
+      </a>
+      <a href="terms.html">
+        <span data-lang="ja">利用規約</span>
+        <span data-lang="en">Terms</span>
+      </a>
+      <a href="../contact.html">
+        <span data-lang="ja">お問い合わせ</span>
+        <span data-lang="en">Contact</span>
+      </a>
+    </div>
+    <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((item) => observer.observe(item));
+
+    let isEn = false;
+
+    function toggleLang() {
+      isEn = !isEn;
+      document.body.classList.toggle('en', isEn);
+      document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+    }
+  </script>
+
+</body>
+</html>

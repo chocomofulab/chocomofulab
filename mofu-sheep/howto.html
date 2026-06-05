@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使い方 | おやすみもふ羊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--sky-light);
+      color: var(--text);
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255,254,248,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid var(--sky);
+      box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+    }
+    .nav-logo { font-size: 1.2rem; font-weight: 900; color: var(--brown); text-decoration: none; }
+    .nav-logo span { color: var(--pink); }
+    .nav-right { display: flex; gap: 0.8rem; align-items: center; }
+    .nav-back {
+      text-decoration: none; color: var(--text-light); font-weight: 700;
+      font-size: 0.9rem; background: var(--sky); padding: 0.3rem 0.9rem;
+      border-radius: 20px; transition: background 0.2s;
+    }
+    .nav-back:hover { background: var(--sky-dark); }
+    .lang-btn {
+      background: var(--sky); border: none; padding: 0.3rem 0.9rem;
+      border-radius: 20px; font-weight: 800; font-size: 0.85rem;
+      cursor: pointer; color: var(--brown); font-family: inherit; transition: background 0.2s;
+    }
+    .lang-btn:hover { background: var(--sky-dark); }
+
+    .page-hero {
+      background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+    }
+    .page-hero .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--brown); }
+    .page-hero .sub { font-size: 0.9rem; color: var(--text-light); font-weight: 700; letter-spacing: 0.1em; margin-top: 0.3rem; }
+    .page-hero .app-name {
+      display: inline-block; margin-top: 0.8rem; background: white;
+      border: 2px solid var(--pink); border-radius: 20px; padding: 0.3rem 1rem;
+      font-size: 0.88rem; font-weight: 800; color: var(--pink);
+    }
+
+    .content { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .howto-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid rgba(184,228,245,0.5);
+      box-shadow: 0 4px 16px rgba(135,200,230,0.1);
+    }
+    .howto-section h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--sky);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .howto-section p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+    .howto-section p:last-child { margin-bottom: 0; }
+
+    .step-box {
+      background: linear-gradient(135deg, #dff2fb, #c8ebf8);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .step-box .step-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .step-box p {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 0;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .mode-card {
+      background: linear-gradient(160deg, #f0faf7, #dff2fb);
+      border-radius: 16px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 2px 12px rgba(135,200,230,0.12);
+    }
+    .mode-card .mode-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .mode-card h3 {
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .mode-card p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .notice-box {
+      background: #fff8f0;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border: 2px solid #ffd8b0;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: #a07040;
+      margin-top: 0.8rem;
+    }
+    .notice-box ul { padding-left: 1.3rem; }
+    .notice-box ul li { margin-bottom: 0.3rem; }
+
+    .safe-box {
+      background: #f0faf7;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border: 2px solid var(--mint);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+    }
+    .safe-box ul { padding-left: 1.3rem; }
+    .safe-box ul li { margin-bottom: 0.3rem; }
+
+    .contact-link {
+      display: inline-block; margin-top: 0.5rem;
+      color: var(--mint); font-weight: 800; text-decoration: none;
+      border-bottom: 2px solid var(--mint); transition: opacity 0.2s;
+    }
+    .contact-link:hover { opacity: 0.7; }
+
+    footer {
+      background: var(--brown); color: rgba(255,255,255,0.75);
+      text-align: center; padding: 2rem; font-size: 0.85rem; line-height: 2;
+    }
+    .footer-logo { font-size: 1.2rem; font-weight: 900; color: white; }
+    .footer-links { margin-top: 0.5rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      margin: 0 0.8rem; font-size: 0.82rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0.8rem 1rem; }
+      .content { padding: 2rem 1rem 4rem; }
+      .mode-grid { grid-template-columns: 1fr; }
+      .howto-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo"> <span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">アプリページへ</span><span data-lang="en">App Page</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="icon">📖</div>
+  <h1><span data-lang="ja">使い方</span><span data-lang="en">How to Use</span></h1>
+  <span class="app-name"><span data-lang="ja">おやすみもふ羊 / Mofu Sheep</span><span data-lang="en">Mofu Sheep / おやすみもふ羊</span></span>
+</div>
+
+<div class="content">
+
+  <div class="howto-section">
+    <h2>🗒️ <span data-lang="ja">基本の使い方</span><span data-lang="en">Basic Usage</span></h2>
+    <div class="step-box">
+      <div class="step-icon">👆</div>
+      <p data-lang="ja">オープニング画面の「スタート」をタップ</p>
+      <p data-lang="en">Tap "Start" on the opening screen</p>
+    </div>
+    <p data-lang="ja">3つの羊モードからお好きなモードを選び、ゆっくり歩く羊を眺めながらリラックスしてお過ごしください。</p>
+    <p data-lang="en">Choose from three sheep modes and relax while watching the sheep walk gently across the screen.</p>
+
+    <div class="mode-grid">
+      <div class="mode-card">
+        <div class="mode-icon">🔢</div>
+        <h3><span data-lang="ja">カウント羊</span><span data-lang="en">Count Sheep</span></h3>
+        <p data-lang="ja">羊を数えながら静かな時間を過ごすモードです。</p>
+        <p data-lang="en">Count sheep as they pass for a quiet, peaceful time.</p>
+      </div>
+      <div class="mode-card">
+        <div class="mode-icon">🌿</div>
+        <h3><span data-lang="ja">カウントなし羊</span><span data-lang="en">Relax Sheep</span></h3>
+       <p data-lang="ja">ゆっくり歩く羊を眺めてのんびり過ごすモードです。</p>
+<p data-lang="en">A mode for spending a quiet, gentle moment while watching the sheep walk slowly.</p>
+      </div>
+      <div class="mode-card">
+        <div class="mode-icon">💬</div>
+        <h3><span data-lang="ja">メッセージ羊</span><span data-lang="en">Message Sheep</span></h3>
+        <p data-lang="ja">やさしいメッセージとともに心を休めるモードです。</p>
+        <p data-lang="en">Rest your mind with gentle messages alongside the sheep.</p>
+      </div>
+    </div>
+
+    <div class="safe-box" style="margin-top:1.2rem;">
+      <p style="font-weight:800;color:var(--brown);margin-bottom:0.4rem;" data-lang="ja">✨ ご利用のポイント</p>
+      <p style="font-weight:800;color:var(--brown);margin-bottom:0.4rem;" data-lang="en">✨ Tips</p>
+      <ul>
+        <li><span data-lang="ja">体験時間の目安は約10〜20分程度です。</span><span data-lang="en">Recommended session length is about 10–20 minutes.</span></li>
+        <li><span data-lang="ja">本アプリは音が出ませんので、静かな時間にも安心してご利用いただけます。</span><span data-lang="en">The app has no sound, so it can be used quietly at any time.</span></li>
+        <li><span data-lang="ja">操作に正解やルールはありません。ご自身のペースで自由にお楽しみください。</span><span data-lang="en">There are no rules or right answers — enjoy it at your own pace.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="howto-section">
+    <h2>⚠️ <span data-lang="ja">安全にご利用いただくために</span><span data-lang="en">Safety Guidelines</span></h2>
+
+    <div class="notice-box">
+      <ul>
+        <li>
+          <span data-lang="ja">周囲の明るさや、ご自身の体調に配慮してください。</span>
+          <span data-lang="en">Please be mindful of your surroundings, brightness, and physical condition.</span>
+        </li>
+        <li>
+          <span data-lang="ja">歩行中や、周囲への注意が必要な状況では使用しないでください。</span>
+          <span data-lang="en">Please do not use the App while walking or in situations that require attention to your surroundings.</span>
+        </li>
+        <li>
+          <span data-lang="ja">目の疲れを感じた場合は、無理に操作を続けず、ご利用を中断してください。</span>
+          <span data-lang="en">If you experience eye strain, please stop using the App rather than continuing to operate it.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p style="margin-top:1rem;" data-lang="ja">
+      本アプリは、睡眠や体調の改善を目的としたものではありません。<br>
+      眠る前の時間を静かに過ごしたり、考えごとから少し離れるきっかけとしてご利用ください。
+    </p>
+    <p style="margin-top:1rem;" data-lang="en">
+      This App is not intended to improve sleep or health conditions.<br>
+      Please use it as a quiet moment before sleep or as a gentle chance to step away from your thoughts.
+    </p>
+  </div>
+
+  <div class="howto-section">
+    <h2>💬 <span data-lang="ja">メッセージについて</span><span data-lang="en">About Messages</span></h2>
+    <p data-lang="ja">アプリ内で表示されるメッセージは、ひとつの考え方の例として提供されるものです。すべての方に当てはまることを意図したものではありません。</p>
+    <p data-lang="en">Messages displayed in the app are provided as examples of one way of thinking and are not intended to apply to everyone.</p>
+    <p data-lang="ja">合わないと感じた場合は、メッセージが表示されないモード（カウントなし羊）をご利用ください。</p>
+    <p data-lang="en">If the messages don't feel right for you, please use the mode without messages (Relax Sheep).</p>
+    <div class="safe-box">
+      <p style="font-weight:800;color:var(--brown);margin-bottom:0.4rem;">📝 <span data-lang="ja">わたしのことば</span><span data-lang="en">My Words</span></p>
+      <p data-lang="ja">「わたしのことば」では、メッセージを自由に編集できます。</p>
+      <p data-lang="en">In "My Words," you can freely edit the messages.</p>
+    </div>
+  </div>
+
+  <div class="howto-section">
+    <h2>🔒 <span data-lang="ja">データの保存について</span><span data-lang="en">About Data Storage</span></h2>
+    <div class="safe-box">
+      <ul>
+        <li><span data-lang="ja">「わたしのことば」に入力された内容は、ご利用者のデバイス内にのみ保存されます。</span><span data-lang="en">"My Words" content is stored only on your device.</span></li>
+        <li><span data-lang="ja">インターネットを通じて送信されたり、外部サーバーへ保存されることはありません。</span><span data-lang="en">It is never sent over the internet or saved to external servers.</span></li>
+        <li><span data-lang="ja">本アプリでは、利用状況の解析や行動履歴の追跡（トラッキング）は行っていません。</span><span data-lang="en">The app does not perform usage analysis or behavioral tracking.</span></li>
+      </ul>
+    </div>
+    <p style="margin-top:1rem;" data-lang="ja">広告表示に関しては、利用者が選択したトラッキング設定に基づき、広告配信事業者が情報を利用することがあります。</p>
+    <p style="margin-top:1rem;" data-lang="en">For advertising, the advertising provider may use information based on the tracking settings you have selected.</p>
+  </div>
+
+  <div class="howto-section">
+    <h2>👨‍👩‍👧 <span data-lang="ja">年齢について</span><span data-lang="en">Age</span></h2>
+    <p data-lang="ja">未成年の方は、保護者の同意のもとでご利用ください。</p>
+    <p data-lang="en">Minors should use the app with the consent of a parent or guardian.</p>
+  </div>
+
+  <div class="howto-section">
+    <h2>📢 <span data-lang="ja">広告について</span><span data-lang="en">About Ads</span></h2>
+    <p data-lang="ja">本アプリは無料でご利用いただけます。運営を支えるため、メニュー画面下部にのみ広告を表示しています。</p>
+    <p data-lang="en">The app is free to use. To support its operation, ads are displayed only at the bottom of the menu screen.</p>
+    <div class="safe-box">
+      <p data-lang="ja">✅ リラックス体験中の画面では、広告は表示されません。</p>
+      <p data-lang="en">✅ No ads are displayed during the relaxation experience.</p>
+    </div>
+  </div>
+
+  <div class="howto-section">
+    <h2>✉️ <span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></h2>
+    <p data-lang="ja">ご意見・ご感想・不具合のご報告は、ご質問（Q&A）をご確認のうえ、お問い合わせフォームよりご連絡ください。</p>
+    <p data-lang="en">For feedback, questions, or bug reports, please check the FAQ first, then contact us via the contact form.</p>
+    <a href="faq.html" class="contact-link" style="margin-right:1rem;"> <span data-lang="ja">ご質問（Q&A）</span><span data-lang="en">FAQ</span></a>
+    <a href="../contact.html" class="contact-link"> <span data-lang="ja">お問い合わせフォームへ</span><span data-lang="en">Contact Form</span></a>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">🐑 おやすみもふ羊 / Mofu Sheep</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">アプリページ</span><span data-lang="en">App Page</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="terms.html"><span data-lang="ja">利用規約</span><span data-lang="en">Terms</span></a>
+    <a href="faq.html"><span data-lang="ja">ご質問</span><span data-lang="en">FAQ</span></a>
+    <a href="../contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>

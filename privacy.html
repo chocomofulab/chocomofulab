@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | ちょこもふらぼ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--sky-light);
+      color: var(--text);
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,254,248,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid var(--sky);
+      box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--brown);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--pink); }
+
+    .nav-back {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--sky);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    .nav-back:hover { background: var(--sky-dark); }
+
+    .lang-btn {
+      background: var(--sky);
+      border: none;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--brown);
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover { background: var(--sky-dark); }
+
+    .page-hero {
+      background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .page-hero .sheep {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-hero .policy-owner {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      background: white;
+      border: 2px solid var(--pink);
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--pink);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--brown);
+    }
+
+    .page-hero .policy-scope {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border: 2px solid var(--sky);
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .policy-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid rgba(184,228,245,0.5);
+      box-shadow: 0 4px 16px rgba(135,200,230,0.1);
+    }
+
+    .policy-section h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--sky);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .policy-section h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-light);
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .policy-section p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-section ul {
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-section ul li {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--mint);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 2px solid var(--mint);
+      transition: opacity 0.2s;
+    }
+    .contact-link:hover { opacity: 0.7; }
+
+    .date-box {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 0 1rem;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+    }
+    .date-box p { margin-bottom: 0.2rem; }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .footer-links { margin-top: 0.5rem; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    @media (max-width: 600px) {
+      .content { padding: 2rem 1rem 4rem; }
+      .policy-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div style="display:flex;gap:0.8rem;align-items:center;">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">トップへ</span><span data-lang="en">Home</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="sheep">🔒</div>
+
+  <p class="policy-owner">
+    <span data-lang="ja">ちょこもふらぼ</span>
+    <span data-lang="en">Chocomofu Lab</span>
+  </p>
+
+  <h1>
+    <span data-lang="ja">プライバシーポリシー</span>
+    <span data-lang="en">Privacy Policy</span>
+  </h1>
+
+  <p class="policy-scope">
+    <span data-lang="ja">公式サイトおよび配信アプリにおける個人情報の取扱いについて</span>
+    <span data-lang="en">Privacy Policy for the official website and distributed apps</span>
+  </p>
+</div>
+
+<div class="content">
+
+  <div class="intro-box">
+    <p data-lang="ja">ちょこもふらぼ（以下「当方」といいます。）は、当方が運営する公式サイトおよび配信するアプリにおいて、利用者のプライバシーを尊重し、個人情報を適切に取り扱うことを大切にしています。<br>本プライバシーポリシーでは、当方の公式サイトおよび配信アプリにおける個人情報の取扱いについて説明します。</p>
+    <p data-lang="en">Chocomofu Lab ("we," "our," or "us") values the privacy of our users and is committed to handling personal information appropriately on our official website and apps. This Privacy Policy explains how we handle information on our official website and apps.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>1. <span data-lang="ja">対象となるサービス</span><span data-lang="en">Applicable Services</span></h2>
+    <p data-lang="ja">本プライバシーポリシーは、以下のサービスに適用されます。</p>
+    <p data-lang="en">This Privacy Policy applies to the following services:</p>
+    <ul>
+      <li><span data-lang="ja">ちょこもふらぼ 公式サイト</span><span data-lang="en">Chocomofu Lab Official Website</span></li>
+      <li><span data-lang="ja">当方が配信するiOS/iPhone用アプリ（「おやすみもふ羊」等）</span><span data-lang="en">iOS/iPhone apps distributed by us, such as "Mofu Sheep"</span></li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. <span data-lang="ja">情報の取得と利用目的</span><span data-lang="en">Collection and Purpose of Information</span></h2>
+
+    <h3><span data-lang="ja">（1）取得する可能性のある情報</span><span data-lang="en">(1) Information We May Collect</span></h3>
+    <p data-lang="ja">当方は、以下の情報を取得する場合があります。</p>
+    <p data-lang="en">We may collect the following information:</p>
+    <ul>
+      <li><span data-lang="ja">お問い合わせフォームを通じて、利用者が自ら提供した情報（メールアドレス、お問い合わせ内容など）</span><span data-lang="en">Information voluntarily provided by users via the contact form, such as email address and inquiry content</span></li>
+      <li>
+  <span data-lang="ja">サイトの表示・運営や不具合対応のため、サーバー提供事業者により自動的に記録されるアクセス情報（IPアドレス、ブラウザ情報等）</span>
+  <span data-lang="en">Access information, such as IP address and browser information, that may be automatically recorded by the server provider for website display, operation, and troubleshooting</span>
+</li>
+      <li><span data-lang="ja">広告表示や広告内容の調整のため、広告配信事業者が取得する場合のある情報（広告識別子、端末情報、広告に関する情報など）</span><span data-lang="en">Information that ad providers may collect for ad display and ad content adjustment, such as advertising identifiers, device information, and information related to ads</span></li>
+    </ul>
+
+    <h3><span data-lang="ja">（2）利用目的</span><span data-lang="en">(2) Purpose of Use</span></h3>
+    <p data-lang="ja">取得した情報は、以下の目的の範囲内で利用します。</p>
+    <p data-lang="en">Collected information will be used for the following purposes:</p>
+    <ul>
+      <li><span data-lang="ja">お問い合わせやサポートへの対応</span><span data-lang="en">Responding to inquiries and providing user support</span></li>
+      <li><span data-lang="ja">公式サイトおよびアプリの不具合対応や運営維持</span><span data-lang="en">Website and app operation, maintenance, and troubleshooting</span></li>
+      <li><span data-lang="ja">広告の表示や内容の調整</span><span data-lang="en">Displaying ads and adjusting ad content</span></li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. <span data-lang="ja">広告配信と外部サービスの利用</span><span data-lang="en">Ad Serving and Third-Party Services</span></h2>
+
+    <p data-lang="ja">当方が配信するアプリでは、運営を支えるため、第三者配信の広告サービス「Google AdMob」を利用する場合があります。広告の表示や内容の調整のため、広告配信事業者が、広告識別子（IDFA等）、端末情報、広告に関する情報などを取得する場合があります。</p>
+    <p data-lang="en">Apps distributed by us may use Google AdMob, a third-party advertising service provided by Google LLC, to support app operation. For ad display and ad content adjustment, ad providers may collect information such as advertising identifiers (such as IDFA), device information, and information related to ads.</p>
+
+    <p data-lang="ja">アプリ内で利用者が入力したメッセージ内容や、アプリ内での過ごし方を、当方が取得・閲覧することはありません。トラッキングの許可は任意であり、許可しない場合でもアプリの基本的な機能に影響はありません。</p>
+    <p data-lang="en">We do not collect or view messages entered by users or how users spend time within the app. Tracking permission is optional, and choosing not to allow tracking does not affect the basic features of the app.</p>
+
+    <p data-lang="ja">外部サービスにおける情報の取扱いについては、各サービス提供者が定めるプライバシーポリシー等をご確認ください。</p>
+    <p data-lang="en">For information on how third-party services handle data, please refer to the privacy policies and related information provided by each service provider.</p>
+
+    <div style="margin-top: 1rem;">
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="contact-link" style="margin-right: 1.2rem;">
+        <span data-lang="ja">Google プライバシーポリシー ↗</span>
+        <span data-lang="en">Google Privacy Policy ↗</span>
+      </a>
+      <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <span data-lang="ja">Google の広告に関する説明 ↗</span>
+        <span data-lang="en">Google's explanation about advertising ↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. <span data-lang="ja">個人情報の第三者提供</span><span data-lang="en">Sharing with Third Parties</span></h2>
+    <p data-lang="ja">当方は、法令に基づく場合や、利用者の同意がある場合を除き、取得した個人情報を第三者に提供することはありません。</p>
+    <p data-lang="en">We will not share collected personal information with third parties except with the user's consent or as required by law.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. <span data-lang="ja">データの安全管理</span><span data-lang="en">Data Security</span></h2>
+    <p data-lang="ja">当方は、取得した情報について漏えい、滅失、または不正アクセスの防止など、適切な安全管理措置を講じるよう努めます。</p>
+    <p data-lang="en">We strive to implement appropriate security measures to prevent data leaks, loss, or unauthorized access.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. <span data-lang="ja">本ポリシーの変更</span><span data-lang="en">Changes to This Policy</span></h2>
+    <p data-lang="ja">本プライバシーポリシーの内容は、必要に応じて見直し、変更する場合があります。変更後のポリシーは、公式サイトに掲載された時点、またはアプリ内から閲覧可能となった時点から効力を生じるものとします。</p>
+    <p data-lang="en">This Privacy Policy may be updated as necessary. Any changes will take effect when posted on the official website or made accessible within the apps.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. <span data-lang="ja">お問い合わせ先</span><span data-lang="en">Contact Us</span></h2>
+    <p data-lang="ja">本プライバシーポリシーおよび情報の取扱いに関するお問い合わせは、以下のリンクよりお願いいたします。</p>
+    <p data-lang="en">For inquiries regarding this Privacy Policy and data handling, please contact us via the link below.</p>
+    <a href="contact.html" class="contact-link"><span data-lang="ja">お問い合わせフォームへ</span><span data-lang="en">Go to Contact Form</span></a>
+  </div>
+
+  <div class="date-box">
+  <p data-lang="ja">本ページは日本語を正本とし、英語表記は参考訳として掲載しています。</p>
+  <p data-lang="en">The Japanese version of this page is the original, and the English version is provided as a reference translation.</p>
+
+ <p data-lang="ja">制定日：2026年6月5日</p>
+<p data-lang="ja">最終更新日：2026年6月5日</p>
+<p data-lang="en">Established: June 5, 2026</p>
+<p data-lang="en">Last updated: June 5, 2026</p>
+</div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">ちょこもふらぼ / Chocomofu Lab</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">トップ</span><span data-lang="en">Home</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>

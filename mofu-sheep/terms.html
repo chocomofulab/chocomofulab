@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 | おやすみもふ羊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--sky-light);
+      color: var(--text);
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255,254,248,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid var(--sky);
+      box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+    }
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--brown);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--pink); }
+    .nav-right { display: flex; gap: 0.8rem; align-items: center; }
+    .nav-back {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--sky);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    .nav-back:hover { background: var(--sky-dark); }
+    .lang-btn {
+      background: var(--sky);
+      border: none;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--brown);
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover { background: var(--sky-dark); }
+
+    .page-hero {
+      background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+    }
+    .page-hero .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--brown);
+    }
+    .page-hero .sub {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+    }
+    .page-hero .app-name {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: white;
+      border: 2px solid var(--pink);
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--pink);
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .intro-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border: 2px solid var(--sky);
+      font-size: 0.97rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .policy-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      border: 2px solid rgba(184,228,245,0.5);
+      box-shadow: 0 4px 16px rgba(135,200,230,0.1);
+    }
+    .policy-section h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--sky);
+    }
+    .policy-section p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ol {
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .policy-section ol li {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+    .policy-section ol li:last-child { margin-bottom: 0; }
+
+    .notice-box {
+      background: #f0faf7;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border: 2px solid var(--mint);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--mint);
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 2px solid var(--mint);
+      transition: opacity 0.2s;
+    }
+    .contact-link:hover { opacity: 0.7; }
+
+    .date-box {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      padding: 0 1rem;
+      margin-top: 1.5rem;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+    .footer-logo { font-size: 1.2rem; font-weight: 900; color: white; }
+    .footer-links { margin-top: 0.5rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0.8rem 1rem; }
+      .content { padding: 2rem 1rem 4rem; }
+      .policy-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">アプリページへ</span><span data-lang="en">App Page</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="icon">📋</div>
+  <h1><span data-lang="ja">利用規約</span><span data-lang="en">Terms of Use</span></h1>
+  <span class="app-name"><span data-lang="ja">おやすみもふ羊 / Mofu Sheep</span><span data-lang="en">Mofu Sheep / おやすみもふ羊</span></span>
+</div>
+
+<div class="content">
+
+  <div class="intro-box">
+    <p data-lang="ja">本利用規約（以下「本規約」といいます。）は、ちょこもふらぼ（個人開発者、以下「開発者」といいます。）が提供するアプリ「おやすみもふ羊」（以下「本アプリ」といいます。）の利用条件を定めるものです。本アプリをご利用いただく前に、本規約をよくお読みください。</p>
+    <p data-lang="en">These Terms of Use (hereinafter "Terms") set forth the conditions for use of the app "Mofu Sheep" (hereinafter "the App") provided by Chocomofu Lab (individual developer, hereinafter "Developer"). Please read these Terms carefully before using the App.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第1条（適用）</span><span data-lang="en">Article 1 (Applicability)</span></h2>
+    <p data-lang="ja">本規約は、本アプリの利用に関する一切の関係に適用されます。</p>
+    <p data-lang="en">These Terms apply to all relationships related to the use of the App.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第2条（本アプリの内容）</span><span data-lang="en">Article 2 (About the App)</span></h2>
+    <p data-lang="ja">本アプリは、眠る前の時間を静かに過ごしたり、リラックスのきっかけとして利用することを目的としたアプリです。<br>本アプリは、睡眠の改善や治療、診断などを目的としたものではありません。</p>
+    <p data-lang="en">The App is intended to help users spend quiet time before sleep and serve as a gentle opportunity for relaxation. The App is not intended to improve sleep or provide treatment, diagnosis, or similar medical purposes.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第3条（利用上の注意）</span><span data-lang="en">Article 3 (Usage Precautions)</span></h2>
+    <ol>
+      <li>
+        <span data-lang="ja">周囲の明るさや、ご自身の体調に配慮してください。</span>
+        <span data-lang="en">Please be mindful of your surroundings, brightness, and physical condition.</span>
+      </li>
+      <li>
+        <span data-lang="ja">歩行中や、周囲への注意が必要な状況では使用しないでください。</span>
+        <span data-lang="en">Please do not use the App while walking or in situations that require attention to your surroundings.</span>
+      </li>
+      <li>
+        <span data-lang="ja">目の疲れを感じた場合は、無理に操作を続けず、アプリの利用を中断してください。</span>
+        <span data-lang="en">If you experience eye strain, please stop using the App rather than continuing to operate it.</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第4条（メッセージ機能について）</span><span data-lang="en">Article 4 (Message Feature)</span></h2>
+    <ol>
+      <li>
+        <span data-lang="ja">本アプリ内で表示されるメッセージは、ひとつの考え方の例として提供されるものであり、すべての利用者に当てはまることを意図したものではありません。<br>合わないと感じた場合は、メッセージが表示されないモードをご利用ください。</span>
+        <span data-lang="en">Messages displayed in the App are provided as examples of one way of thinking and are not intended to apply to all users. If the messages do not feel right for you, please use a mode where messages are not displayed.</span>
+      </li>
+      <li>
+        <span data-lang="ja">メッセージの内容のうち、「わたしのことば」については、利用者自身が自由に編集することができます。</span>
+        <span data-lang="en">Users may freely edit the "My Words" messages within the App.</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第5条（データの保存）</span><span data-lang="en">Article 5 (Data Storage)</span></h2>
+    <ol>
+      <li>
+        <span data-lang="ja">「わたしのことば」に入力された内容は、利用者の端末内にのみ保存されます。</span>
+        <span data-lang="en">Content entered into "My Words" is stored only on the user's device.</span>
+      </li>
+      <li>
+        <span data-lang="ja">開発者が、これらのデータを取得、閲覧、または外部に送信することはありません。</span>
+        <span data-lang="en">The Developer does not collect, view, or transmit this data externally.</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第6条（広告について）</span><span data-lang="en">Article 6 (Advertising)</span></h2>
+    <ol>
+      <li><span data-lang="ja">本アプリでは、メニュー画面下部にバナー広告が表示されます。</span><span data-lang="en">The App displays banner ads only at the bottom of the menu screen.</span></li>
+      <li><span data-lang="ja">広告の内容および表示方法は、広告配信事業者の責任に基づくものであり、開発者がその正確性・安全性を保証するものではありません。</span><span data-lang="en">The content and display method of ads are the responsibility of the advertising provider, and the Developer does not guarantee their accuracy or safety.</span></li>
+      <li><span data-lang="ja">広告の内容や表示方法は、予告なく変更されることがあります。</span><span data-lang="en">The content and display of ads may change without notice.</span></li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第7条（禁止事項）</span><span data-lang="en">Article 7 (Prohibited Actions)</span></h2>
+    <p data-lang="ja">利用者は、本アプリの利用にあたり、以下の行為を行ってはなりません。</p>
+    <p data-lang="en">Users must not engage in the following actions when using the App:</p>
+    <ol>
+      <li><span data-lang="ja">法令または公序良俗に反する行為</span><span data-lang="en">Actions that violate laws or public order and morals</span></li>
+      <li><span data-lang="ja">本アプリの改変、解析、リバースエンジニアリング、逆コンパイル、または逆アセンブル行為</span><span data-lang="en">Modifying, analyzing, reverse engineering, decompiling, or disassembling the App</span></li>
+      <li><span data-lang="ja">他の利用者または第三者の権利（知的財産権、プライバシー権、名誉権等を含みます）を侵害する行為</span><span data-lang="en">Actions that infringe on the rights (including intellectual property rights, privacy rights, and honor rights) of other users or third parties</span></li>
+      <li><span data-lang="ja">本アプリの運営を妨害する行為</span><span data-lang="en">Actions that interfere with the operation of the App</span></li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第8条（知的財産権・AI生成物について）</span><span data-lang="en">Article 8 (Intellectual Property and AI Content)</span></h2>
+    <ol>
+      <li>
+        <span data-lang="ja">本アプリ内に掲載されるイラスト、画像、文章、デザイン、プログラムその他のコンテンツに関する権利は、開発者に帰属します。</span>
+        <span data-lang="en">The rights to illustrations, images, text, designs, programs, and other content in the App belong to the Developer.</span>
+      </li>
+  <li>
+  <span data-lang="ja">本アプリ内の一部コンテンツ（イラスト、画像、文章、デザイン、プログラム等）には、開発者が制作・加工したもののほか、生成AI等のツールを商用利用が認められた範囲で使用し、制作・調整したものが含まれています。開発者は第三者の権利を尊重し、できる限り注意して制作していますが、権利侵害等のご指摘がある場合は、お問い合わせフォームよりご連絡ください。内容を確認のうえ、必要に応じて修正・削除等の対応を行います。</span>
+  <span data-lang="en">Some content in the App, including illustrations, images, text, designs, and programs, includes materials created or edited by the Developer, as well as content created or adjusted using generative AI or similar tools within the scope where commercial use is permitted. The Developer respects the rights of third parties and creates the App with care. If you believe there may be a rights-related issue, please contact us through the contact form. We will review the details and, if necessary, take appropriate action such as correction or removal.</span>
+</li>
+      <li>
+        <span data-lang="ja">本アプリのスクリーンショットや画像を、SNS・ブログ等で掲載・紹介いただくことは問題ありません。<br>ただし、本アプリ内のコンテンツそのものを無断で再配布・販売・改変して利用することはご遠慮ください。</span>
+        <span data-lang="en">You may post or introduce screenshots or images of the App on social media, blogs, and similar platforms. However, please refrain from redistributing, selling, modifying, or otherwise using the App's content itself without permission.</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="policy-section">
+  <h2><span data-lang="ja">第9条（免責事項）</span><span data-lang="en">Article 9 (Disclaimer)</span></h2>
+
+  <p data-lang="ja">本アプリは、できるだけ安心してご利用いただけるよう制作していますが、以下の点についてあらかじめご了承ください。</p>
+  <p data-lang="en">The App is created with care so that users can use it with peace of mind, but please note the following points.</p>
+
+  <ol>
+    <li>
+      <span data-lang="ja">開発者は、本アプリが全ての端末で正常に動作すること、バグや不具合がないこと、および本アプリの安全性、正確性、適合性について、明示的にも黙示的にも一切の保証を行いません。</span>
+      <span data-lang="en">The Developer makes no warranties, express or implied, that the App will function correctly on all devices, will be free of bugs or errors, or regarding its safety, accuracy, or suitability.</span>
+    </li>
+    <li>
+      <span data-lang="ja">本アプリの利用に関連して利用者に生じた損害について、開発者は、開発者に故意または重過失がある場合を除き、一切の責任を負わないものとします。</span>
+      <span data-lang="en">The Developer shall not be liable for any damages incurred by users in connection with the use of the App, except in cases of intentional misconduct or gross negligence by the Developer.</span>
+    </li>
+    <li>
+      <span data-lang="ja">消費者契約法の適用その他の理由により、本条の免責規定にかかわらず開発者が損害賠償責任を負う場合であっても、その賠償範囲は、ユーザーに直接かつ現実に生じた通常の損害に限られるものとします。</span>
+      <span data-lang="en">Even if the Developer is held liable for damages notwithstanding the disclaimers in this article due to the applicability of the Consumer Contract Act or other reasons, the scope of such liability shall be limited to direct, actual, and ordinary damages incurred by the user.</span>
+    </li>
+    <li>
+      <span data-lang="ja">利用者は、本アプリに記録したデータ（「わたしのことば」等の保存データ）を自己の責任において管理・バックアップするものとします。開発者は、本アプリの不具合、端末の故障、またはOSのアップデート等により保存データが消失・毀損した場合、一切の責任を負わないものとします。</span>
+      <span data-lang="en">Users shall manage and back up data recorded in the App (such as "My Words") at their own responsibility. The Developer shall not be liable for any loss or damage to stored data caused by App malfunctions, device failure, or OS updates.</span>
+    </li>
+    <li>
+      <span data-lang="ja">利用者の端末、通信環境、または外部サービスに起因するトラブルについて、開発者は一切の責任を負いません。</span>
+      <span data-lang="en">The Developer shall not be responsible for any issues arising from the user's device, communication environment, or external services.</span>
+    </li>
+  </ol>
+</div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第10条（サービスの変更・終了）</span><span data-lang="en">Article 10 (Changes and Termination)</span></h2>
+    <p data-lang="ja">開発者は、やむを得ない事情がある場合、本アプリの内容を変更し、または提供を終了することがあります。その際は、可能な範囲で事前にお知らせするよう努めます。</p>
+    <p data-lang="en">The Developer may change the content of or discontinue the App if unavoidable circumstances arise. In such cases, the Developer will endeavor to notify users in advance to the extent possible.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第11条（規約の変更）</span><span data-lang="en">Article 11 (Changes to Terms)</span></h2>
+    <p data-lang="ja">開発者は、法令の変更やサービス内容の見直し等に応じて、本規約を変更することがあります。変更後の規約は、公式サイトへの掲載をもって効力を生じるものとします。</p>
+    <p data-lang="en">The Developer may update these Terms in response to changes in laws or service content. Updated Terms will take effect upon posting on the official website.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第12条（年齢について）</span><span data-lang="en">Article 12 (Age)</span></h2>
+    <p data-lang="ja">未成年の方は、保護者の同意のもとで本アプリをご利用ください。</p>
+    <p data-lang="en">Minors should use the App with the consent of a parent or guardian.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第13条（準拠法）</span><span data-lang="en">Article 13 (Governing Law)</span></h2>
+    <p data-lang="ja">本規約に関して生じた紛争については、日本法を準拠法とします。</p>
+    <p data-lang="en">These Terms shall be governed by the laws of Japan.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span data-lang="ja">第14条（お問い合わせ）</span><span data-lang="en">Article 14 (Contact)</span></h2>
+    <p data-lang="ja">本アプリに関するお問い合わせは、お問い合わせフォームよりご連絡ください。</p>
+    <p data-lang="en">For inquiries regarding the App, please use the contact form.</p>
+    <a href="../contact.html" class="contact-link"><span data-lang="ja">お問い合わせフォームへ</span><span data-lang="en">Go to Contact Form</span></a>
+  </div>
+
+<div class="date-box">
+  <p data-lang="ja">本ページは日本語を正本とし、英語表記は参考訳として掲載しています。</p>
+  <p data-lang="en">The Japanese version of this page is the original, and the English version is provided as a reference translation.</p>
+
+  <p data-lang="ja">制定日：2026年6月5日</p>
+<p data-lang="ja">最終更新日：2026年6月5日</p>
+<p data-lang="en">Established: June 5, 2026</p>
+<p data-lang="en">Last updated: June 5, 2026</p>
+</div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">🐑 おやすみもふ羊 / Mofu Sheep</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">アプリページ</span><span data-lang="en">App Page</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="terms.html"><span data-lang="ja">利用規約</span><span data-lang="en">Terms</span></a>
+    <a href="../contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>

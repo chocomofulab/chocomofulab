@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | ちょこもふらぼ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--sky-light);
+      color: var(--text);
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,254,248,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid var(--sky);
+      box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--brown);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--pink); }
+
+    .nav-right {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .nav-back {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--sky);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+
+    .nav-back:hover { background: var(--sky-dark); }
+
+    .lang-btn {
+      background: var(--sky);
+      border: none;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--brown);
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .lang-btn:hover { background: var(--sky-dark); }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .page-hero .icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--brown);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 1.2rem;
+      border: 2px solid var(--sky);
+      font-size: 0.97rem;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .info-box p { margin-bottom: 0.5rem; }
+    .info-box p:last-child { margin-bottom: 0; }
+
+    /* APP LINKS */
+    .app-links-box {
+  margin: 0.4rem 0 1.4rem;
+  text-align: center;
+}
+
+    .app-links-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .app-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .app-link-card {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      color: var(--brown);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 0.7rem 0.9rem;
+      border-radius: 16px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .app-link-card:hover {
+      background: var(--sky-light);
+      transform: translateY(-2px);
+    }
+
+    .app-link-card img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 3px 10px rgba(107, 76, 42, 0.12);
+    }
+
+    .notice-box {
+      background: #fff8f0;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      border: 2px solid #ffd8b0;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: #a07040;
+    }
+
+    /* CONSENT BOX */
+    .consent-box {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid var(--sky);
+      box-shadow: 0 4px 20px rgba(135,200,230,0.12);
+    }
+
+    .consent-box h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--sky);
+    }
+
+    .privacy-note {
+      font-size: 0.84rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .privacy-link-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+      background: var(--sky-light);
+      border-radius: 12px;
+      padding: 0.9rem 1.1rem;
+    }
+
+    .privacy-link-row a {
+      color: var(--mint);
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border-bottom: 2px solid var(--mint);
+      transition: opacity 0.2s;
+    }
+
+    .privacy-link-row a:hover { opacity: 0.7; }
+
+    .privacy-link-row span {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 2.5px solid var(--sky);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .checkbox-row:hover,
+    .checkbox-row.checked {
+      border-color: var(--mint);
+      background: #f0faf7;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      accent-color: var(--mint);
+      cursor: pointer;
+      flex-shrink: 0;
+      pointer-events: none;
+    }
+
+    .checkbox-row label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      line-height: 1.5;
+      flex: 1;
+      user-select: none;
+    }
+
+    /* BUTTON */
+    .form-btn {
+      display: block;
+      width: 100%;
+      padding: 1.1rem;
+      background: linear-gradient(135deg, #ccc, #bbb);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: not-allowed;
+      font-family: inherit;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+
+    .form-btn.active {
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      box-shadow: 0 4px 15px rgba(247,168,196,0.4);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .form-btn.active:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(247,168,196,0.5);
+    }
+
+    .btn-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .footer-links { margin-top: 0.5rem; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: white; }
+
+    /* LANG */
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="ja"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en span[data-lang="en"] { display: inline; }
+    body.en span[data-lang="ja"] { display: none; }
+
+    @media (max-width: 600px) {
+      .content { padding: 2rem 1rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">トップへ</span><span data-lang="en">Home</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="icon">✉️</div>
+  <h1><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></h1>
+</div>
+
+<div class="content">
+
+  <div class="info-box">
+    <p data-lang="ja">ご意見・ご質問・不具合のご報告などがありましたら、下記よりご連絡ください。</p>
+    <p data-lang="en">If you have any feedback, questions, or bug reports, please reach out using the form below.</p>
+
+    <p data-lang="ja">お問い合わせの前に、各アプリのページにご質問（Q&A）もまとめていますので、気になる点がありましたらあわせてご確認いただけますと幸いです。</p>
+<p data-lang="en">Before reaching out, each app page also includes an FAQ. Please feel free to check it if you have any questions.</p>
+  </div>
+
+  <div class="app-links-box">
+    <p class="app-links-title">
+      <span data-lang="ja">アプリページ</span>
+<span data-lang="en">App Pages</span>
+    </p>
+
+    <div class="app-links-grid">
+      <a href="mofu-sheep/index.html" class="app-link-card">
+        <img src="images/sheep-icon1.png" alt="おやすみもふ羊 アイコン" width="800" height="800">
+        <span data-lang="ja">おやすみもふ羊</span>
+        <span data-lang="en">Mofu Sheep</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="notice-box">
+    <span data-lang="ja">※ 個人開発のため、お返事まで少しお時間がかかる場合があります。</span>
+    <span data-lang="en">※ As this app is independently developed, replies may take a little time.</span>
+  </div>
+
+  <div class="consent-box">
+    <h2>🔒 <span data-lang="ja">プライバシーポリシーへの同意</span><span data-lang="en">Privacy Policy Agreement</span></h2>
+
+   <p class="privacy-note" data-lang="ja">
+  このお問い合わせページは、ちょこもふらぼ共通のお問い合わせ窓口です。<br>プライバシーポリシーでは、公式サイトや各アプリ、お問い合わせ時の情報の取扱いについてご案内しています。
+</p>
+<p class="privacy-note" data-lang="en">
+  This contact page is a shared contact point for Chocomofu Lab. The Privacy Policy explains how information is handled on the official website, each app, and when you contact us.
+</p>
+
+    <div class="privacy-link-row">
+      <span>📄</span>
+      <div>
+        <a href="privacy.html"><span data-lang="ja">ちょこもふらぼのプライバシーポリシーを確認する</span><span data-lang="en">Read Chocomofu Lab's Privacy Policy</span></a>
+      </div>
+    </div>
+
+    <div class="checkbox-row" id="checkboxRow" onclick="toggleCheck()">
+      <input type="checkbox" id="agreeCheck" onclick="event.stopPropagation(); toggleCheck()">
+      <label for="agreeCheck">
+        <span data-lang="ja">プライバシーポリシーに同意します</span>
+        <span data-lang="en">I agree to the Privacy Policy</span>
+      </label>
+    </div>
+
+    <a href="#" class="form-btn" id="formBtn" target="_blank" rel="noopener noreferrer">
+      <span data-lang="ja">お問い合わせフォームへ進む</span>
+      <span data-lang="en">Go to Contact Form</span>
+    </a>
+
+    <p class="btn-note">
+      <span data-lang="ja">※ チェックを入れるとボタンが有効になります。お問い合わせフォームは Google フォームで別タブで開きます。</span>
+      <span data-lang="en">※ Check the box above to enable the button. The contact form will open in a new tab as a Google Form.</span>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">ちょこもふらぼ / Chocomofu Lab</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">トップ</span><span data-lang="en">Home</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  const GOOGLE_FORM_URL = 'https://forms.gle/t3pthbP1Ru5rxWdt8';
+
+  function toggleCheck() {
+    const check = document.getElementById('agreeCheck');
+    const btn = document.getElementById('formBtn');
+    const row = document.getElementById('checkboxRow');
+
+    check.checked = !check.checked;
+
+    if (check.checked) {
+      btn.classList.add('active');
+      btn.href = GOOGLE_FORM_URL;
+      row.classList.add('checked');
+    } else {
+      btn.classList.remove('active');
+      btn.href = '#';
+      row.classList.remove('checked');
+    }
+  }
+
+  let isEn = false;
+
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>

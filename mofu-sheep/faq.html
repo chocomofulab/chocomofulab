@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご質問 | おやすみもふ羊</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #b8e4f5;
+      --sky-dark: #8dcce8;
+      --sky-light: #dff2fb;
+      --pink: #f7a8c4;
+      --mint: #7dd9c0;
+      --coral: #ff8a70;
+      --brown: #6b4c2a;
+      --white: #fffef8;
+      --text: #3d2b1a;
+      --text-light: #7a5c3f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+  font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+  background: var(--sky-light);
+  color: var(--text);
+}
+
+h1, h2, h3, h4,
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+nav {
+  position: fixed; top: 0; width: 100%;
+  background: rgba(255,254,248,0.92);
+  backdrop-filter: blur(12px); z-index: 100;
+  padding: 0.8rem 2rem; display: flex;
+  justify-content: space-between; align-items: center;
+  border-bottom: 2.5px solid var(--sky);
+  box-shadow: 0 2px 16px rgba(135,200,230,0.13);
+}
+.nav-logo { font-size: 1.2rem; font-weight: 900; color: var(--brown); text-decoration: none; }
+.nav-logo span { color: var(--pink); }
+.nav-right { display: flex; gap: 0.8rem; align-items: center; }
+.nav-back {
+  text-decoration: none; color: var(--text-light); font-weight: 700;
+  font-size: 0.9rem; background: var(--sky); padding: 0.3rem 0.9rem;
+  border-radius: 20px; transition: background 0.2s;
+}
+.nav-back:hover { background: var(--sky-dark); }
+.lang-btn {
+  background: var(--sky); border: none; padding: 0.3rem 0.9rem;
+  border-radius: 20px; font-weight: 800; font-size: 0.85rem;
+  cursor: pointer; color: var(--brown); font-family: inherit; transition: background 0.2s;
+}
+.lang-btn:hover { background: var(--sky-dark); }
+
+.page-hero {
+  background: linear-gradient(160deg, #dff2fb, #c8ebf8);
+  padding: 7rem 2rem 3rem; text-align: center;
+}
+.page-hero .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+.page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--brown); }
+.page-hero .sub { font-size: 0.9rem; color: var(--text-light); font-weight: 700; letter-spacing: 0.1em; margin-top: 0.3rem; }
+.page-hero .notice {
+  display: inline-block; margin-top: 1rem;
+  background: white; border: 2px solid var(--sky-dark);
+  border-radius: 16px; padding: 0.6rem 1.2rem;
+  font-size: 0.85rem; font-weight: 700; color: var(--text-light);
+}
+.page-hero .app-name {
+  display: inline-block; margin-top: 0.8rem; background: white;
+  border: 2px solid var(--pink); border-radius: 20px; padding: 0.3rem 1rem;
+  font-size: 0.88rem; font-weight: 800; color: var(--pink);
+}
+
+.content { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+/* FAQ アイテム */
+.faq-item {
+  background: white;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  border: 2px solid rgba(184,228,245,0.5);
+  box-shadow: 0 4px 16px rgba(135,200,230,0.1);
+  overflow: hidden;
+}
+.faq-q {
+  padding: 1.3rem 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-q:hover { background: var(--sky-light); }
+.faq-q .q-badge {
+  background: linear-gradient(135deg, var(--pink), var(--coral));
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.faq-q .q-text {
+  font-size: 0.97rem;
+  font-weight: 800;
+  color: var(--brown);
+  line-height: 1.6;
+  flex: 1;
+}
+.faq-q .faq-arrow {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  display: none;
+  padding: 0 1.8rem 1.5rem 1.8rem;
+  border-top: 2px solid var(--sky-light);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a-inner {
+  padding-top: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.a-badge {
+  background: linear-gradient(135deg, var(--mint), var(--sky-dark));
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+.a-text {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  flex: 1;
+}
+.a-text p { margin-bottom: 0.8rem; }
+.a-text p:last-child { margin-bottom: 0; }
+.a-text ul { padding-left: 1.3rem; margin-bottom: 0.8rem; }
+.a-text ul li { margin-bottom: 0.3rem; }
+
+.safe-box {
+  background: #f0faf7; border-radius: 12px;
+  padding: 1rem 1.2rem; border: 2px solid var(--mint);
+  font-size: 0.88rem; line-height: 1.8; color: var(--text-light);
+  margin-top: 0.8rem;
+}
+.safe-box ul { padding-left: 1.3rem; }
+.safe-box ul li { margin-bottom: 0.3rem; }
+
+/* 最後に */
+.closing-box {
+  background: linear-gradient(135deg, #dff2fb, #c8ebf8);
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  border: 2px solid rgba(255,255,255,0.8);
+}
+.closing-box .sheep { font-size: 3rem; margin-bottom: 0.8rem; }
+.closing-box p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+.closing-box .notice-small {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--pink), var(--coral));
+  color: white; border: none; padding: 0.85rem 2rem;
+  border-radius: 30px; font-size: 1rem; font-weight: 800;
+  cursor: pointer; text-decoration: none; font-family: inherit;
+  box-shadow: 0 4px 15px rgba(247,168,196,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(247,168,196,0.5); }
+
+footer {
+  background: var(--brown); color: rgba(255,255,255,0.75);
+  text-align: center; padding: 2rem; font-size: 0.85rem; line-height: 2;
+}
+.footer-logo { font-size: 1.2rem; font-weight: 900; color: white; }
+.footer-links { margin-top: 0.5rem; }
+.footer-links a {
+  color: rgba(255,255,255,0.6); text-decoration: none;
+  margin: 0 0.8rem; font-size: 0.82rem; transition: color 0.2s;
+}
+.footer-links a:hover { color: white; }
+
+[data-lang="en"] { display: none; }
+body.en [data-lang="ja"] { display: none; }
+body.en [data-lang="en"] { display: block; }
+body.en span[data-lang="en"] { display: inline; }
+body.en span[data-lang="ja"] { display: none; }
+
+@media (max-width: 600px) {
+  .content { padding: 2rem 1rem 4rem; }
+  .faq-q { padding: 1.1rem 1.2rem; }
+  .faq-a { padding: 0 1.2rem 1.2rem; }
+  .closing-box { padding: 1.8rem 1.2rem; }
+}
+
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span data-lang="ja">アプリページへ</span><span data-lang="en">App Page</span></a>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="icon">❓</div>
+  <h1><span data-lang="ja">ご質問</span><span data-lang="en">FAQ</span></h1>
+  <span class="app-name"><span data-lang="ja">おやすみもふ羊 / Mofu Sheep</span><span data-lang="en">Mofu Sheep / おやすみもふ羊</span></span>
+</div>
+
+<div class="content">
+
+  <!-- Q1 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q1</span>
+      <span class="q-text">
+        <span data-lang="ja">このアプリを作ろうと思ったきっかけはなんですか？</span>
+        <span data-lang="en">What inspired you to create this app?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+<div class="a-text">
+<p data-lang="ja">なかなか眠れない日があったり、気持ちが落ち着かないまま一日を終えることがありました。<br>そんな経験から「せめて寝る前だけでも、何も考えずに少しのんびり過ごせたらいいな」と思いこのアプリを作りました。</p>
+<p data-lang="en">There were nights when I had trouble falling asleep, or days that ended before I could fully feel at ease.<br>From those experiences, I came to wish for a place where, at least before sleep, I could stop thinking for a while and spend a little quiet time. That is why I created this app.</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Q2 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q2</span>
+      <span class="q-text">
+        <span data-lang="ja">プログラミングの経験はありますか？</span>
+        <span data-lang="en">Do you have programming experience?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">プログラミングの経験はありません。</p>
+          <p data-lang="en">I have no programming experience.</p>
+          <p data-lang="ja">このアプリを作り始めたとき、私はプログラミングの知識がまったくありませんでした。専門学校に通ったこともなく、エンジニアとして働いた経験もありません。それでも、「作ってみたい」「形にしてみたい」「本当に自分がやりたいことにチャレンジしてみたい」そう思っていたときに、生成AIと出会いました。</p>
+          <p data-lang="en">When I started building this app, I had absolutely no knowledge of programming. I never attended a technical school or worked as an engineer. Even so, I wanted to make something, to give it shape, to challenge myself with what I truly wanted to do — and that's when I discovered generative AI.</p>
+          <p data-lang="ja">わからないことは何度も聞き、失敗して、また聞いて、少しずつ前に進みながら形にしていきました。このアプリは、そんな試行錯誤の積み重ねから生まれたものです。</p>
+          <p data-lang="en">I asked questions over and over, made mistakes, asked again, and slowly moved forward. This app was born from that process of trial and error.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+
+  <div class="faq-item">
+  <div class="faq-q" onclick="toggleFaq(this)">
+    <span class="q-badge">Q3</span>
+    <span class="q-text">
+      <span data-lang="ja">音が出ません。不具合ですか？</span>
+      <span data-lang="en">There is no sound. Is this a bug?</span>
+    </span>
+    <span class="faq-arrow">▼</span>
+  </div>
+
+  <div class="faq-a">
+    <div class="faq-a-inner">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p data-lang="ja">不具合ではありません。このアプリは、音が出ない仕様になっています。</p>
+        <p data-lang="en">This is not a bug. The app is designed to have no sound.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Q4 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q4</span>
+      <span class="q-text">
+        <span data-lang="ja">表示されるメッセージにはどんな意味がありますか？</span>
+        <span data-lang="en">What is the meaning behind the messages?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">このメッセージは、過去の自分に向けて書いた言葉です。「もっと頑張れ」ではなく、「もう十分だよ」「今日はここまででいいよ」そう言ってあげたかった気持ちを、羊たちに託しています。</p>
+          <p data-lang="en">These messages are words I wrote to my past self. Not "try harder," but "you've done enough" and "it's okay to stop here for today" — I entrusted those feelings to the sheep.</p>
+          <p data-lang="ja">これらのメッセージはひとつの考え方の例として表示されるもので、すべての方に合うことを意図したものではありません。もし合わないと感じた場合は、メッセージを表示しないモードや、ご自身で編集できる「わたしのことば」を自由に使っていただければと思います。</p>
+          <p data-lang="en">These messages are provided as examples of one way of thinking and are not intended to suit everyone. If they don't feel right, please use the mode without messages or freely edit your own "My Words."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q5</span>
+      <span class="q-text">
+        <span data-lang="ja">羊の歩く速度を調整できますか？</span>
+        <span data-lang="en">Can I adjust the sheep's walking speed?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">今のところ、速度の変更はできません。「数えても、数えなくてもいい」ゆっくり歩く羊を、のんびり眺めてもらえたらと思い今の速度にしています。</p>
+          <p data-lang="en">Speed adjustment is not currently available. The current pace was chosen so you can leisurely watch the sheep walk — whether you count them or not.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q6</span>
+      <span class="q-text">
+        <span data-lang="ja">メッセージの文字の大きさや位置は変えられますか？</span>
+        <span data-lang="en">Can I change the size or position of the messages?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">申し訳ありませんが、変更できません。本来であれば、すべての機種に合わせて細かく最適化するのが理想ですが、現時点では、そこまでの対応ができていません。それでも、できるだけ多くの方にやさしく読んでもらえるよう、今の大きさと位置に調整しています。</p>
+          <p data-lang="en">Unfortunately, this cannot be changed. Ideally, every device would be finely optimized, but that's beyond current capabilities. The current size and position were chosen to be as readable as possible for as many people as possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q7</span>
+      <span class="q-text">
+        <span data-lang="ja">カウント数を変更できますか？</span>
+        <span data-lang="en">Can I change the sheep count?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">現在は、羊のカウント数を変更することはできません。50カウント固定にしています。このアプリでは、「羊カウント数の目標」よりも、のんびり羊を数える時間を大切にしています。</p>
+          <p data-lang="en">The sheep count cannot currently be changed and is fixed at 50. In this app, the focus is on the time spent leisurely counting sheep, rather than reaching a target number.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q8</span>
+      <span class="q-text">
+        <span data-lang="ja">このアプリには睡眠効果がありますか？</span>
+        <span data-lang="en">Does this app have sleep benefits?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+         <p data-lang="ja">このアプリは、睡眠の改善や治療などの効果を目的としたものではありません。眠れない状態が続く場合、体調・心の不調を感じる場合は、無理をせず、専門の方に相談してください。</p>
+<p data-lang="en">This app is not intended to improve sleep or provide any therapeutic effect. If sleeplessness continues, or if you feel physical or emotional discomfort, please do not push yourself and consider consulting a specialist.</p>
+<p data-lang="ja">このアプリは、眠る前の時間を静かに過ごしたり、考えごとから少し離れるきっかけになれたらいいな、という想いで作っています。</p>
+<p data-lang="en">This app was created with the hope that it can help you spend the time before sleep quietly, or give you a small chance to step away from your thoughts.</p>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q9</span>
+      <span class="q-text">
+        <span data-lang="ja">広告はどこに表示されますか？</span>
+        <span data-lang="en">Where are ads displayed?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+       <div class="a-text">
+  <p data-lang="ja">広告はメニュー画面下部にのみ表示されます。<br>羊を眺めている途中や、メッセージを読んでいる最中に広告が表示されることはありません。</p>
+  <p data-lang="en">Ads are displayed only at the bottom of the menu screen. No ads will appear while you are watching the sheep or reading messages.</p>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q10</span>
+      <span class="q-text">
+        <span data-lang="ja">トラッキングを許可してしまいました。大丈夫でしょうか？</span>
+        <span data-lang="en">I accidentally allowed tracking. Is that okay?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">はい、大丈夫です。このアプリで表示される「トラッキングの選択」は、メニュー画面下部にのみ表示される広告について、「あなたに合った内容にするかどうか」を選ぶためのものです。</p>
+          <p data-lang="en">Yes, it's fine. The "tracking choice" shown in this app is only for deciding whether the ads at the bottom of the menu screen are personalized to you.</p>
+          <div class="safe-box">
+            <ul>
+              <li><span data-lang="ja">アプリの使い方が記録されることはありません</span><span data-lang="en">Your app usage will not be recorded</span></li>
+              <li><span data-lang="ja">メッセージの内容が見られることはありません</span><span data-lang="en">Your message content will not be viewed</span></li>
+              <li><span data-lang="ja">羊を眺める体験や、アプリの機能が制限されることもありません</span><span data-lang="en">The sheep experience and app features will not be restricted</span></li>
+            </ul>
+          </div>
+          <p data-lang="ja">この「トラッキングの選択」は、あとから変更することもできます。変更したい場合は、アプリの中ではなく、ご自身のスマートフォンの「設定」から、アプリ一覧の中にある「おやすみもふ羊」を選んで設定を変更してください。</p>
+         <p data-lang="en">This tracking choice can be changed later. To change it, go to your iPhone's "Settings," find "Mofu Sheep" in the app list, and update the setting there — not from within the app.</p>
+          <p data-lang="ja">わからない場合や、不安に感じる場合は、トラッキングを許可せずに、そのままご利用ください。</p>
+          <p data-lang="en">If you're unsure or feel uncomfortable, feel free to use the app without allowing tracking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+
+ <div class="faq-item">
+  <div class="faq-q" onclick="toggleFaq(this)">
+    <span class="q-badge">Q11</span>
+    <span class="q-text">
+      <span data-lang="ja">広告を消すことはできますか？</span>
+      <span data-lang="en">Can I remove the ads?</span>
+    </span>
+    <span class="faq-arrow">▼</span>
+  </div>
+
+  <div class="faq-a">
+    <div class="faq-a-inner">
+      <span class="a-badge">A</span>
+      <div class="a-text">
+        <p data-lang="ja">現時点では、広告を非表示にする機能はありません。本アプリは無料で提供しており、運営を支えるため、メニュー画面下部にのみ広告を表示しています。</p>
+        <p data-lang="en">At the moment, there is no option to hide ads. This app is provided for free, and ads are displayed only at the bottom of the menu screen to support its operation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Q12 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q12</span>
+      <span class="q-text">
+        <span data-lang="ja">「わたしのことば」のデータはバックアップできますか？</span>
+        <span data-lang="en">Can I back up "My Words" data?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">本アプリのデータは、端末内にのみ保存されます。機種変更やアプリの削除を行った場合、内容は引き継がれません。</p>
+          <p data-lang="en">App data is stored only on your device. If you change devices or delete the app, the content will not be transferred.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="q-badge">Q13</span>
+      <span class="q-text">
+        <span data-lang="ja">Android版はありますか？</span>
+        <span data-lang="en">Is there an Android version?</span>
+      </span>
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">申し訳ありませんが、現在、本アプリはiPhone（iOS）のみの対応となっています。開発は個人で行っており、現時点でAndroid版を制作する予定はありません。</p>
+          <p data-lang="en">Unfortunately, the app is currently only available for iPhone (iOS). Development is done individually, and there are no current plans to create an Android version.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最後に -->
+
+  <div class="closing-box">
+    <div class="sheep"></div>
+    <p data-lang="ja">このアプリを手にとってくださり、ありがとうございます。</p>
+    <p data-lang="en">Thank you for using this app.</p>
+    <p data-lang="ja">そのほか、ご不明な点やお気づきのことがありましたら、お問い合わせよりご連絡ください。</p>
+    <p data-lang="en">If you have any other questions or notice anything, please feel free to contact us.</p>
+    <a href="../contact.html" class="btn-primary">✉️ <span data-lang="ja">お問い合わせはこちら</span><span data-lang="en">Contact Us</span></a>
+    <p class="notice-small" data-lang="ja">※ 本アプリは、体調や睡眠の改善を目的としたものではありません。</p>
+    <p class="notice-small" data-lang="en">※ This app is not intended to improve health or sleep.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo"> おやすみもふ羊 / Mofu Sheep</p>
+  <div class="footer-links">
+    <a href="index.html"><span data-lang="ja">アプリページ</span><span data-lang="en">App Page</span></a>
+    <a href="privacy.html"><span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span></a>
+    <a href="terms.html"><span data-lang="ja">利用規約</span><span data-lang="en">Terms</span></a>
+    <a href="howto.html"><span data-lang="ja">使い方</span><span data-lang="en">How to Use</span></a>
+    <a href="../contact.html"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></a>
+  </div>
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+
+  let isEn = false;
+  function toggleLang() {
+    isEn = !isEn;
+    document.body.classList.toggle('en', isEn);
+    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+  }
+</script>
+
+</body>
+</html>
