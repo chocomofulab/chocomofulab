@@ -180,14 +180,14 @@
       margin: 0.2rem auto 0.7rem;
     }
 
-   .sheep-hero-img {
-  width: clamp(180px, 28vw, 320px);
-  height: auto;
-  display: block;
-  background: transparent;
-  box-shadow: none;
-  filter: none;
-}
+    .sheep-hero-img {
+      width: clamp(180px, 28vw, 320px);
+      height: auto;
+      display: block;
+      background: transparent;
+      box-shadow: none;
+      filter: none;
+    }
 
     .status-badge {
       display: flex;
@@ -445,15 +445,15 @@
       nav { gap: 0.5rem; padding: 0.6rem 0.8rem; }
 
       .nav-logo {
-  font-size: 0.82rem;
-  flex: 1;
-  min-width: 0;
-  max-width: calc(100% - 70px);
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+        font-size: 0.82rem;
+        flex: 1;
+        min-width: 0;
+        max-width: calc(100% - 70px);
+        white-space: nowrap;
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
       .nav-right { gap: 0.45rem; }
 
@@ -497,12 +497,12 @@
 </head>
 <body>
 
- <nav>
-  <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
-  <div class="nav-right">
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
-  </div>
-</nav>
+  <nav>
+    <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
+    <div class="nav-right">
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+    </div>
+  </nav>
 
   <section class="hero">
     <div class="hero-inner">
@@ -521,6 +521,7 @@
         <p class="app-title-en" data-lang="en">おやすみもふ羊</p>
 
       </div>
+
       <div class="sheep-wrap">
         <img
           src="images/sheep-icon.png"
@@ -735,18 +736,6 @@
   </footer>
 
   <script>
-    const reveals = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    reveals.forEach((item) => observer.observe(item));
-
     let isEn = false;
 
     function applyLang(nextIsEn, shouldUpdateUrl = true) {
@@ -815,10 +804,24 @@
       });
     }
 
-    const params = new URLSearchParams(window.location.search);
-    const initialLang = params.get('lang');
+    const initialIsEn = window.location.search.indexOf('lang=en') !== -1;
+    applyLang(initialIsEn, false);
 
-    applyLang(initialLang === 'en', false);
+    const reveals = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach((item) => observer.observe(item));
+    } else {
+      reveals.forEach((item) => item.classList.add('visible'));
+    }
   </script>
 
 </body>
