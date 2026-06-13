@@ -604,11 +604,77 @@ body.en span[data-lang="ja"] { display: none; }
   }
 
   let isEn = false;
-  function toggleLang() {
-    isEn = !isEn;
+
+  function applyLang(nextIsEn, shouldUpdateUrl = true) {
+    isEn = nextIsEn;
+
     document.body.classList.toggle('en', isEn);
-    document.getElementById('langBtn').textContent = isEn ? 'JA' : 'EN';
+    document.documentElement.lang = isEn ? 'en' : 'ja';
+
+    const langBtn = document.getElementById('langBtn');
+    if (langBtn) {
+      langBtn.textContent = isEn ? 'JA' : 'EN';
+      langBtn.setAttribute(
+        'aria-label',
+        isEn ? '日本語表示に切り替える' : 'Switch to English'
+      );
+    }
+
+    if (shouldUpdateUrl) {
+      const currentUrl = new URL(window.location.href);
+
+      if (isEn) {
+        currentUrl.searchParams.set('lang', 'en');
+      } else {
+        currentUrl.searchParams.delete('lang');
+      }
+
+      window.history.replaceState(null, '', currentUrl.toString());
+    }
+
+    updateInternalLinksLang();
   }
+
+  function toggleLang() {
+    applyLang(!isEn, true);
+  }
+
+  function updateInternalLinksLang() {
+    const links = document.querySelectorAll('a[href]');
+
+    links.forEach((link) => {
+      const originalHref = link.getAttribute('href');
+
+      if (
+        !originalHref ||
+        originalHref.startsWith('#') ||
+        originalHref.startsWith('mailto:') ||
+        originalHref.startsWith('tel:') ||
+        originalHref.startsWith('javascript:')
+      ) {
+        return;
+      }
+
+      const linkUrl = new URL(originalHref, window.location.href);
+
+      if (linkUrl.origin !== window.location.origin) {
+        return;
+      }
+
+      if (isEn) {
+        linkUrl.searchParams.set('lang', 'en');
+      } else {
+        linkUrl.searchParams.delete('lang');
+      }
+
+      link.href = linkUrl.toString();
+    });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const initialIsEn = params.get('lang') === 'en';
+
+  applyLang(initialIsEn, false);
 </script>
 
 </body>
