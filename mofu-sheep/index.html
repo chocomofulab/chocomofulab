@@ -24,6 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #d7edf8;
@@ -189,31 +190,31 @@
       filter: none;
     }
 
-    .status-badge {
+    .app-store-area {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      width: fit-content;
-      margin: 1rem auto 1.6rem;
-      background: rgba(255, 253, 248, 0.92);
-      border: 2px solid var(--mint);
-      color: var(--mint);
-      border-radius: 999px;
-      padding: 0.7rem 1.55rem;
-      font-size: 0.95rem;
-      font-weight: 800;
-      box-shadow: 0 3px 12px rgba(120, 209, 190, 0.08);
-      animation: fadeDown 0.75s ease 0.28s both;
+      margin: 1.35rem auto 0;
+      animation: fadeDown 0.75s ease 0.62s both;
     }
 
-    .status-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--mint);
-      flex-shrink: 0;
-      animation: pulse 1.7s ease-in-out infinite;
+    .app-store-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .app-store-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .app-store-badge {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-desc {
@@ -476,6 +477,10 @@
 
       .hero-desc br { display: none; }
 
+      .app-store-badge {
+        width: 160px;
+      }
+
       .panel {
         padding: 1.5rem 1rem;
         border-radius: 24px;
@@ -530,12 +535,6 @@
         >
       </div>
 
-      <div class="status-badge">
-        <div class="status-dot"></div>
-        <span data-lang="ja">Apple 公開準備中</span>
-        <span data-lang="en">Preparing for App Store release</span>
-      </div>
-
       <p class="hero-desc" data-lang="ja">
         「おやすみもふ羊」は、<br>
         一日の終わりに羊を眺めながら<br>
@@ -560,6 +559,29 @@
         <span class="hero-pill">iPhone Only</span>
         <span class="hero-pill">Free App</span>
         <span class="hero-pill">No Sound</span>
+      </div>
+
+      <div class="app-store-area">
+        <a
+          href="https://apps.apple.com/jp/app/%E3%81%8A%E3%82%84%E3%81%99%E3%81%BF%E3%82%82%E3%81%B5%E7%BE%8A/id6782694442"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-store-link"
+          aria-label="App Storeでおやすみもふ羊を開く"
+        >
+          <img
+            src="images/app-store-badge-ja.svg"
+            alt="App Storeからダウンロード"
+            class="app-store-badge"
+            data-lang="ja"
+          >
+          <img
+            src="images/app-store-badge-en.svg"
+            alt="Download on the App Store"
+            class="app-store-badge"
+            data-lang="en"
+          >
+        </a>
       </div>
     </div>
   </section>
