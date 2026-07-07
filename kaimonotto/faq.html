@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご質問 | カイモノット</title>
+
+  <meta name="description" content="カイモノットのQ&Aページです。使い方、広告、トラッキング、リスト内容の扱い、対応端末などについてご案内します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chocomofulab.com/kaimonotto/faq.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ちょこもふらぼ | Chocomofu Lab">
+  <meta property="og:title" content="ご質問 | カイモノット">
+  <meta property="og:description" content="カイモノットの使い方や、広告・トラッキング・リスト内容の扱いについてのQ&Aです。">
+  <meta property="og:url" content="https://chocomofulab.com/kaimonotto/faq.html">
+  <meta property="og:image" content="https://chocomofulab.com/kaimonotto/images/ogp-shopping-memo.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ご質問 | カイモノット">
+  <meta name="twitter:description" content="カイモノットの使い方や、広告・トラッキング・リスト内容の扱いについてのQ&Aです。">
+  <meta name="twitter:image" content="https://chocomofulab.com/kaimonotto/images/ogp-shopping-memo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-soft: #fbf7ef;
+      --white: #fffdf8;
+
+      --brown: #3f2c1f;
+      --brown-soft: #7c664f;
+      --beige: #d8c8b3;
+      --beige-soft: #efe6d8;
+
+      --green: #4f8a45;
+      --green-soft: #dcebd7;
+      --orange: #df744b;
+      --orange-soft: #f6d6c5;
+
+      --label: #c88976;
+      --line: rgba(199, 184, 164, 0.9);
+      --shadow: rgba(63, 44, 31, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(251, 248, 242, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 2px solid rgba(216, 200, 179, 0.75);
+      box-shadow: 0 2px 14px rgba(63, 44, 31, 0.04);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #c88976;
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .nav-back,
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: var(--beige-soft);
+      color: var(--brown);
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-decoration: none;
+      border: 2px solid rgba(216, 200, 179, 0.65);
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .lang-btn {
+      font-family: inherit;
+      min-width: 62px;
+    }
+
+    .nav-back:hover,
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .page-hero {
+      background: var(--bg);
+      padding: 7.4rem 2rem 3.2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 44px;
+      background: var(--white);
+      clip-path: ellipse(58% 100% at 50% 100%);
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .page-hero .icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--brown);
+      line-height: 1.2;
+      text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .page-hero .app-name {
+      display: inline-block;
+      margin-top: 0.95rem;
+      background: rgba(255, 253, 248, 0.92);
+      border: 2px solid rgba(216, 200, 179, 0.85);
+      border-radius: 999px;
+      padding: 0.45rem 1.15rem;
+      font-size: 0.88rem;
+      font-weight: 900;
+      color: var(--brown-soft);
+      box-shadow: 0 4px 14px rgba(63, 44, 31, 0.05);
+    }
+
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      background: var(--white);
+    }
+
+    .faq-item {
+      background: rgba(255, 253, 248, 0.96);
+      border-radius: 24px;
+      margin-bottom: 1.15rem;
+      border: 2px solid var(--line);
+      box-shadow: 0 6px 20px var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      list-style: none;
+      padding: 1.25rem 1.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .faq-q::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-q:hover {
+      background: #fff8ef;
+    }
+
+    .q-badge {
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 0.22rem 0.6rem;
+      border-radius: 9px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      box-shadow: 0 4px 12px rgba(223, 116, 75, 0.16);
+    }
+
+    .q-text {
+      font-size: 0.98rem;
+      font-weight: 900;
+      color: var(--brown);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .faq-arrow {
+      color: var(--brown-soft);
+      font-size: 1.05rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .faq-item[open] .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      padding: 0 1.6rem 1.45rem;
+      border-top: 2px solid rgba(216, 200, 179, 0.75);
+    }
+
+    .faq-a-inner {
+      padding-top: 1.15rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .a-badge {
+      background: var(--green);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 0.22rem 0.6rem;
+      border-radius: 9px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      box-shadow: 0 4px 12px rgba(79, 138, 69, 0.16);
+    }
+
+    .a-text {
+      font-size: 0.95rem;
+      line-height: 1.95;
+      color: var(--brown-soft);
+      flex: 1;
+      font-weight: 700;
+    }
+
+    .a-text p {
+      margin-bottom: 0.8rem;
+    }
+
+    .a-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .a-text ul {
+      padding-left: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .a-text ul li {
+      margin-bottom: 0.35rem;
+      line-height: 1.85;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      font-size: 0.98rem;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      box-shadow: 0 6px 16px rgba(223, 116, 75, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 20px rgba(223, 116, 75, 0.24);
+    }
+
+    .notice-box {
+      background: #fff7ef;
+      border-radius: 16px;
+      padding: 1.05rem 1.2rem;
+      border: 2px solid rgba(223, 116, 75, 0.35);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--brown-soft);
+      margin-top: 0.85rem;
+    }
+
+    .notice-box ul {
+      padding-left: 1.3rem;
+      list-style: disc;
+    }
+
+    .notice-box li {
+      margin-bottom: 0.35rem;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+
+    .notice-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .closing-box {
+      background: #fbf7ef;
+      border-radius: 28px;
+      padding: 2.4rem;
+      text-align: center;
+      margin-top: 2rem;
+      border: 2px solid var(--line);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .closing-box .icon {
+      font-size: 2.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .closing-box p {
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: var(--brown-soft);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.76);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.84rem;
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        padding: 0.7rem 1rem;
+      }
+
+           .nav-logo {
+        font-size: 0.82rem;
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .nav-back,
+      .lang-btn {
+        min-height: 40px;
+        padding: 0.38rem 0.75rem;
+        font-size: 0.78rem;
+      }
+
+      .content {
+        padding: 3rem 1rem 4rem;
+      }
+
+      .faq-q {
+        padding: 1.1rem 1.15rem;
+      }
+
+      .faq-a {
+        padding: 0 1.15rem 1.2rem;
+      }
+
+      .closing-box {
+        padding: 1.8rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-hero {
+        padding: 6.6rem 1rem 2.7rem;
+      }
+
+      .faq-a-inner {
+        gap: 0.75rem;
+      }
+
+      .footer-links li {
+        display: inline-block;
+        margin: 0.18rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
+  <div class="nav-right">
+    <button type="button" class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Switch to English">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="icon">❓</div>
+    <h1>
+      <span data-lang="ja">ご質問</span>
+      <span data-lang="en">FAQ</span>
+    </h1>
+    <span class="app-name">
+      <span data-lang="ja">カイモノット</span>
+      <span data-lang="en">Kaimonotto</span>
+    </span>
+  </div>
+</div>
+
+<main class="content">
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q1</span>
+      <span class="q-text">
+        <span data-lang="ja">どんなアプリですか？</span>
+        <span data-lang="en">What kind of app is this?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            「カイモノット」は、買い忘れたくないものをさっとメモして、お店でチェックできるシンプルな買いものリストアプリです。
+          </p>
+          <p data-lang="en">
+            Kaimonotto is a simple shopping list app for quickly noting the things you do not want to forget and checking them while you shop.
+          </p>
+          <p data-lang="ja">
+            買うものを全部きっちり管理するより、日常の小さな買い忘れを防ぐためのアプリとして使っていただけたらと思っています。
+          </p>
+          <p data-lang="en">
+            Rather than managing every item in detail, this app is intended to help prevent small everyday forgotten items.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q2</span>
+      <span class="q-text">
+        <span data-lang="ja">基本的な使い方を教えてください。</span>
+        <span data-lang="en">How do I use it?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            買うものを入力し、＋ボタンまたはキーボード右下の確定ボタン（レ点や完了など）でリストに追加します。買い物中は「買い物スタート」を押してチェック画面へ進み、買ったものにチェックを入れられます。
+          </p>
+          <p data-lang="en">
+            Enter an item and add it to your list with the plus button or the confirmation key on the keyboard. While shopping, tap “買い物スタート” (Start Shopping) to open the check screen and mark items as bought.
+          </p>
+          <p data-lang="ja">
+            詳しい流れは、使い方ページでもご案内しています。
+          </p>
+          <p data-lang="en">
+            You can also see the detailed steps on the How to Use page.
+          </p>
+          <div>
+            <a href="howto.html" class="btn-primary">
+              <span data-lang="ja">使い方を見る</span>
+              <span data-lang="en">How to Use</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q3</span>
+      <span class="q-text">
+        <span data-lang="ja">会員登録は必要ですか？</span>
+        <span data-lang="en">Is sign-in required?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            会員登録は必要ありません。インストール後、そのままお使いいただけます。
+          </p>
+          <p data-lang="en">
+            No sign-in is required. You can use the app right after installing it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q4</span>
+      <span class="q-text">
+        <span data-lang="ja">入力したリストの内容は送信されますか？</span>
+        <span data-lang="en">Are my shopping list contents sent anywhere?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            入力したリストの内容が、開発者に送信されることはありません。
+            また、開発者がその内容を取得・閲覧することもありません。
+          </p>
+          <p data-lang="en">
+            The contents of your shopping list are not sent to the developer.
+            The developer also does not collect or view those contents.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q5</span>
+      <span class="q-text">
+        <span data-lang="ja">リストの内容はバックアップできますか？</span>
+        <span data-lang="en">Can I back up my list data?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+         <p data-lang="ja">
+  現在、アプリ内に専用のバックアップ機能や同期機能はありません。機種変更やアプリの削除を行った場合、リスト内容を引き継げない場合があります。
+</p>
+<p data-lang="en">
+  The app currently does not have a dedicated backup or sync feature. If you change devices or delete the app, your list contents may not be carried over.
+</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q6</span>
+      <span class="q-text">
+        <span data-lang="ja">家族と買い物リストを共有できますか？</span>
+        <span data-lang="en">Can I share my shopping list with my family?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            現在、家族やほかの端末と買い物リストを共有・同期する機能はありません。入力したリストは、このアプリを使っている端末内での利用を想定しています。
+          </p>
+          <p data-lang="en">
+            The app currently does not have a feature to share or sync shopping lists with family members or other devices. Lists you enter are intended to be used on the device where this app is installed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q7</span>
+      <span class="q-text">
+        <span data-lang="ja">音は出ますか？</span>
+        <span data-lang="en">Does the app play sound?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            音は出ません。静かな場所でも使いやすいよう、シンプルなリストアプリとして作っています。
+          </p>
+          <p data-lang="en">
+            No sound is played. The app is designed as a simple list app that can be used quietly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q8</span>
+      <span class="q-text">
+        <span data-lang="ja">広告は表示されますか？</span>
+        <span data-lang="en">Are ads displayed?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            はい。アプリ内の一部画面に広告が表示される場合があります。本アプリは無料で提供しており、運営を支えるために広告を利用しています。
+          </p>
+          <p data-lang="en">
+            Yes. Ads may be displayed on some screens in the app. The app is provided for free and uses ads to support its operation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q9</span>
+      <span class="q-text">
+        <span data-lang="ja">最初に表示される「トラッキングの許可」とは何ですか？</span>
+        <span data-lang="en">What is the tracking permission prompt shown at the start?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            <strong>アプリ内で表示される広告を、関心に合わせて表示するかどうかを選ぶための確認画面です。</strong>
+          </p>
+          <p data-lang="en">
+            <strong>This prompt lets you choose whether ads shown in the app may be personalized based on your interests.</strong>
+          </p>
+
+          <p data-lang="ja">
+            トラッキングの許可は、広告の内容を調整するために使われます。許可するかどうかは自由に選べます。
+          </p>
+          <p data-lang="en">
+            Tracking permission is used to help adjust ad content. You can freely choose whether to allow it.
+          </p>
+
+          <div class="notice-box">
+            <ul>
+              <li>
+                <span data-lang="ja">設定は、あとからiPhoneの「設定」アプリでいつでも変更できます。</span>
+                <span data-lang="en">You can change this setting later at any time in the iPhone Settings app.</span>
+              </li>
+              <li>
+                <span data-lang="ja">許可するかどうかに関係なく、すべての機能をそのままお使いいただけます。</span>
+                <span data-lang="en">You can use all features as usual, whether or not you allow tracking.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q10</span>
+      <span class="q-text">
+        <span data-lang="ja">広告を非表示にできますか？</span>
+        <span data-lang="en">Can I remove the ads?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            現時点では、広告を非表示にする機能はありません。
+          </p>
+          <p data-lang="en">
+            At the moment, there is no option to hide ads.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q11</span>
+      <span class="q-text">
+        <span data-lang="ja">アプリは英語に対応していますか？</span>
+        <span data-lang="en">Is the app available in English?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            アプリ本体は現在、日本語のみ対応しています。公式サイトでは、一部の情報を英語でも確認できるようにしています。
+          </p>
+          <p data-lang="en">
+            The app itself is currently available in Japanese only. Some information on the official website is also provided in English.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q12</span>
+      <span class="q-text">
+        <span data-lang="ja">Android版はありますか？</span>
+        <span data-lang="en">Is there an Android version?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            現在、本アプリはiPhone（iOS）のみの対応です。現時点でAndroid版の提供予定はありません。
+          </p>
+          <p data-lang="en">
+            The app is currently available only for iPhone (iOS). There are no current plans to provide an Android version.
+          </p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="q-badge">Q13</span>
+      <span class="q-text">
+        <span data-lang="ja">不具合や意見はどこから送れますか？</span>
+        <span data-lang="en">Where can I send feedback or bug reports?</span>
+      </span>
+      <span class="faq-arrow" aria-hidden="true">▼</span>
+    </summary>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="a-badge">A</span>
+        <div class="a-text">
+          <p data-lang="ja">
+            ご意見・ご感想・不具合のご報告は、お問い合わせフォームよりご連絡ください。
+          </p>
+          <p data-lang="en">
+            Please send feedback, questions, or bug reports through the contact form.
+          </p>
+          <div>
+            <a href="../contact.html" class="btn-primary">
+              <span data-lang="ja">お問い合わせフォーム</span>
+              <span data-lang="en">Contact Form</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="closing-box">
+    <div class="icon">🧺</div>
+    <p data-lang="ja">
+      このアプリを手にとってくださり、ありがとうございます。
+    </p>
+    <p data-lang="en">
+      Thank you for using this app.
+    </p>
+    <p data-lang="ja">
+      そのほか、ご不明な点やお気づきのことがありましたら、お問い合わせよりご連絡ください。
+    </p>
+    <p data-lang="en">
+      If you have any other questions or notice anything, please feel free to contact us.
+    </p>
+    <a href="../contact.html" class="btn-primary">
+      ✉️
+      <span data-lang="ja">お問い合わせはこちら</span>
+      <span data-lang="en">Contact Us</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-logo">
+    <span data-lang="ja">カイモノット</span>
+    <span data-lang="en">Kaimonotto</span>
+  </p>
+
+  <ul class="footer-links">
+    <li>
+      <a href="index.html">
+        <span data-lang="ja">アプリページ</span>
+        <span data-lang="en">App Page</span>
+      </a>
+    </li>
+    <li>
+      <a href="privacy.html">
+        <span data-lang="ja">プライバシーポリシー</span>
+        <span data-lang="en">Privacy Policy</span>
+      </a>
+    </li>
+    <li>
+      <a href="terms.html">
+        <span data-lang="ja">利用規約</span>
+        <span data-lang="en">Terms</span>
+      </a>
+    </li>
+    <li>
+      <a href="howto.html">
+        <span data-lang="ja">使い方</span>
+        <span data-lang="en">How to Use</span>
+      </a>
+    </li>
+    <li>
+      <a href="../contact.html">
+        <span data-lang="ja">お問い合わせ</span>
+        <span data-lang="en">Contact</span>
+      </a>
+    </li>
+  </ul>
+
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+
+  function applyLang(nextIsEn, shouldUpdateUrl = true) {
+    isEn = nextIsEn;
+
+    document.body.classList.toggle('en', isEn);
+    document.documentElement.lang = isEn ? 'en' : 'ja';
+
+    const langBtn = document.getElementById('langBtn');
+
+    if (langBtn) {
+      langBtn.textContent = isEn ? 'JA' : 'EN';
+      langBtn.setAttribute(
+        'aria-label',
+        isEn ? '日本語表示に切り替える' : 'Switch to English'
+      );
+    }
+
+    if (shouldUpdateUrl) {
+      const currentUrl = new URL(window.location.href);
+
+      if (isEn) {
+        currentUrl.searchParams.set('lang', 'en');
+      } else {
+        currentUrl.searchParams.delete('lang');
+      }
+
+      window.history.replaceState(null, '', currentUrl.toString());
+    }
+
+    updateInternalLinksLang();
+  }
+
+  function toggleLang() {
+    applyLang(!isEn, true);
+  }
+
+  function updateInternalLinksLang() {
+    const links = document.querySelectorAll('a[href]');
+
+    links.forEach((link) => {
+      const originalHref = link.getAttribute('href');
+
+      if (
+        !originalHref ||
+        originalHref.startsWith('#') ||
+        originalHref.startsWith('mailto:') ||
+        originalHref.startsWith('tel:') ||
+        originalHref.startsWith('javascript:')
+      ) {
+        return;
+      }
+
+      const linkUrl = new URL(originalHref, window.location.href);
+
+      if (linkUrl.origin !== window.location.origin) {
+        return;
+      }
+
+      if (isEn) {
+        linkUrl.searchParams.set('lang', 'en');
+      } else {
+        linkUrl.searchParams.delete('lang');
+      }
+
+      link.href = linkUrl.toString();
+    });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const initialIsEn = params.get('lang') === 'en';
+
+  applyLang(initialIsEn, false);
+</script>
+
+</body>
+</html>
