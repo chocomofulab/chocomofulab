@@ -34,7 +34,6 @@
       font-family: inherit;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0;
@@ -63,22 +62,24 @@
       display: flex;
       gap: 0.8rem;
       align-items: center;
+      flex-shrink: 0;
     }
 
-   .nav-back {
-  text-decoration: none;
-  color: var(--text-light);
-  font-weight: 700;
-  font-size: 0.9rem;
-  background: var(--sky);
-  padding: 0.3rem 0.9rem;
-  border-radius: 20px;
-  transition: background 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+    .nav-back {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: var(--sky);
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
 
-    .nav-back:hover { background: var(--sky-dark); }
+    .nav-back:hover {
+      background: var(--sky-dark);
+      color: var(--brown);
+    }
 
     .lang-btn {
       background: var(--sky);
@@ -91,11 +92,11 @@
       color: var(--brown);
       font-family: inherit;
       transition: background 0.2s;
+      white-space: nowrap;
     }
 
     .lang-btn:hover { background: var(--sky-dark); }
 
-    /* HERO */
     .page-hero {
       background: linear-gradient(160deg, #dff2fb, #c8ebf8);
       padding: 7rem 2rem 3rem;
@@ -113,14 +114,12 @@
       color: var(--brown);
     }
 
-    /* CONTENT */
     .content {
       max-width: 680px;
       margin: 0 auto;
       padding: 3rem 2rem 5rem;
     }
 
-    /* INFO BOX */
     .info-box {
       background: white;
       border-radius: 20px;
@@ -135,11 +134,10 @@
     .info-box p { margin-bottom: 0.5rem; }
     .info-box p:last-child { margin-bottom: 0; }
 
-    /* APP LINKS */
     .app-links-box {
-  margin: 0.4rem 0 1.4rem;
-  text-align: center;
-}
+      margin: 0.4rem 0 1.4rem;
+      text-align: center;
+    }
 
     .app-links-title {
       font-size: 0.9rem;
@@ -193,7 +191,6 @@
       color: #a07040;
     }
 
-    /* CONSENT BOX */
     .consent-box {
       background: white;
       border-radius: 20px;
@@ -269,10 +266,9 @@
       accent-color: var(--mint);
       cursor: pointer;
       flex-shrink: 0;
-      pointer-events: none;
     }
 
-    .checkbox-row label {
+    .checkbox-text {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--text);
@@ -282,7 +278,6 @@
       user-select: none;
     }
 
-    /* BUTTON */
     .form-btn {
       display: block;
       width: 100%;
@@ -321,7 +316,6 @@
       line-height: 1.7;
     }
 
-    /* FOOTER */
     footer {
       background: var(--brown);
       color: rgba(255,255,255,0.75);
@@ -349,7 +343,6 @@
 
     .footer-links a:hover { color: white; }
 
-    /* LANG */
     [data-lang="en"] { display: none; }
     body.en [data-lang="ja"] { display: none; }
     body.en [data-lang="en"] { display: block; }
@@ -359,6 +352,7 @@
    @media (max-width: 600px) {
   nav {
     padding: 0.7rem 1rem;
+    gap: 0.8rem;
   }
 
   .nav-logo {
@@ -366,8 +360,14 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100% - 78px);
+    max-width: none;
+    flex: 1;
+    min-width: 0;
     line-height: 1.2;
+  }
+
+  .nav-right {
+    flex-shrink: 0;
   }
 
   .content {
@@ -379,10 +379,10 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
-  <div class="nav-right">
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
-  </div>
+<a href="index.html" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+<div class="nav-right">
+  <button type="button" class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+</div>
 </nav>
 
 <div class="page-hero">
@@ -397,13 +397,13 @@
     <p data-lang="en">If you have any feedback, questions, or bug reports, please reach out using the form below.</p>
 
     <p data-lang="ja">お問い合わせの前に、各アプリのページにご質問（Q&A）もまとめていますので、気になる点がありましたらあわせてご確認いただけますと幸いです。</p>
-<p data-lang="en">Before reaching out, each app page also includes an FAQ. Please feel free to check it if you have any questions.</p>
+    <p data-lang="en">Before reaching out, each app page also includes an FAQ. Please feel free to check it if you have any questions.</p>
   </div>
 
   <div class="app-links-box">
     <p class="app-links-title">
       <span data-lang="ja">アプリページ</span>
-<span data-lang="en">App Pages</span>
+      <span data-lang="en">App Pages</span>
     </p>
 
     <div class="app-links-grid">
@@ -412,23 +412,30 @@
         <span data-lang="ja">おやすみもふ羊</span>
         <span data-lang="en">Mofu Sheep</span>
       </a>
+
+      <a href="kaimonotto/index.html" class="app-link-card">
+        <img src="images/icon-shopping-memo.png" alt="カイモノット アイコン" width="800" height="800">
+        <span data-lang="ja">カイモノット</span>
+        <span data-lang="en">Kaimonotto</span>
+      </a>
     </div>
   </div>
 
   <div class="notice-box">
     <span data-lang="ja">※ 個人開発のため、お返事まで少しお時間がかかる場合があります。</span>
-    <span data-lang="en">※ As this app is independently developed, replies may take a little time.</span>
+    <span data-lang="en">※ As this is an independent project, replies may take a little time.</span>
   </div>
 
   <div class="consent-box">
     <h2>🔒 <span data-lang="ja">プライバシーポリシーへの同意</span><span data-lang="en">Privacy Policy Agreement</span></h2>
 
-   <p class="privacy-note" data-lang="ja">
-  このお問い合わせページは、ちょこもふらぼ共通のお問い合わせ窓口です。<br>プライバシーポリシーでは、公式サイトや各アプリ、お問い合わせ時の情報の取扱いについてご案内しています。
-</p>
-<p class="privacy-note" data-lang="en">
-  This contact page is a shared contact point for Chocomofu Lab. The Privacy Policy explains how information is handled on the official website, each app, and when you contact us.
-</p>
+    <p class="privacy-note" data-lang="ja">
+      このお問い合わせページは、ちょこもふらぼ共通のお問い合わせ窓口です。<br>
+      プライバシーポリシーでは、公式サイトや各アプリ、お問い合わせ時の情報の取扱いについてご案内しています。
+    </p>
+    <p class="privacy-note" data-lang="en">
+      This contact page is a shared contact point for Chocomofu Lab. The Privacy Policy explains how information is handled on the official website, each app, and when you contact us.
+    </p>
 
     <div class="privacy-link-row">
       <span>📄</span>
@@ -437,13 +444,13 @@
       </div>
     </div>
 
-    <div class="checkbox-row" id="checkboxRow" onclick="toggleCheck()">
-      <input type="checkbox" id="agreeCheck" onclick="event.stopPropagation(); toggleCheck()">
-      <label for="agreeCheck">
+    <label class="checkbox-row" id="checkboxRow" for="agreeCheck">
+      <input type="checkbox" id="agreeCheck" onchange="syncCheck()">
+      <span class="checkbox-text">
         <span data-lang="ja">プライバシーポリシーに同意します</span>
         <span data-lang="en">I agree to the Privacy Policy</span>
-      </label>
-    </div>
+      </span>
+    </label>
 
     <a href="#" class="form-btn" id="formBtn" target="_blank" rel="noopener noreferrer">
       <span data-lang="ja">お問い合わせフォームへ進む</span>
@@ -471,12 +478,10 @@
 <script>
   const GOOGLE_FORM_URL = 'https://forms.gle/t3pthbP1Ru5rxWdt8';
 
-  function toggleCheck() {
+  function syncCheck() {
     const check = document.getElementById('agreeCheck');
     const btn = document.getElementById('formBtn');
     const row = document.getElementById('checkboxRow');
-
-    check.checked = !check.checked;
 
     if (check.checked) {
       btn.classList.add('active');
@@ -557,10 +562,15 @@
     });
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const initialIsEn = params.get('lang') === 'en';
+ const params = new URLSearchParams(window.location.search);
+const initialIsEn = params.get('lang') === 'en';
 
-  applyLang(initialIsEn, false);
+applyLang(initialIsEn, false);
+syncCheck();
+
+window.addEventListener('pageshow', () => {
+  syncCheck();
+});
 </script>
 
 </body>
