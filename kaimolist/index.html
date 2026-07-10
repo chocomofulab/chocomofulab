@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カイモリスト | Kaimolist</title>
+
+  <meta name="description" content="カイモリストは、買うものをさっとメモして、お店でチェックできるシンプルなiPhone向け買いものリストアプリです。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chocomofulab.com/kaimolist/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ちょこもふらぼ | Chocomofu Lab">
+  <meta property="og:title" content="カイモリスト | Kaimolist">
+  <meta property="og:description" content="買うものを、さっとメモ。お店でチェックできるシンプルな買いものリストアプリ。">
+  <meta property="og:url" content="https://chocomofulab.com/kaimolist/">
+  <meta property="og:image" content="https://chocomofulab.com/kaimolist/images/ogp-shopping-memo.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="カイモリスト | Kaimolist">
+  <meta name="twitter:description" content="買うものを、さっとメモ。お店でチェックできるシンプルな買いものリストアプリ。">
+  <meta name="twitter:image" content="https://chocomofulab.com/kaimolist/images/ogp-shopping-memo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-soft: #fbf7ef;
+      --bg-deeper: #eadfce;
+      --nav: #fbf8f2;
+      --white: #fffdf8;
+
+      --brown: #3f2c1f;
+      --brown-soft: #7c664f;
+      --beige: #d8c8b3;
+      --beige-soft: #efe6d8;
+
+      --green: #4f8a45;
+      --green-soft: #dcebd7;
+      --orange: #df744b;
+      --orange-soft: #f6d6c5;
+
+      --line: rgba(199, 184, 164, 0.85);
+      --shadow: rgba(63, 44, 31, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(251, 248, 242, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(216, 200, 179, 0.75);
+      box-shadow: 0 2px 14px rgba(63, 44, 31, 0.04);
+      z-index: 100;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #c88976;
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      min-width: 86px;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      background: var(--beige-soft);
+      color: var(--brown);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-decoration: none;
+      border: 2px solid rgba(216, 200, 179, 0.65);
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: #f4efe6;
+      padding: 7.8rem 2rem 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 68px;
+      background: var(--white);
+      clip-path: ellipse(56% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      max-width: 820px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .app-title-ja {
+      font-size: clamp(2.65rem, 7.6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.45rem;
+      color: var(--brown);
+      text-shadow: 5px 5px 0 rgba(255, 255, 255, 0.72);
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .app-title-ja .part-one {
+      color: var(--brown);
+    }
+
+    .app-title-ja .part-two {
+      color: var(--orange);
+    }
+
+    .app-title-en {
+      font-size: clamp(1rem, 2.6vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: var(--brown-soft);
+      margin-bottom: 1.4rem;
+      animation: fadeDown 0.7s ease 0.08s both;
+    }
+
+    .memo-hero-card {
+      width: min(100%, 420px);
+      margin: 0.2rem auto 1.2rem;
+      background: rgba(255, 253, 248, 0.94);
+      border-radius: 34px;
+      padding: 1.2rem;
+      box-shadow: 0 12px 32px rgba(63, 44, 31, 0.1);
+      border: 1.5px solid rgba(216, 200, 179, 0.7);
+      animation: fadeDown 0.75s ease 0.18s both;
+    }
+
+    .memo-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .memo-input {
+      flex: 1;
+      background: #faf7f1;
+      color: #b8aa9b;
+      border-radius: 22px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .memo-plus {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: var(--green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      line-height: 1;
+      box-shadow: 0 8px 20px rgba(79, 138, 69, 0.18);
+    }
+
+    .memo-list {
+      background: #fffdf9;
+      border-radius: 26px;
+      padding: 1rem;
+      min-height: 150px;
+    }
+
+    .memo-list-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      border-bottom: 2px solid #e9dfd1;
+      padding-bottom: 0.65rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .memo-list-title:last-of-type {
+      margin-bottom: 0.9rem;
+    }
+
+    .memo-item-text {
+      color: var(--brown);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .memo-delete {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f0eadf;
+      color: #ad9276;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    .memo-note {
+      color: var(--brown-soft);
+      font-size: 0.9rem;
+      font-weight: 800;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: fit-content;
+      margin: 1rem auto 1.6rem;
+      background: rgba(255, 253, 248, 0.92);
+      border: 2px solid rgba(79, 138, 69, 0.5);
+      color: var(--green);
+      border-radius: 999px;
+      padding: 0.7rem 1.55rem;
+      font-size: 0.95rem;
+      font-weight: 900;
+      box-shadow: 0 3px 12px rgba(79, 138, 69, 0.08);
+      animation: fadeDown 0.75s ease 0.28s both;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+      line-height: 1.95;
+      color: var(--brown-soft);
+      max-width: 650px;
+      margin: 0 auto;
+      animation: fadeDown 0.75s ease 0.38s both;
+    }
+
+    .hero-pills {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      animation: fadeDown 0.75s ease 0.5s both;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.86);
+      border: 1.5px solid rgba(216, 200, 179, 0.72);
+      color: var(--brown-soft);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .section-shell {
+      padding: 4.5rem 2rem;
+      background: var(--white);
+    }
+
+    .section-shell.soft {
+      background: var(--bg-soft);
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: #c88976;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 2rem;
+    }
+
+    .panel {
+      background: rgba(255, 253, 248, 0.94);
+      border: 2px solid var(--line);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 8px 26px var(--shadow);
+    }
+
+    .screenshots-set {
+      display: none;
+    }
+
+    body:not(.en) .screenshots-set[data-lang="ja"] {
+      display: block;
+    }
+
+    body.en .screenshots-set[data-lang="en"] {
+      display: block;
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .screenshot-card {
+      background: linear-gradient(180deg, #f4efe6 0%, #e9ddce 100%);
+      border-radius: 22px;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(63, 44, 31, 0.14);
+      border: 1px solid rgba(216, 200, 179, 0.7);
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .desc-box p {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--brown-soft);
+      margin-bottom: 1rem;
+    }
+
+    .desc-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: #fffaf2;
+      border: 2px solid rgba(216, 200, 179, 0.75);
+      border-radius: 24px;
+      padding: 1.25rem;
+      box-shadow: 0 5px 18px rgba(63, 44, 31, 0.06);
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--brown-soft);
+    }
+
+    .step-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.9rem;
+      align-items: start;
+      background: #fffaf2;
+      border: 2px solid rgba(216, 200, 179, 0.75);
+      border-radius: 22px;
+      padding: 1rem 1.15rem;
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      color: var(--brown-soft);
+      line-height: 1.8;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .step-text strong {
+      color: var(--brown);
+      font-weight: 900;
+    }
+
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      background: linear-gradient(180deg, #fffaf2 0%, #f4eadc 100%);
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 900;
+      box-shadow: 0 4px 14px rgba(63, 44, 31, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .link-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(63, 44, 31, 0.12);
+    }
+
+    .link-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .link-text {
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .link-arrow {
+      font-size: 1rem;
+      color: var(--brown-soft);
+      flex-shrink: 0;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.76);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.84rem;
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+    body.en .hero-pills[data-lang="en"] {
+      display: flex;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.22);
+      }
+    }
+
+    @media (max-width: 860px) {
+      nav {
+        padding: 0.8rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.94rem;
+      }
+
+      .lang-btn {
+        min-height: 48px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        gap: 0.5rem;
+        padding: 0.6rem 0.8rem;
+      }
+
+      .nav-logo {
+        font-size: 0.82rem;
+        flex: 1;
+        min-width: 0;
+        max-width: calc(100% - 70px);
+        white-space: nowrap;
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-right {
+        gap: 0.45rem;
+      }
+
+      .lang-btn {
+        min-width: 58px;
+        font-size: 0.8rem;
+        min-height: 42px;
+        padding: 0.4rem;
+      }
+
+      .hero {
+        padding: 7rem 1.2rem 3.8rem;
+      }
+
+      .hero-desc br {
+        display: none;
+      }
+
+      .memo-hero-card {
+        border-radius: 28px;
+        padding: 1rem;
+      }
+
+      .memo-input {
+        font-size: 0.84rem;
+      }
+
+      .memo-plus {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        font-size: 1.75rem;
+      }
+
+      .panel {
+        padding: 1.5rem 1rem;
+        border-radius: 24px;
+      }
+
+      .screenshots-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem;
+      }
+
+      .screenshot-card {
+        border-radius: 14px;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        margin: 0.18rem 0.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
+    <div class="nav-right">
+      <button type="button" class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Switch to English">EN</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div class="hero-title-wrap">
+        <h1 class="app-title-ja" data-lang="ja">
+          <span class="part-one">カイモ</span><span class="part-two">リスト</span>
+        </h1>
+       <p class="app-title-en" data-lang="ja">買いものリストアプリ</p>
+
+        <h1 class="app-title-ja" data-lang="en">
+          <span class="part-one">Kai</span><span class="part-two">molist</span>
+        </h1>
+        <p class="app-title-en" data-lang="en">Simple Shopping List</p>
+      </div>
+
+      <div class="memo-hero-card" aria-hidden="true">
+        <div class="memo-card-top">
+          <div class="memo-input">
+            <span data-lang="ja">買うものを入力...</span>
+            <span data-lang="en">Enter an item...</span>
+          </div>
+          <div class="memo-plus">＋</div>
+        </div>
+
+        <div class="memo-list">
+          <div class="memo-list-title">
+            <div class="memo-item-text">
+              <span data-lang="ja">牛乳 1</span>
+              <span data-lang="en">Milk 1</span>
+            </div>
+            <div class="memo-delete">×</div>
+          </div>
+
+          <div class="memo-list-title">
+            <div class="memo-item-text">
+              <span data-lang="ja">ヨーグルト 2</span>
+              <span data-lang="en">Yogurt 2</span>
+            </div>
+            <div class="memo-delete">×</div>
+          </div>
+
+          <div class="memo-list-title">
+            <div class="memo-item-text">
+              <span data-lang="ja">砂糖 1</span>
+              <span data-lang="en">Sugar 1</span>
+            </div>
+            <div class="memo-delete">×</div>
+          </div>
+
+          <p class="memo-note" data-lang="ja">
+            買い忘れたくないものを、<br>
+            さっとメモしておけます。
+          </p>
+          <p class="memo-note" data-lang="en">
+            Quickly note the items<br>
+            you do not want to forget.
+          </p>
+        </div>
+      </div>
+
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span data-lang="ja">App Store 公開準備中</span>
+        <span data-lang="en">Preparing for App Store release</span>
+      </div>
+
+      <p class="hero-desc" data-lang="ja">
+        「カイモリスト」は、<br>
+        買うものをさっとメモして<br>
+        お店でチェックできる<br>
+        シンプルなiPhone向け買いものリストアプリです。
+      </p>
+
+      <p class="hero-desc" data-lang="en">
+        Kaimolist is a simple iPhone<br>
+        shopping list app<br>
+        for quickly noting items<br>
+        and checking them in stores.
+      </p>
+
+      <div class="hero-pills" data-lang="ja">
+        <span class="hero-pill">iPhone専用</span>
+        <span class="hero-pill">無料アプリ</span>
+        <span class="hero-pill">日本語のみ</span>
+      </div>
+
+      <div class="hero-pills" data-lang="en">
+        <span class="hero-pill">iPhone Only</span>
+        <span class="hero-pill">Free App</span>
+        <span class="hero-pill">Japanese Only</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner reveal">
+      <p class="section-label">
+        <span data-lang="ja">スクリーンショット</span>
+        <span data-lang="en">SCREENSHOTS</span>
+      </p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">アプリ画面</span>
+        <span data-lang="en">App Preview</span>
+      </h2>
+
+      <div class="panel">
+        <div class="screenshots-set" data-lang="ja">
+          <div class="screenshots-grid">
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-1.png" alt="カイモリストのスクリーンショット1">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-2.png" alt="カイモリストのスクリーンショット2">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-3.png" alt="カイモリストのスクリーンショット3">
+            </div>
+          </div>
+        </div>
+
+        <div class="screenshots-set" data-lang="en">
+          <div class="screenshots-grid">
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-1.png" alt="Kaimolist screenshot 1 (Japanese version)">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-2.png" alt="Kaimolist screenshot 2 (Japanese version)">
+            </div>
+            <div class="screenshot-card">
+              <img src="images/shopping-memo-screenshot-ja-3.png" alt="Kaimolist screenshot 3 (Japanese version)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell soft">
+    <div class="section-inner reveal">
+      <p class="section-label">
+        <span data-lang="ja">アプリについて</span>
+        <span data-lang="en">ABOUT</span>
+      </p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">どんなアプリ？</span>
+        <span data-lang="en">About the App</span>
+      </h2>
+
+      <div class="panel desc-box">
+        <p data-lang="ja">
+          買うものを全部きっちり管理するより、<br>
+          今日これだけは忘れたくないものを、少しだけ。
+        </p>
+
+        <p data-lang="en">
+          Rather than managing every shopping item in detail,<br>
+          this app is made for noting just the few things you really want to remember today.
+        </p>
+
+        <p data-lang="ja">
+          「カイモリスト」は、日常の小さな買い忘れを防ぐための、シンプルな買いものリストアプリです。
+          買うものを入力して、買い物中にチェックできます。
+        </p>
+
+        <p data-lang="en">
+          Kaimolist is a simple shopping list app for helping prevent small everyday forgotten items.
+          Add what you need, then check items off while shopping.
+        </p>
+
+        <p data-lang="ja">
+          アプリ本体は現在、日本語のみ対応しています。
+        </p>
+
+        <p data-lang="en">
+          This app is currently available in Japanese only.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-inner reveal">
+      <p class="section-label">
+        <span data-lang="ja">こんなときに</span>
+        <span data-lang="en">USE CASES</span>
+      </p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">日常のちょい忘れ防止に</span>
+        <span data-lang="en">For Small Everyday Reminders</span>
+      </h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧺</div>
+          <h3>
+            <span data-lang="ja">帰りに買うものをメモ</span>
+            <span data-lang="en">For quick shopping notes</span>
+          </h3>
+          <p data-lang="ja">
+            仕事帰りや外出ついでに、忘れたくないものをさっと残せます。
+          </p>
+          <p data-lang="en">
+            Quickly note what you want to buy on your way home or while going out.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🥬</div>
+          <h3>
+            <span data-lang="ja">足りないものを少しだけ</span>
+            <span data-lang="en">For a few missing items</span>
+          </h3>
+          <p data-lang="ja">
+            冷蔵庫や棚を見て、切らしたくないものだけをメモできます。
+          </p>
+          <p data-lang="en">
+            Note only the things you noticed were running low at home.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3>
+            <span data-lang="ja">お店でチェック</span>
+            <span data-lang="en">Check while shopping</span>
+          </h3>
+          <p data-lang="ja">
+            買ったものにチェックを入れながら、買い忘れを防げます。
+          </p>
+          <p data-lang="en">
+            Check items off as you shop, so it is easier to avoid forgetting them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell soft">
+    <div class="section-inner reveal">
+      <p class="section-label">GUIDE</p>
+
+      <h2 class="section-title">
+        <span data-lang="ja">ご案内</span>
+        <span data-lang="en">Guidance</span>
+      </h2>
+
+      <div class="panel">
+        <ul class="link-list">
+
+          <li>
+            <a href="howto.html" class="link-item">
+              <span class="link-icon">📖</span>
+              <span class="link-text">
+                <span data-lang="ja">使い方</span>
+                <span data-lang="en">How to Use</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="faq.html" class="link-item">
+              <span class="link-icon">❓</span>
+              <span class="link-text">
+                <span data-lang="ja">ご質問（Q&amp;A）</span>
+                <span data-lang="en">FAQ</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="privacy.html" class="link-item">
+              <span class="link-icon">🔒</span>
+              <span class="link-text">
+                <span data-lang="ja">プライバシーポリシー</span>
+                <span data-lang="en">Privacy Policy</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="terms.html" class="link-item">
+              <span class="link-icon">📋</span>
+              <span class="link-text">
+                <span data-lang="ja">利用規約</span>
+                <span data-lang="en">Terms of Use</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="../contact.html" class="link-item">
+              <span class="link-icon">✉️</span>
+              <span class="link-text">
+                <span data-lang="ja">お問い合わせ</span>
+                <span data-lang="en">Contact</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html" class="link-item">
+              <span class="link-icon">🏡</span>
+              <span class="link-text">
+                <span data-lang="ja">ちょこもふらぼ トップ</span>
+                <span data-lang="en">Chocomofu Lab Home</span>
+              </span>
+              <span class="link-arrow">›</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-logo">
+      <span data-lang="ja">カイモリスト</span>
+      <span data-lang="en">Kaimolist</span>
+    </p>
+
+    <div class="footer-links">
+      <a href="../index.html">
+        <span data-lang="ja">ちょこもふらぼ</span>
+        <span data-lang="en">Chocomofu Lab</span>
+      </a>
+      <a href="privacy.html">
+        <span data-lang="ja">プライバシーポリシー</span>
+        <span data-lang="en">Privacy Policy</span>
+      </a>
+      <a href="terms.html">
+        <span data-lang="ja">利用規約</span>
+        <span data-lang="en">Terms</span>
+      </a>
+      <a href="../contact.html">
+        <span data-lang="ja">お問い合わせ</span>
+        <span data-lang="en">Contact</span>
+      </a>
+    </div>
+
+    <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+  </footer>
+
+  <script>
+    let isEn = false;
+
+    function applyLang(nextIsEn, shouldUpdateUrl = true) {
+      isEn = nextIsEn;
+
+      document.body.classList.toggle('en', isEn);
+      document.documentElement.lang = isEn ? 'en' : 'ja';
+
+      const langBtn = document.getElementById('langBtn');
+
+      if (langBtn) {
+        langBtn.textContent = isEn ? 'JA' : 'EN';
+        langBtn.setAttribute(
+          'aria-label',
+          isEn ? '日本語表示に切り替える' : 'Switch to English'
+        );
+      }
+
+      if (shouldUpdateUrl) {
+        const currentUrl = new URL(window.location.href);
+
+        if (isEn) {
+          currentUrl.searchParams.set('lang', 'en');
+        } else {
+          currentUrl.searchParams.delete('lang');
+        }
+
+        window.history.replaceState(null, '', currentUrl.toString());
+      }
+
+      updateInternalLinksLang();
+    }
+
+    function toggleLang() {
+      applyLang(!isEn, true);
+    }
+
+    function updateInternalLinksLang() {
+      const links = document.querySelectorAll('a[href]');
+
+      links.forEach((link) => {
+        const originalHref = link.getAttribute('href');
+
+        if (
+          !originalHref ||
+          originalHref.startsWith('#') ||
+          originalHref.startsWith('mailto:') ||
+          originalHref.startsWith('tel:') ||
+          originalHref.startsWith('javascript:')
+        ) {
+          return;
+        }
+
+        const linkUrl = new URL(originalHref, window.location.href);
+
+        if (linkUrl.origin !== window.location.origin) {
+          return;
+        }
+
+        if (isEn) {
+          linkUrl.searchParams.set('lang', 'en');
+        } else {
+          linkUrl.searchParams.delete('lang');
+        }
+
+        link.href = linkUrl.toString();
+      });
+    }
+
+    const initialIsEn = window.location.search.indexOf('lang=en') !== -1;
+    applyLang(initialIsEn, false);
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach((item) => observer.observe(item));
+    } else {
+      reveals.forEach((item) => item.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>

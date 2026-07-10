@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使い方 | カイモリスト</title>
+
+  <meta name="description" content="カイモリストの使い方ページです。買い忘れたくないものを入力し、＋ボタンやキーボード右下の確定ボタンで追加して、お店でチェックできるシンプルな買いものリストアプリです。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chocomofulab.com/kaimolist/howto.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ちょこもふらぼ | Chocomofu Lab">
+  <meta property="og:title" content="使い方 | カイモリスト">
+  <meta property="og:description" content="買い忘れたくないものをさっとメモして、お店でチェックできる買いものリストアプリの使い方です。">
+  <meta property="og:url" content="https://chocomofulab.com/kaimolist/howto.html">
+  <meta property="og:image" content="https://chocomofulab.com/kaimolist/images/ogp-shopping-memo.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="使い方 | カイモリスト">
+  <meta name="twitter:description" content="買い忘れたくないものをさっとメモして、お店でチェックできる買いものリストアプリの使い方です。">
+  <meta name="twitter:image" content="https://chocomofulab.com/kaimolist/images/ogp-shopping-memo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-soft: #fbf7ef;
+      --white: #fffdf8;
+
+      --brown: #3f2c1f;
+      --brown-soft: #7c664f;
+      --beige: #d8c8b3;
+      --beige-soft: #efe6d8;
+
+      --green: #4f8a45;
+      --green-soft: #dcebd7;
+      --orange: #df744b;
+      --orange-soft: #f6d6c5;
+
+      --label: #c88976;
+      --line: rgba(199, 184, 164, 0.9);
+      --shadow: rgba(63, 44, 31, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4,
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(251, 248, 242, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 2px solid rgba(216, 200, 179, 0.75);
+      box-shadow: 0 2px 14px rgba(63, 44, 31, 0.04);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #c88976;
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .nav-back,
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: var(--beige-soft);
+      color: var(--brown);
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-decoration: none;
+      border: 2px solid rgba(216, 200, 179, 0.65);
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .lang-btn {
+      font-family: inherit;
+      min-width: 62px;
+    }
+
+    .nav-back:hover,
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .page-hero {
+      background: var(--bg);
+      padding: 7.4rem 2rem 3.2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 44px;
+      background: var(--white);
+      clip-path: ellipse(58% 100% at 50% 100%);
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .page-hero .icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--brown);
+      line-height: 1.2;
+      text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .page-hero .app-name {
+      display: inline-block;
+      margin-top: 0.95rem;
+      background: rgba(255, 253, 248, 0.92);
+      border: 2px solid rgba(216, 200, 179, 0.85);
+      border-radius: 999px;
+      padding: 0.45rem 1.15rem;
+      font-size: 0.88rem;
+      font-weight: 900;
+      color: var(--brown-soft);
+      box-shadow: 0 4px 14px rgba(63, 44, 31, 0.05);
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      background: var(--white);
+    }
+
+    .howto-section {
+      background: rgba(255, 253, 248, 0.96);
+      border-radius: 28px;
+      padding: 2rem;
+      margin-bottom: 1.6rem;
+      border: 2px solid var(--line);
+      box-shadow: 0 8px 26px var(--shadow);
+    }
+
+    .howto-section h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(216, 200, 179, 0.8);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .howto-section p {
+      font-size: 0.96rem;
+      line-height: 1.95;
+      color: var(--brown-soft);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .howto-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      background: #fffaf2;
+      border: 2px solid rgba(216, 200, 179, 0.8);
+      border-radius: 24px;
+      padding: 1.15rem 1.25rem;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      box-shadow: 0 5px 14px rgba(223, 116, 75, 0.18);
+    }
+
+    .step-text {
+      color: var(--brown-soft);
+      line-height: 1.85;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .step-text strong {
+      display: inline-block;
+      color: var(--brown);
+      font-size: 1.02rem;
+      font-weight: 900;
+      margin-bottom: 0.1rem;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tip-card {
+      background: #fffaf2;
+      border: 2px solid rgba(216, 200, 179, 0.8);
+      border-radius: 24px;
+      padding: 1.25rem;
+      box-shadow: 0 5px 18px rgba(63, 44, 31, 0.06);
+    }
+
+    .tip-card .tip-icon {
+      font-size: 1.7rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .tip-card h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .tip-card p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--brown-soft);
+      margin-bottom: 0;
+    }
+
+    .safe-box {
+      background: #f6fbf3;
+      border-radius: 16px;
+      padding: 1.05rem 1.2rem;
+      border: 2px solid rgba(79, 138, 69, 0.35);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--brown-soft);
+      margin-top: 0.85rem;
+    }
+
+    .notice-box {
+      background: #fff7ef;
+      border-radius: 16px;
+      padding: 1.05rem 1.2rem;
+      border: 2px solid rgba(223, 116, 75, 0.35);
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--brown-soft);
+      margin-top: 0.85rem;
+    }
+
+    .safe-box ul,
+    .notice-box ul {
+      padding-left: 1.3rem;
+      list-style: disc;
+    }
+
+    .safe-box li,
+    .notice-box li {
+      margin-bottom: 0.35rem;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+
+    .safe-box li:last-child,
+    .notice-box li:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--green);
+      font-weight: 900;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(79, 138, 69, 0.55);
+      transition: opacity 0.2s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.75;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.76);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.84rem;
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        padding: 0.7rem 1rem;
+      }
+
+            .nav-logo {
+        font-size: 0.82rem;
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-back,
+      .lang-btn {
+        min-height: 40px;
+        padding: 0.38rem 0.75rem;
+        font-size: 0.78rem;
+      }
+
+      .content {
+        padding: 3rem 1rem 4rem;
+      }
+
+      .howto-section {
+        padding: 1.45rem;
+        border-radius: 24px;
+      }
+
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-hero {
+        padding: 6.6rem 1rem 2.7rem;
+      }
+
+      .step-item {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .step-num {
+        width: 38px;
+        height: 38px;
+      }
+
+      .footer-links li {
+        display: inline-block;
+        margin: 0.18rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">ちょこもふらぼ / Chocomofu Lab</a>
+  <div class="nav-right">
+    <button type="button" class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Switch to English">EN</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="icon">📖</div>
+
+    <h1>
+      <span data-lang="ja">使い方</span>
+      <span data-lang="en">How to Use</span>
+    </h1>
+
+    <span class="app-name">
+      <span data-lang="ja">カイモリスト</span>
+      <span data-lang="en">Kaimolist</span>
+    </span>
+  </div>
+</div>
+
+<main class="content">
+
+  <section class="howto-section">
+    <h2>
+      📝
+      <span data-lang="ja">基本の使い方</span>
+      <span data-lang="en">Basic Usage</span>
+    </h2>
+
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <p class="step-text">
+          <strong>
+            <span data-lang="ja">買うものを入力</span>
+            <span data-lang="en">Enter an item</span>
+          </strong><br>
+          <span data-lang="ja">買い忘れたくないものを入力します。</span>
+          <span data-lang="en">Type the item you do not want to forget to buy.</span>
+        </p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <p class="step-text">
+          <strong>
+            <span data-lang="ja">リストに追加</span>
+            <span data-lang="en">Add it to the list</span>
+          </strong><br>
+          <span data-lang="ja">＋ボタン、またはキーボード右下の確定ボタン（レ点や完了など）で、リストに追加できます。</span>
+          <span data-lang="en">Add the item to the list with the plus button or the confirmation key on the keyboard.</span>
+        </p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <p class="step-text">
+          <strong>
+            <span data-lang="ja">キーボードを閉じる</span>
+            <span data-lang="en">Close the keyboard</span>
+          </strong><br>
+          <span data-lang="ja">入力が終わったら、「閉じる」ボタンやリストの行をタップしてキーボードを閉じます。</span>
+          <span data-lang="en">When you finish typing, close the keyboard by tapping the “Close” button or a list row.</span>
+        </p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <p class="step-text">
+          <strong>
+            <span data-lang="ja">買い物スタート</span>
+            <span data-lang="en">Start Shopping</span>
+          </strong><br>
+          <span data-lang="ja">「買い物スタート」を押すとチェック画面に移り、買ったものにチェックを入れられます。</span>
+          <span data-lang="en">Tap “Start Shopping” to open the check screen and check off the items you have bought.</span>
+        </p>
+      </div>
+
+      <div class="step-item">
+        <span class="step-num">5</span>
+        <p class="step-text">
+          <strong>
+            <span data-lang="ja">必要に応じてリセット</span>
+            <span data-lang="en">Reset when needed</span>
+          </strong><br>
+          <span data-lang="ja">買い物が終わったら、購入済みだけを外したり、リスト全体をリセットできます。</span>
+          <span data-lang="en">After shopping, you can remove only bought items or reset the whole list.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      🧺
+      <span data-lang="ja">おすすめの使い方</span>
+      <span data-lang="en">Recommended Use</span>
+    </h2>
+
+    <p data-lang="ja">
+      このアプリは、買うものを全部きっちり管理するというより、
+      「これだけは買い忘れたくないもの」をちょっとメモしておく使い方に向いています。
+    </p>
+
+    <p data-lang="en">
+      This app is designed less for managing every shopping item in detail
+      and more for quickly noting the few things you really do not want to forget to buy.
+    </p>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">🧺</div>
+        <h3>
+          <span data-lang="ja">帰りに買うものをメモ</span>
+          <span data-lang="en">On the way home</span>
+        </h3>
+        <p data-lang="ja">
+          仕事帰りや外出ついでに、買い忘れたくないものをさっと残せます。
+        </p>
+        <p data-lang="en">
+          Quickly note the items you do not want to forget to buy on your way home or while going out.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">🥬</div>
+        <h3>
+          <span data-lang="ja">足りないものを少しだけ</span>
+          <span data-lang="en">A few missing items</span>
+        </h3>
+        <p data-lang="ja">
+          冷蔵庫や棚を見て、切らしたくないものだけをメモできます。
+        </p>
+        <p data-lang="en">
+          Note only the things you noticed were running low at home.
+        </p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-icon">✅</div>
+        <h3>
+          <span data-lang="ja">お店でチェック</span>
+          <span data-lang="en">Check while shopping</span>
+        </h3>
+        <p data-lang="ja">
+          買ったものにチェックを入れながら、買い忘れを防げます。
+        </p>
+        <p data-lang="en">
+          Check items off while shopping to make it easier to avoid forgetting them.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      💡
+      <span data-lang="ja">ご利用のポイント</span>
+      <span data-lang="en">Tips</span>
+    </h2>
+
+    <div class="safe-box">
+      <ul>
+        <li>
+          <span data-lang="ja">買うものを思いついた時に、さっと入力しておくと便利です。</span>
+          <span data-lang="en">It is useful to quickly enter an item when you remember it.</span>
+        </li>
+        <li>
+          <span data-lang="ja">数が必要なものは、「ねぎ 1」「牛乳 2」のように一緒に書いておけます。</span>
+          <span data-lang="en">You can include quantities, such as “green onion 1” or “milk 2”.</span>
+        </li>
+        <li>
+          <span data-lang="ja">入力中は「閉じる」ボタンやリストの行をタップすると、キーボードを閉じられます。</span>
+          <span data-lang="en">While typing, you can close the keyboard by tapping the “Close” button or a list row.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      🔒
+      <span data-lang="ja">リスト内容について</span>
+      <span data-lang="en">About List Contents</span>
+    </h2>
+
+    <div class="safe-box">
+      <ul>
+        <li>
+          <span data-lang="ja">開発者が、入力された買い物リストの内容を取得・閲覧することはありません。</span>
+          <span data-lang="en">The developer does not collect or view the contents of your shopping list.</span>
+        </li>
+        <li>
+          <span data-lang="ja">会員登録は必要ありません。</span>
+          <span data-lang="en">No sign-in is required.</span>
+        </li>
+        <li>
+          <span data-lang="ja">アプリ本体は現在、日本語のみ対応しています。</span>
+          <span data-lang="en">The app itself is currently available in Japanese only.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      📢
+      <span data-lang="ja">広告とトラッキングについて</span>
+      <span data-lang="en">About Ads and Tracking</span>
+    </h2>
+
+    <p data-lang="ja">
+      本アプリは無料でご利用いただけます。運営を支えるため、アプリ内の一部画面に広告が表示される場合があります。
+    </p>
+
+    <p data-lang="en">
+      This app is free to use. To support its operation, ads may be displayed on some screens in the app.
+    </p>
+
+    <div class="notice-box">
+      <ul>
+        <li>
+  <span data-lang="ja">広告のカスタマイズ（トラッキング）を許可するかどうかは、自由にお選びいただけます。</span>
+  <span data-lang="en">You can freely choose whether to allow ad customization (tracking).</span>
+</li>
+        <li>
+          <span data-lang="ja">許可をしない場合でも、すべての機能は制限なくそのままお使いいただけます。</span>
+          <span data-lang="en">Even if you do not allow it, you can use all features without any restrictions.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      ⚠️
+      <span data-lang="ja">ご利用時のお願い</span>
+      <span data-lang="en">Notes for Use</span>
+    </h2>
+
+    <div class="notice-box">
+      <ul>
+        <li>
+          <span data-lang="ja">店内での歩行中や、周囲への注意が必要な状況でのアプリ操作はお控えください。</span>
+          <span data-lang="en">Please refrain from operating the app while walking inside a store or in situations that require attention to your surroundings.</span>
+        </li>
+        <li>
+          <span data-lang="ja">画面を見る際は、周りの安全を十分に確認し、他のお客様のご迷惑にならないようご注意をお願いいたします。</span>
+          <span data-lang="en">When looking at the screen, please make sure your surroundings are safe and be careful not to inconvenience other customers.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <h2>
+      ✉️
+      <span data-lang="ja">お問い合わせ</span>
+      <span data-lang="en">Contact</span>
+    </h2>
+
+    <p data-lang="ja">
+      ご意見・ご感想・不具合のご報告は、ご質問（Q&A）をご確認のうえ、お問い合わせフォームよりご連絡ください。
+    </p>
+
+    <p data-lang="en">
+      For feedback, questions, or bug reports, please check the FAQ first, then contact us via the contact form.
+    </p>
+
+    <div class="link-row">
+      <a href="faq.html" class="contact-link">
+        <span data-lang="ja">ご質問（Q&A）</span>
+        <span data-lang="en">FAQ</span>
+      </a>
+
+      <a href="../contact.html" class="contact-link">
+        <span data-lang="ja">お問い合わせフォームへ</span>
+        <span data-lang="en">Contact Form</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="footer-logo">
+    <span data-lang="ja">カイモリスト</span>
+    <span data-lang="en">Kaimolist</span>
+  </p>
+
+  <ul class="footer-links">
+    <li>
+      <a href="index.html">
+        <span data-lang="ja">アプリページ</span>
+        <span data-lang="en">App Page</span>
+      </a>
+    </li>
+    <li>
+      <a href="privacy.html">
+        <span data-lang="ja">プライバシーポリシー</span>
+        <span data-lang="en">Privacy Policy</span>
+      </a>
+    </li>
+    <li>
+      <a href="terms.html">
+        <span data-lang="ja">利用規約</span>
+        <span data-lang="en">Terms</span>
+      </a>
+    </li>
+    <li>
+      <a href="faq.html">
+        <span data-lang="ja">ご質問</span>
+        <span data-lang="en">FAQ</span>
+      </a>
+    </li>
+    <li>
+      <a href="../contact.html">
+        <span data-lang="ja">お問い合わせ</span>
+        <span data-lang="en">Contact</span>
+      </a>
+    </li>
+  </ul>
+
+  <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+</footer>
+
+<script>
+  let isEn = false;
+
+  function applyLang(nextIsEn, shouldUpdateUrl = true) {
+    isEn = nextIsEn;
+
+    document.body.classList.toggle('en', isEn);
+    document.documentElement.lang = isEn ? 'en' : 'ja';
+
+    const langBtn = document.getElementById('langBtn');
+
+    if (langBtn) {
+      langBtn.textContent = isEn ? 'JA' : 'EN';
+      langBtn.setAttribute(
+        'aria-label',
+        isEn ? '日本語表示に切り替える' : 'Switch to English'
+      );
+    }
+
+    if (shouldUpdateUrl) {
+      const currentUrl = new URL(window.location.href);
+
+      if (isEn) {
+        currentUrl.searchParams.set('lang', 'en');
+      } else {
+        currentUrl.searchParams.delete('lang');
+      }
+
+      window.history.replaceState(null, '', currentUrl.toString());
+    }
+
+    updateInternalLinksLang();
+  }
+
+  function toggleLang() {
+    applyLang(!isEn, true);
+  }
+
+  function updateInternalLinksLang() {
+    const links = document.querySelectorAll('a[href]');
+
+    links.forEach((link) => {
+      const originalHref = link.getAttribute('href');
+
+      if (
+        !originalHref ||
+        originalHref.startsWith('#') ||
+        originalHref.startsWith('mailto:') ||
+        originalHref.startsWith('tel:') ||
+        originalHref.startsWith('javascript:')
+      ) {
+        return;
+      }
+
+      const linkUrl = new URL(originalHref, window.location.href);
+
+      if (linkUrl.origin !== window.location.origin) {
+        return;
+      }
+
+      if (isEn) {
+        linkUrl.searchParams.set('lang', 'en');
+      } else {
+        linkUrl.searchParams.delete('lang');
+      }
+
+      link.href = linkUrl.toString();
+    });
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const initialIsEn = params.get('lang') === 'en';
+
+  applyLang(initialIsEn, false);
+</script>
+
+</body>
+</html>
