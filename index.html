@@ -102,12 +102,15 @@
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
       }
+
       10% {
         opacity: 0.35;
       }
+
       90% {
         opacity: 0.35;
       }
+
       100% {
         transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
@@ -313,6 +316,7 @@
         opacity: 0;
         transform: translateY(-20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -393,7 +397,7 @@
       outline-offset: 5px;
     }
 
-       .app-detail-btn {
+    .app-detail-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -411,13 +415,13 @@
       transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
     }
 
-        .app-card-link:hover .app-detail-btn {
+    .app-card-link:hover .app-detail-btn {
       transform: translateY(-2px);
       background: #6b4c3f;
       box-shadow: 0 14px 30px rgba(95,69,54,0.32);
     }
 
-        .app-detail-arrow {
+    .app-detail-arrow {
       font-size: 1.05rem;
       line-height: 1;
       transition: transform 0.2s;
@@ -508,6 +512,7 @@
         opacity: 1;
         transform: scale(1);
       }
+
       50% {
         opacity: 0.5;
         transform: scale(1.3);
@@ -547,11 +552,11 @@
       background: linear-gradient(160deg, #f0faf7, #dff2fb);
     }
 
-        #about .reveal {
+    #about .reveal {
       text-align: center;
     }
 
-       .about-grid {
+    .about-grid {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -561,7 +566,7 @@
       margin: 0 auto;
     }
 
-        .about-icon-wrap {
+    .about-icon-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -859,17 +864,44 @@
   <div class="stars" id="stars"></div>
 
   <nav>
-    <a href="#" class="nav-logo"><span>ちょこもふらぼ / Chocomofu Lab</span></a>
+    <a href="#" class="nav-logo">
+      <span>ちょこもふらぼ / Chocomofu Lab</span>
+    </a>
+
     <ul class="nav-links">
-      <li><a href="#app"><span data-lang="ja">アプリを見る</span><span data-lang="en">Apps</span></a></li>
-      <li><a href="#about"><span data-lang="ja">ラボについて</span><span data-lang="en">About</span></a></li>
-      <li><a href="#app-list"><span data-lang="ja">アプリ一覧</span><span data-lang="en">App List</span></a></li>
+      <li>
+        <a href="#app">
+          <span data-lang="ja">アプリを見る</span>
+          <span data-lang="en">Apps</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#about">
+          <span data-lang="ja">ラボについて</span>
+          <span data-lang="en">About</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#app-list">
+          <span data-lang="ja">アプリ一覧</span>
+          <span data-lang="en">App List</span>
+        </a>
+      </li>
     </ul>
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Toggle language">EN</button>
+
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn" aria-label="Toggle language">
+      EN
+    </button>
   </nav>
 
   <section class="hero">
-    <div class="hero-badge">🌙 <span data-lang="ja">個人開発ラボ</span><span data-lang="en">Independent Development Lab</span></div>
+    <div class="hero-badge">
+      🌙
+      <span data-lang="ja">個人開発ラボ</span>
+      <span data-lang="en">Independent Development Lab</span>
+    </div>
 
     <h1 class="hero-title-ja" data-lang="ja">
       <span class="ch">ち</span><span class="ko">ょ</span><span class="mo">こ</span><span class="fu">も</span>ふらぼ
@@ -896,32 +928,60 @@
     </p>
 
     <div class="hero-cta">
-      <a href="#app" class="btn-primary"><span data-lang="ja">アプリを見る</span><span data-lang="en">See Apps</span></a>
-      <a href="#about" class="btn-secondary"><span data-lang="ja">ラボについて</span><span data-lang="en">About the Lab</span></a>
-      <a href="#app-list" class="btn-secondary"><span data-lang="ja">アプリ一覧</span><span data-lang="en">App List</span></a>
+      <a href="#app" class="btn-primary">
+        <span data-lang="ja">アプリを見る</span>
+        <span data-lang="en">See Apps</span>
+      </a>
+
+      <a href="#about" class="btn-secondary">
+        <span data-lang="ja">ラボについて</span>
+        <span data-lang="en">About the Lab</span>
+      </a>
+
+      <a href="#app-list" class="btn-secondary">
+        <span data-lang="ja">アプリ一覧</span>
+        <span data-lang="en">App List</span>
+      </a>
     </div>
   </section>
 
   <section id="app">
     <div class="section-inner">
       <div class="reveal">
-        <p class="section-label"><span data-lang="ja">APPS</span><span data-lang="en">APPS</span></p>
-        <h2 class="section-title"><span data-lang="ja">アプリ紹介</span><span data-lang="en">Our Apps</span></h2>
-        <p class="section-title-en"><span data-lang="ja">App Introduction</span><span data-lang="en">App Introduction</span></p>
+        <p class="section-label">
+          <span data-lang="ja">APPS</span>
+          <span data-lang="en">APPS</span>
+        </p>
+
+        <h2 class="section-title">
+          <span data-lang="ja">アプリ紹介</span>
+          <span data-lang="en">Our Apps</span>
+        </h2>
+
+        <p class="section-title-en">
+          <span data-lang="ja">App Introduction</span>
+          <span data-lang="en">App Introduction</span>
+        </p>
       </div>
 
       <a href="mofu-sheep/index.html" class="app-card app-card-link reveal">
         <div class="app-info">
-          <p class="app-number">🌟 <span data-lang="ja">1作目アプリ</span><span data-lang="en">1st App</span></p>
+          <p class="app-number">
+            🌟
+            <span data-lang="ja">1作目アプリ</span>
+            <span data-lang="en">1st App</span>
+          </p>
 
           <h3 class="app-name-ja">
             <span class="oya">おやすみ</span><span class="mi">もふ</span><span class="su">羊</span>
           </h3>
+
           <p class="app-name-en">Mofu Sheep</p>
 
           <div class="app-status">
             <div class="status-dot"></div>
-            <span data-lang="ja">App Store 配信中</span><span data-lang="en">Available on the App Store</span>
+            <span data-lang="ja">App Store 配信中</span>
+            <span data-lang="en">Available on the App Store</span>
           </div>
 
           <p class="app-desc" data-lang="ja">
@@ -954,6 +1014,7 @@
               width="1200"
               height="900"
               loading="lazy">
+
             <img
               src="images/screenshots_en.png"
               data-lang="en"
@@ -965,32 +1026,37 @@
         </div>
       </a>
 
-      <a href="kaimolist/index.html" class="app-card app-card-link reveal">
+      <a href="kaimonotto/index.html" class="app-card app-card-link reveal">
         <div class="app-info">
-          <p class="app-number">🛒 <span data-lang="ja">2作目アプリ</span><span data-lang="en">2nd App</span></p>
+          <p class="app-number">
+            🛒
+            <span data-lang="ja">2作目アプリ</span>
+            <span data-lang="en">2nd App</span>
+          </p>
 
           <h3 class="app-name-ja app-name-single" data-lang="ja">
-            <span class="shopping-main">カイモ</span><span class="shopping-accent">リスト</span>
+            <span class="shopping-main">カイモ</span><span class="shopping-accent">ノット</span>
           </h3>
 
           <h3 class="app-name-ja app-name-single" data-lang="en">
-            <span class="shopping-main">Kai</span><span class="shopping-accent">molist</span>
+            <span class="shopping-main">Kai</span><span class="shopping-accent">monotto</span>
           </h3>
 
           <div class="app-status">
             <div class="status-dot"></div>
-            <span data-lang="ja">App Store 公開準備中</span><span data-lang="en">Preparing for App Store release</span>
+            <span data-lang="ja">App Store 公開準備中</span>
+            <span data-lang="en">Preparing for App Store release</span>
           </div>
 
           <p class="app-desc" data-lang="ja">
-            「カイモリスト」は、<br>
+            「カイモノット」は、<br>
             買うものをさっとメモして、<br>
             お店でチェックできる<br>
             シンプルなiPhone向け買いものリストアプリです。
           </p>
 
           <p class="app-desc" data-lang="en">
-            Kaimolist is a simple iPhone app<br>
+            Kaimonotto is a simple iPhone app<br>
             for quickly noting items<br>
             and checking them while shopping.
           </p>
@@ -1007,14 +1073,15 @@
             <img
               src="images/shopping-memo.png"
               data-lang="ja"
-              alt="カイモリスト 紹介画像"
+              alt="カイモノット 紹介画像"
               width="1024"
               height="1024"
               loading="lazy">
+
             <img
               src="images/shopping-memo.png"
               data-lang="en"
-              alt="Kaimolist preview image"
+              alt="Kaimonotto preview image"
               width="1024"
               height="1024"
               loading="lazy">
@@ -1027,8 +1094,15 @@
   <section id="about">
     <div class="section-inner">
       <div class="reveal">
-        <h2 class="section-title"><span data-lang="ja">ラボについて</span><span data-lang="en">About the Lab</span></h2>
-        <p class="section-title-en"><span data-lang="ja">About Chocomofu Lab</span><span data-lang="en">About Chocomofu Lab</span></p>
+        <h2 class="section-title">
+          <span data-lang="ja">ラボについて</span>
+          <span data-lang="en">About the Lab</span>
+        </h2>
+
+        <p class="section-title-en">
+          <span data-lang="ja">About Chocomofu Lab</span>
+          <span data-lang="en">About Chocomofu Lab</span>
+        </p>
       </div>
 
       <div class="about-grid reveal">
@@ -1077,12 +1151,19 @@
   <section id="app-list">
     <div class="section-inner">
       <div class="reveal">
-        <p class="section-label"><span data-lang="ja">APPS LIST</span><span data-lang="en">APPS LIST</span></p>
-        <h2 class="section-title"><span data-lang="ja">アプリ一覧</span><span data-lang="en">App List</span></h2>
+        <p class="section-label">
+          <span data-lang="ja">APPS LIST</span>
+          <span data-lang="en">APPS LIST</span>
+        </p>
+
+        <h2 class="section-title">
+          <span data-lang="ja">アプリ一覧</span>
+          <span data-lang="en">App List</span>
+        </h2>
       </div>
 
       <div class="gallery-grid reveal">
-               <a href="mofu-sheep/index.html" class="gallery-card">
+        <a href="mofu-sheep/index.html" class="gallery-card">
           <div class="gallery-thumb-wrap">
             <img
               src="images/sheep-icon1.png"
@@ -1092,24 +1173,50 @@
               height="800"
               loading="lazy">
           </div>
-          <h4><span data-lang="ja">おやすみもふ羊</span><span data-lang="en">Mofu Sheep</span></h4>
-          <p data-lang="ja">眠る前に<br>のんびり過ごすアプリ<br>App Store 配信中</p>
-          <p data-lang="en">A quiet app for before sleep<br>Available on the App Store</p>
+
+          <h4>
+            <span data-lang="ja">おやすみもふ羊</span>
+            <span data-lang="en">Mofu Sheep</span>
+          </h4>
+
+          <p data-lang="ja">
+            眠る前に<br>
+            のんびり過ごすアプリ<br>
+            App Store 配信中
+          </p>
+
+          <p data-lang="en">
+            A quiet app for before sleep<br>
+            Available on the App Store
+          </p>
         </a>
 
-        <a href="kaimolist/index.html" class="gallery-card">
+        <a href="kaimonotto/index.html" class="gallery-card">
           <div class="gallery-thumb-wrap">
             <img
               src="images/icon-shopping-memo.png"
-              alt="カイモリスト アイコン"
+              alt="カイモノット アイコン"
               class="gallery-thumb"
               width="800"
               height="800"
               loading="lazy">
           </div>
-          <h4><span data-lang="ja">カイモリスト</span><span data-lang="en">Kaimolist</span></h4>
-          <p data-lang="ja">買うものを<br>さっとメモするアプリ<br>App Store 公開準備中</p>
-          <p data-lang="en">A simple shopping list app<br>Preparing for App Store release</p>
+
+          <h4>
+            <span data-lang="ja">カイモノット</span>
+            <span data-lang="en">Kaimonotto</span>
+          </h4>
+
+          <p data-lang="ja">
+            買うものを<br>
+            さっとメモするアプリ<br>
+            App Store 公開準備中
+          </p>
+
+          <p data-lang="en">
+            A simple shopping list app<br>
+            Preparing for App Store release
+          </p>
         </a>
       </div>
     </div>
@@ -1118,36 +1225,70 @@
   <section id="contact">
     <div class="section-inner">
       <div class="reveal">
-        <p class="section-label"><span data-lang="ja"></span><span data-lang="en"></span></p>
-        <h2 class="section-title"><span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span></h2>
-        <p class="section-title-en"><span data-lang="ja">Get in touch</span><span data-lang="en">Get in touch</span></p>
+        <p class="section-label">
+          <span data-lang="ja"></span>
+          <span data-lang="en"></span>
+        </p>
+
+        <h2 class="section-title">
+          <span data-lang="ja">お問い合わせ</span>
+          <span data-lang="en">Contact</span>
+        </h2>
+
+        <p class="section-title-en">
+          <span data-lang="ja">Get in touch</span>
+          <span data-lang="en">Get in touch</span>
+        </p>
       </div>
 
       <div class="contact-box reveal" style="text-align:center;">
-        <p data-lang="ja" style="margin-bottom:0.8rem;">ご意見・ご質問・不具合のご報告などがありましたら、<br>下記よりご連絡ください。</p>
-        <p data-lang="en" style="margin-bottom:0.8rem;">If you have any feedback, questions, or bug reports, please reach out below.</p>
+        <p data-lang="ja" style="margin-bottom:0.8rem;">
+          ご意見・ご質問・不具合のご報告などがありましたら、<br>
+          下記よりご連絡ください。
+        </p>
 
-        <p data-lang="ja" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">お問い合わせフォームへ進む前に、<br>プライバシーポリシーへの同意をお願いしています。</p>
-        <p data-lang="en" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">Before sending your inquiry, you will be asked to agree to our Privacy Policy.</p>
+        <p data-lang="en" style="margin-bottom:0.8rem;">
+          If you have any feedback, questions, or bug reports, please reach out below.
+        </p>
 
-        <a href="contact.html" class="btn-primary">✉️ <span data-lang="ja">お問い合わせはこちら</span><span data-lang="en">Contact Us</span></a>
+        <p data-lang="ja" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">
+          お問い合わせフォームへ進む前に、<br>
+          プライバシーポリシーへの同意をお願いしています。
+        </p>
+
+        <p data-lang="en" style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.8rem;">
+          Before sending your inquiry, you will be asked to agree to our Privacy Policy.
+        </p>
+
+        <a href="contact.html" class="btn-primary">
+          ✉️
+          <span data-lang="ja">お問い合わせはこちら</span>
+          <span data-lang="en">Contact Us</span>
+        </a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p class="footer-logo">ちょこもふらぼ / Chocomofu Lab</p>
+    <p class="footer-logo">
+      ちょこもふらぼ / Chocomofu Lab
+    </p>
 
     <div style="margin-top:0.5rem;">
       <a href="privacy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 0.8rem;font-size:0.82rem;">
-        <span data-lang="ja">プライバシーポリシー</span><span data-lang="en">Privacy Policy</span>
+        <span data-lang="ja">プライバシーポリシー</span>
+        <span data-lang="en">Privacy Policy</span>
       </a>
+
       <a href="contact.html" style="color:rgba(255,255,255,0.6);text-decoration:none;margin:0 0.8rem;font-size:0.82rem;">
-        <span data-lang="ja">お問い合わせ</span><span data-lang="en">Contact</span>
+        <span data-lang="ja">お問い合わせ</span>
+        <span data-lang="en">Contact</span>
       </a>
     </div>
 
-    <p style="margin-top:0.5rem;">© 2026 Chocomofu Lab.</p>
+    <p style="margin-top:0.5rem;">
+      © 2026 Chocomofu Lab.
+    </p>
   </footer>
 
   <script>
@@ -1163,6 +1304,7 @@
 
       if (langBtn) {
         langBtn.textContent = isEn ? 'JA' : 'EN';
+
         langBtn.setAttribute(
           'aria-label',
           isEn ? '日本語表示に切り替える' : 'Switch to English'
@@ -1234,7 +1376,9 @@
             entry.target.classList.add('visible');
           }
         });
-      }, { threshold: 0.12 });
+      }, {
+        threshold: 0.12
+      });
 
       reveals.forEach((item) => observer.observe(item));
     } else {
