@@ -133,15 +133,15 @@
     }
 
     .hero {
-      min-height: 100vh;
-      background: #f4efe6;
-      padding: 7.8rem 2rem 4.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
+  min-height: 100vh;
+  background: #f4efe6;
+  padding: 7.8rem 2rem 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
 
     .hero::after {
       content: "";
@@ -280,31 +280,31 @@
       text-align: left;
     }
 
-    .status-badge {
-      display: flex;
+   .app-store-area {
+  display: flex;
+  justify-content: center;
+  margin: 2.0rem auto 0;
+  animation: fadeDown 0.75s ease 0.62s both;
+}
+
+    .app-store-link {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      width: fit-content;
-      margin: 1rem auto 1.6rem;
-      background: rgba(255, 253, 248, 0.92);
-      border: 2px solid rgba(79, 138, 69, 0.5);
-      color: var(--green);
-      border-radius: 999px;
-      padding: 0.7rem 1.55rem;
-      font-size: 0.95rem;
-      font-weight: 900;
-      box-shadow: 0 3px 12px rgba(79, 138, 69, 0.08);
-      animation: fadeDown 0.75s ease 0.28s both;
+      text-decoration: none;
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .status-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-      animation: pulse 1.7s ease-in-out infinite;
+    .app-store-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .app-store-badge {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     .hero-desc {
@@ -622,17 +622,6 @@
       }
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.5;
-        transform: scale(1.22);
-      }
-    }
-
     @media (max-width: 860px) {
       nav {
         padding: 0.8rem 1rem;
@@ -682,11 +671,15 @@
       }
 
       .hero {
-        padding: 7rem 1.2rem 3.8rem;
-      }
+  padding: 7rem 1.2rem 6.5rem;
+}
 
       .hero-desc br {
         display: none;
+      }
+
+      .app-store-badge {
+        width: 160px;
       }
 
       .memo-hero-card {
@@ -796,12 +789,6 @@
         </div>
       </div>
 
-      <div class="status-badge">
-        <div class="status-dot"></div>
-        <span data-lang="ja">App Store 公開準備中</span>
-        <span data-lang="en">Preparing for App Store release</span>
-      </div>
-
       <p class="hero-desc" data-lang="ja">
         「カイモノット」は、<br>
         買うものをさっとメモして<br>
@@ -826,6 +813,29 @@
         <span class="hero-pill">iPhone Only</span>
         <span class="hero-pill">Free App</span>
         <span class="hero-pill">Japanese Only</span>
+      </div>
+
+      <div class="app-store-area">
+        <a
+          href="https://apps.apple.com/jp/app/カイモノット/id6790076304"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-store-link"
+          aria-label="App Storeでカイモノットを開く"
+        >
+          <img
+            src="../mofu-sheep/images/app-store-badge-ja.svg"
+            alt="App Storeからダウンロード"
+            class="app-store-badge"
+            data-lang="ja"
+          >
+          <img
+            src="../mofu-sheep/images/app-store-badge-en.svg"
+            alt="Download on the App Store"
+            class="app-store-badge"
+            data-lang="en"
+          >
+        </a>
       </div>
 
     </div>
