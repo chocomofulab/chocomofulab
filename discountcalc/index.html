@@ -1,0 +1,2862 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>値引き計算機 | Discount Calculator</title>
+
+  <meta
+    name="description"
+    content="値引き計算機は、セールや買い物で値引き後の金額をかんたんに計算できるiPhone向けアプリです。まとめて計算と商品ごとに計算の2つの方法から選べます。"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link
+    rel="canonical"
+    href="https://chocomofulab.com/discountcalc/"
+  >
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta
+    property="og:site_name"
+    content="ちょこもふらぼ | Chocomofu Lab"
+  >
+  <meta
+    property="og:title"
+    content="値引き計算機 | Discount Calculator"
+  >
+  <meta
+    property="og:description"
+    content="セールや買い物で、かんたんに値引き計算。2つの計算方法からすぐに選べます。"
+  >
+  <meta
+    property="og:url"
+    content="https://chocomofulab.com/discountcalc/"
+  >
+  <meta
+    property="og:image"
+    content="https://chocomofulab.com/discountcalc/images/ogp-discountcalc.png"
+  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:title"
+    content="値引き計算機 | Discount Calculator"
+  >
+  <meta
+    name="twitter:description"
+    content="セールや買い物で、かんたんに値引き計算。"
+  >
+  <meta
+    name="twitter:image"
+    content="https://chocomofulab.com/discountcalc/images/ogp-discountcalc.png"
+  >
+
+  <!-- Icon -->
+  <link
+    rel="icon"
+    href="images/icon-discountcalc.png"
+  >
+  <link
+    rel="apple-touch-icon"
+    href="images/icon-discountcalc.png"
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       COLOR
+    ========================= */
+
+    :root {
+
+      --bg: #fbfaf7;
+      --bg-soft: #fff8f5;
+      --bg-blue: #fff8f5;
+
+      --nav: rgba(255, 253, 250, 0.96);
+      --white: #fffefd;
+
+      --brown: #4c3527;
+      --brown-soft: #806f63;
+
+      --coral: #f47468;
+      --coral-soft: #ffe8e4;
+
+      --pink: #e98ab7;
+      --pink-soft: #fceaf3;
+
+      --mint: #62cbb4;
+      --mint-soft: #e7f8f3;
+
+      --blue: #78afe9;
+      --blue-strong: #388fe8;
+      --blue-soft: #eaf4ff;
+
+      --green: #35c866;
+      --green-soft: #e7f7eb;
+
+      --line: rgba(228, 216, 207, 0.92);
+
+      --shadow:
+        rgba(76, 53, 39, 0.08);
+
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      font-family:
+        'M PLUS Rounded 1c',
+        'Nunito',
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--brown);
+
+      overflow-x: hidden;
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      background: var(--nav);
+
+      backdrop-filter: blur(10px);
+
+      border-bottom:
+        1.5px solid rgba(228, 216, 207, 0.78);
+
+      box-shadow:
+        0 2px 14px rgba(76, 53, 39, 0.035);
+
+      z-index: 100;
+
+      padding:
+        0.9rem 2rem;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 1rem;
+
+    }
+
+    .nav-logo {
+
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      font-weight: 900;
+
+      color: #c88976;
+
+      line-height: 1.25;
+
+      white-space: nowrap;
+
+      letter-spacing: -0.02em;
+
+    }
+
+    .nav-right {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.9rem;
+
+      flex-shrink: 0;
+
+    }
+
+    .lang-btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 52px;
+
+      min-width: 86px;
+
+      padding:
+        0.55rem 1.4rem;
+
+      border-radius: 999px;
+
+      background: #f5eee9;
+
+      color: var(--brown);
+
+      font-family: inherit;
+
+      font-size: 0.95rem;
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      border:
+        2px solid rgba(228, 216, 207, 0.85);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+
+      white-space: nowrap;
+
+    }
+
+    .lang-btn:hover {
+
+      transform: translateY(-1px);
+
+      opacity: 0.95;
+
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fffdfb 0%,
+          #fbfaf7 65%,
+          #fff6f2 100%
+        );
+
+      padding:
+        7.8rem 2rem 6.8rem;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 68px;
+
+      background: var(--white);
+
+      clip-path:
+        ellipse(56% 100% at 50% 100%);
+
+    }
+
+    .hero-inner {
+
+      max-width: 820px;
+
+      width: 100%;
+
+      position: relative;
+
+      z-index: 1;
+
+    }
+
+
+    /* =========================
+       APP ICON
+    ========================= */
+
+    .app-icon-wrap {
+
+      width:
+        clamp(150px, 28vw, 230px);
+
+      margin:
+        0 auto 1.55rem;
+
+      animation:
+        fadeDown 0.72s ease both;
+
+    }
+
+    .app-icon {
+
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 26%;
+
+      box-shadow:
+        0 15px 35px rgba(76, 53, 39, 0.13);
+
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    .app-title-ja {
+
+      font-size:
+        clamp(2.55rem, 7.5vw, 4.9rem);
+
+      font-weight: 900;
+
+      line-height: 1.12;
+
+      letter-spacing: 0;
+
+      margin-bottom: 0.6rem;
+
+      text-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.84);
+
+      animation:
+        fadeDown 0.72s ease 0.08s both;
+
+    }
+
+    .title-value {
+      color: var(--coral);
+    }
+
+    .title-discount {
+      color: var(--pink);
+    }
+
+    .title-ki {
+      color: var(--mint);
+    }
+
+    .title-calc {
+      color: var(--blue);
+    }
+
+    .title-machine {
+      color: var(--brown);
+    }
+
+    .app-title-en {
+
+      font-size:
+        clamp(1rem, 2.6vw, 1.3rem);
+
+      font-weight: 900;
+
+      letter-spacing: 0.1em;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 1.6rem;
+
+      animation:
+        fadeDown 0.72s ease 0.14s both;
+
+    }
+
+
+    /* =========================
+       HERO DESCRIPTION
+    ========================= */
+
+    .hero-desc {
+
+      font-size:
+        clamp(1rem, 2.2vw, 1.12rem);
+
+      line-height: 1.95;
+
+      color: var(--brown-soft);
+
+      max-width: 650px;
+
+      margin:
+        0 auto;
+
+      animation:
+        fadeDown 0.75s ease 0.28s both;
+
+    }
+
+
+    /* =========================
+       HERO PILLS
+    ========================= */
+
+    .hero-pills {
+
+      margin-top: 1.35rem;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 0.65rem;
+
+      animation:
+        fadeDown 0.75s ease 0.4s both;
+
+    }
+
+    .hero-pill {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding:
+        0.48rem 0.95rem;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255, 255, 255, 0.88);
+
+      border:
+        1.5px solid rgba(228, 216, 207, 0.86);
+
+      color: var(--brown-soft);
+
+      font-size: 0.82rem;
+
+      font-weight: 900;
+
+    }
+
+
+    /* =========================
+       RELEASE STATUS
+    ========================= */
+
+    .release-area {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin:
+        2rem auto 0;
+
+      animation:
+        fadeDown 0.75s ease 0.52s both;
+
+    }
+
+    .release-status {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 0.65rem;
+
+      min-height: 54px;
+
+      padding:
+        0.7rem 1.35rem;
+
+      border-radius: 999px;
+
+      background: #ffffff;
+
+      border:
+        2px solid var(--line);
+
+      box-shadow:
+        0 6px 18px rgba(76, 53, 39, 0.07);
+
+      color: var(--brown);
+
+      font-size: 0.92rem;
+
+      font-weight: 900;
+
+    }
+
+    .status-dot {
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: var(--coral);
+
+      box-shadow:
+        0 0 0 5px var(--coral-soft);
+
+      flex-shrink: 0;
+
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section-shell {
+
+      padding:
+        4.7rem 2rem;
+
+      background:
+        var(--white);
+
+    }
+
+    .section-shell.soft {
+
+      background:
+        var(--bg-soft);
+
+    }
+
+    .section-shell.blue {
+
+      background:
+        var(--bg-blue);
+
+    }
+
+    .section-inner {
+
+      max-width: 900px;
+
+      margin: 0 auto;
+
+    }
+
+    .section-label {
+
+      text-align: center;
+
+      font-size: 0.8rem;
+
+      font-weight: 900;
+
+      letter-spacing: 0.18em;
+
+      color: var(--coral);
+
+      margin-bottom: 0.45rem;
+
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      font-size:
+        clamp(1.5rem, 3vw, 2rem);
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 2rem;
+
+    }
+
+
+    /* =========================
+       PANELS
+    ========================= */
+
+    .panel {
+
+      background:
+        rgba(255, 255, 255, 0.95);
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 30px;
+
+      padding: 2rem;
+
+      box-shadow:
+        0 8px 26px var(--shadow);
+
+    }
+
+
+    /* =========================
+       SCREENSHOTS
+    ========================= */
+
+    .screenshots-set {
+      display: none;
+    }
+
+    body:not(.en)
+    .screenshots-set[data-lang="ja"] {
+      display: block;
+    }
+
+    body.en
+    .screenshots-set[data-lang="en"] {
+      display: block;
+    }
+
+    .screenshots-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 1rem;
+
+    }
+
+   .screenshot-card {
+
+  background:
+    #eef8ff;
+
+  border-radius: 22px;
+
+  aspect-ratio: 9 / 19.5;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 8px 24px rgba(76, 53, 39, 0.11);
+
+  border: none;
+
+}
+
+    .screenshot-card img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      object-position: center top;
+
+      display: block;
+
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .desc-box p {
+
+      font-size: 1rem;
+
+      line-height: 1.95;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 1rem;
+
+    }
+
+    .desc-box p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       CALCULATION METHODS
+    ========================= */
+
+    .method-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 1.2rem;
+
+    }
+
+    .method-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 26px;
+
+      padding:
+        1.5rem;
+
+      box-shadow:
+        0 7px 22px rgba(76, 53, 39, 0.06);
+
+    }
+
+    .method-card.coral {
+
+      background:
+        linear-gradient(
+          180deg,
+          #fffafa 0%,
+          #fff0ee 100%
+        );
+
+      border:
+        2px solid #ffc7c2;
+
+    }
+
+    .method-card.blue {
+
+      background:
+        linear-gradient(
+          180deg,
+          #fbfdff 0%,
+          #edf7ff 100%
+        );
+
+      border:
+        2px solid #b9dcff;
+
+    }
+
+    .method-icon {
+
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 20px;
+
+      margin-bottom: 1rem;
+
+      font-size: 1.45rem;
+
+      font-weight: 900;
+
+    }
+
+    .method-card.coral
+    .method-icon {
+
+      color: var(--coral);
+
+      background:
+        var(--coral-soft);
+
+    }
+
+    .method-card.blue
+    .method-icon {
+
+      color: var(--blue-strong);
+
+      background:
+        var(--blue-soft);
+
+    }
+
+    .method-card h3 {
+
+      font-size: 1.15rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 0.65rem;
+
+    }
+
+    .method-card p {
+
+      font-size: 0.94rem;
+
+      line-height: 1.85;
+
+      color: var(--brown-soft);
+
+    }
+
+    .example-box {
+
+      margin-top: 1rem;
+
+      padding:
+        0.8rem 0.9rem;
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,0.72);
+
+      font-size: 0.88rem;
+
+      font-weight: 800;
+
+      line-height: 1.7;
+
+    }
+
+    .method-card.coral
+    .example-box {
+
+      color: #d95d53;
+
+    }
+
+    .method-card.blue
+    .example-box {
+
+      color: #367fc6;
+
+    }
+
+
+    /* =========================
+       USE CASES
+    ========================= */
+
+    .feature-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 1rem;
+
+    }
+
+    .feature-card {
+
+      background: #ffffff;
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 24px;
+
+      padding: 1.3rem;
+
+      box-shadow:
+        0 5px 18px rgba(76, 53, 39, 0.055);
+
+    }
+
+    .feature-icon {
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 16px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 1.25rem;
+
+      font-weight: 900;
+
+      margin-bottom: 0.7rem;
+
+      background:
+        var(--coral-soft);
+
+      color:
+        var(--coral);
+
+    }
+
+    .feature-card:nth-child(2)
+    .feature-icon {
+
+      background:
+        var(--blue-soft);
+
+      color:
+        var(--blue-strong);
+
+    }
+
+    .feature-card:nth-child(3)
+    .feature-icon {
+
+      background:
+        var(--mint-soft);
+
+      color:
+        #35a98f;
+
+    }
+
+    .feature-card h3 {
+
+      font-size: 1rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 0.5rem;
+
+      line-height: 1.55;
+
+    }
+
+    .feature-card p {
+
+      font-size: 0.92rem;
+
+      line-height: 1.8;
+
+      color: var(--brown-soft);
+
+    }
+
+
+    /* =========================
+       GUIDE LINKS
+    ========================= */
+
+    .link-list {
+
+      list-style: none;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.9rem;
+
+    }
+
+    .link-item {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 0.9rem;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fff9f6 100%
+        );
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 20px;
+
+      padding:
+        1rem 1.2rem;
+
+      text-decoration: none;
+
+      color: var(--brown);
+
+      font-weight: 900;
+
+      box-shadow:
+        0 4px 14px rgba(76, 53, 39, 0.06);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+
+    }
+
+    .link-item:hover {
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 18px rgba(76, 53, 39, 0.1);
+
+    }
+
+    .link-icon {
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 14px;
+
+      background:
+        #f8f3ef;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 1.15rem;
+
+      flex-shrink: 0;
+
+    }
+
+    .link-text {
+
+      flex: 1;
+
+      line-height: 1.6;
+
+    }
+
+    .link-arrow {
+
+      font-size: 1rem;
+
+      color: var(--brown-soft);
+
+      flex-shrink: 0;
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      background: var(--brown);
+
+      color:
+        rgba(255,255,255,0.76);
+
+      text-align: center;
+
+      padding:
+        2rem 1.5rem;
+
+      font-size: 0.84rem;
+
+      line-height: 1.95;
+
+    }
+
+    .footer-logo {
+
+      font-size: 1.15rem;
+
+      font-weight: 900;
+
+      color: #fff;
+
+    }
+
+    .footer-links {
+
+      margin-top: 0.5rem;
+
+    }
+
+    .footer-links a {
+
+      color:
+        rgba(255,255,255,0.75);
+
+      text-decoration: none;
+
+      margin:
+        0 0.75rem;
+
+      font-size: 0.82rem;
+
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+    body.en .hero-pills[data-lang="en"] {
+      display: flex;
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    .reveal {
+
+      opacity: 0;
+
+      transform:
+        translateY(28px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+    }
+
+    .reveal.visible {
+
+      opacity: 1;
+
+      transform: none;
+
+    }
+
+    @keyframes fadeDown {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(-18px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 860px) {
+
+      nav {
+
+        padding:
+          0.8rem 1rem;
+
+      }
+
+      .nav-logo {
+
+        font-size: 0.94rem;
+
+      }
+
+      .lang-btn {
+
+        min-height: 48px;
+
+        padding:
+          0.5rem 1rem;
+
+        font-size: 0.9rem;
+
+      }
+
+      .feature-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 640px) {
+
+      nav {
+
+        gap: 0.5rem;
+
+        padding:
+          0.6rem 0.8rem;
+
+      }
+
+      .nav-logo {
+
+        font-size: 0.82rem;
+
+        flex: 1;
+
+        min-width: 0;
+
+        max-width:
+          calc(100% - 70px);
+
+        white-space: nowrap;
+
+        word-break: keep-all;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+      }
+
+      .nav-right {
+
+        gap: 0.45rem;
+
+      }
+
+      .lang-btn {
+
+        min-width: 58px;
+
+        font-size: 0.8rem;
+
+        min-height: 42px;
+
+        padding: 0.4rem;
+
+      }
+
+      .hero {
+
+        padding:
+          7rem 1.15rem 6.5rem;
+
+      }
+
+      .hero::before {
+
+        width: 54px;
+        height: 54px;
+
+        font-size: 1.5rem;
+
+        left: -5px;
+
+        top: 17%;
+
+      }
+
+      .app-icon-wrap {
+
+        width:
+          min(46vw, 180px);
+
+      }
+
+      .app-title-ja {
+
+        font-size:
+          clamp(2.35rem, 11vw, 3.3rem);
+
+      }
+
+      .hero-desc br {
+        display: none;
+      }
+
+      .release-status {
+
+        font-size: 0.84rem;
+
+        min-height: 50px;
+
+        padding:
+          0.65rem 1rem;
+
+      }
+
+      .section-shell {
+
+        padding:
+          4rem 1rem;
+
+      }
+
+      .panel {
+
+        padding:
+          1.4rem 1rem;
+
+        border-radius: 24px;
+
+      }
+
+      .screenshots-grid {
+
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+        gap: 0.42rem;
+
+      }
+
+      .screenshot-card {
+
+        border-radius: 12px;
+
+      }
+
+      .method-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .method-card {
+
+        padding: 1.25rem;
+
+        border-radius: 22px;
+
+      }
+
+      .footer-links a {
+
+        display: inline-block;
+
+        margin:
+          0.18rem 0.4rem;
+
+      }
+
+    }
+
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       NAV
+  ========================= -->
+
+  <nav>
+
+    <a
+      href="../index.html"
+      class="nav-logo"
+    >
+      ちょこもふらぼ / Chocomofu Lab
+    </a>
+
+    <div class="nav-right">
+
+      <button
+        type="button"
+        class="lang-btn"
+        onclick="toggleLang()"
+        id="langBtn"
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+
+      <!-- App Icon -->
+
+      <div class="app-icon-wrap">
+
+        <img
+          src="images/icon-discountcalc.png"
+          alt="値引き計算機 アプリアイコン"
+          class="app-icon"
+        >
+
+      </div>
+
+
+      <!-- Japanese Title -->
+
+      <div data-lang="ja">
+
+        <h1 class="app-title-ja">
+
+          <span class="title-value">値</span><span class="title-discount">引</span><span class="title-ki">き</span><span class="title-calc">計</span><span class="title-machine">算機</span>
+
+        </h1>
+
+        <p class="app-title-en">
+          値引き計算アプリ
+        </p>
+
+      </div>
+
+
+      <!-- English Title -->
+
+      <div data-lang="en">
+
+        <h1 class="app-title-ja">
+
+          <span class="title-value">Discount</span>
+          <span class="title-machine"> Calculator</span>
+
+        </h1>
+
+        <p class="app-title-en">
+          Simple Discount Calculator
+        </p>
+
+      </div>
+
+
+      <!-- Description -->
+
+      <p
+        class="hero-desc"
+        data-lang="ja"
+      >
+        セールや買い物で、<br>
+        値引き後の金額をかんたんに計算。<br>
+        使いたい計算方法を選んですぐに使えます。
+      </p>
+
+
+      <p
+        class="hero-desc"
+        data-lang="en"
+      >
+        Quickly calculate discounted prices
+        while shopping or browsing a sale.
+        Choose the calculation method that fits your purchase.
+      </p>
+
+
+      <!-- Pills -->
+
+      <div
+        class="hero-pills"
+        data-lang="ja"
+      >
+
+        <span class="hero-pill">
+          iPhone専用
+        </span>
+
+        <span class="hero-pill">
+          無料アプリ
+        </span>
+
+        <span class="hero-pill">
+          日本語のみ
+        </span>
+
+      </div>
+
+
+      <div
+        class="hero-pills"
+        data-lang="en"
+      >
+
+        <span class="hero-pill">
+          iPhone Only
+        </span>
+
+        <span class="hero-pill">
+          Free App
+        </span>
+
+        <span class="hero-pill">
+          Japanese Only
+        </span>
+
+      </div>
+
+
+      <!--
+        App Store公開前はこの表示を使用します。
+        公開後はここをApp Storeバッジ＋リンクへ変更します。
+      -->
+
+      <div class="release-area">
+
+        <div class="release-status">
+
+          <span
+            class="status-dot"
+            aria-hidden="true"
+          ></span>
+
+          <span data-lang="ja">
+            App Store 公開準備中
+          </span>
+
+          <span data-lang="en">
+            Preparing for App Store release
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       SCREENSHOTS
+  ========================= -->
+
+  <section class="section-shell">
+
+    <div class="section-inner reveal">
+
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          スクリーンショット
+        </span>
+
+        <span data-lang="en">
+          SCREENSHOTS
+        </span>
+
+      </p>
+
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          アプリ画面
+        </span>
+
+        <span data-lang="en">
+          App Preview
+        </span>
+
+      </h2>
+
+
+      <div class="panel">
+
+
+        <!-- Japanese -->
+
+        <div
+          class="screenshots-set"
+          data-lang="ja"
+        >
+
+          <div class="screenshots-grid">
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/01.discountcalc.png"
+                alt="値引き計算機のトップ画面"
+              >
+
+            </div>
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/02.discountcalc.png"
+                alt="値引き計算機のまとめて計算画面"
+              >
+
+            </div>
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/03.discountcalc.png"
+                alt="値引き計算機の商品ごとに計算画面"
+              >
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- English -->
+
+        <div
+          class="screenshots-set"
+          data-lang="en"
+        >
+
+          <div class="screenshots-grid">
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/01.discountcalc.png"
+                alt="Discount Calculator home screen in Japanese"
+              >
+
+            </div>
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/02.discountcalc.png"
+                alt="Bulk discount calculation screen in Japanese"
+              >
+
+            </div>
+
+
+            <div class="screenshot-card">
+
+              <img
+                src="images/03.discountcalc.png"
+                alt="Per-item discount calculation screen in Japanese"
+              >
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section class="section-shell soft">
+
+    <div class="section-inner reveal">
+
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          アプリについて
+        </span>
+
+        <span data-lang="en">
+          ABOUT
+        </span>
+
+      </p>
+
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          どんなアプリ？
+        </span>
+
+        <span data-lang="en">
+          About the App
+        </span>
+
+      </h2>
+
+
+      <div class="panel desc-box">
+
+
+        <p data-lang="ja">
+          「これ、20％オフだといくら？」
+          「さらに値引きされたら？」
+          そんな買い物中の計算を、かんたんに。
+        </p>
+
+
+        <p data-lang="en">
+          Wondering how much an item costs after a discount,
+          or how much it will be after an additional discount?
+          Discount Calculator makes these calculations simple.
+        </p>
+
+
+        <p data-lang="ja">
+          「値引き計算機」は、セールや買い物で
+          値引き後の金額をすぐに確認できる
+          シンプルなiPhone向け計算アプリです。
+        </p>
+
+
+        <p data-lang="en">
+          Discount Calculator is a simple iPhone app
+          for quickly checking discounted prices while shopping.
+        </p>
+
+
+        <p data-lang="ja">
+          同じ割引をまとめて計算したいときと、
+          商品ごとに違う割引を計算したいときの
+          2つの計算方法から選べます。
+        </p>
+
+
+        <p data-lang="en">
+          Choose between two calculation methods:
+          applying the same discounts together,
+          or calculating different discounts for individual items.
+        </p>
+
+
+        <p data-lang="ja">
+          アプリ本体は現在、日本語のみ対応しています。
+        </p>
+
+
+        <p data-lang="en">
+          The app itself is currently available in Japanese only.
+        </p>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       TWO CALCULATION METHODS
+  ========================= -->
+
+  <section class="section-shell">
+
+    <div class="section-inner reveal">
+
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          2つの計算方法
+        </span>
+
+        <span data-lang="en">
+          TWO CALCULATION MODES
+        </span>
+
+      </p>
+
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          買い方に合わせて選べます
+        </span>
+
+        <span data-lang="en">
+          Choose the Method You Need
+        </span>
+
+      </h2>
+
+
+      <div class="method-grid">
+
+
+        <!-- Bulk Calculation -->
+
+        <div class="method-card coral">
+
+
+          <div
+            class="method-icon"
+            aria-hidden="true"
+          >
+            %
+          </div>
+
+
+          <h3>
+
+            <span data-lang="ja">
+              まとめて計算
+            </span>
+
+            <span data-lang="en">
+              Calculate Together
+            </span>
+
+          </h3>
+
+
+          <p data-lang="ja">
+            同じ割引が適用される商品を、
+            まとめて計算できます。
+            追加の％引きや円引きも設定できます。
+          </p>
+
+
+          <p data-lang="en">
+            Calculate multiple items
+            using the same discount.
+            Additional percentage or fixed-amount
+            discounts can also be added.
+          </p>
+
+
+          <div class="example-box">
+
+            <span data-lang="ja">
+              例：全品20％オフ → さらに500円引き
+            </span>
+
+            <span data-lang="en">
+              Example: 20% off all items → another ¥500 off
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Per Item -->
+
+        <div class="method-card blue">
+
+
+          <div
+            class="method-icon"
+            aria-hidden="true"
+          >
+            ◇
+          </div>
+
+
+          <h3>
+
+            <span data-lang="ja">
+              商品ごとに計算
+            </span>
+
+            <span data-lang="en">
+              Calculate by Item
+            </span>
+
+          </h3>
+
+
+          <p data-lang="ja">
+            商品ごとに金額や割引率を入力して、
+            それぞれ違う割引をまとめて確認できます。
+          </p>
+
+
+          <p data-lang="en">
+            Enter the price and discount
+            for each item separately
+            and check the total together.
+          </p>
+
+
+          <div class="example-box">
+
+            <span data-lang="ja">
+              例：1着30％オフ ／ 1着は割引なし
+            </span>
+
+            <span data-lang="en">
+              Example: One item 30% off / another at full price
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       USE CASES
+  ========================= -->
+
+  <section class="section-shell blue">
+
+    <div class="section-inner reveal">
+
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          こんなときに
+        </span>
+
+        <span data-lang="en">
+          USE CASES
+        </span>
+
+      </p>
+
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          セールや買い物の計算に
+        </span>
+
+        <span data-lang="en">
+          Helpful While Shopping
+        </span>
+
+      </h2>
+
+
+      <div class="feature-grid">
+
+
+        <!-- Sale -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            %
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              セール価格を確認
+            </span>
+
+            <span data-lang="en">
+              Check Sale Prices
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            「30％オフならいくら？」
+            をその場ですぐに計算できます。
+          </p>
+
+          <p data-lang="en">
+            Quickly see the final price
+            after a percentage discount.
+          </p>
+
+        </div>
+
+
+
+        <!-- Different Discounts -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            ◇
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              違う割引もまとめて確認
+            </span>
+
+            <span data-lang="en">
+              Different Discounts
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            商品ごとに割引が違う場合も、
+            支払い金額をまとめて確認できます。
+          </p>
+
+          <p data-lang="en">
+            Calculate items with
+            different discount rates
+            and check the combined total.
+          </p>
+
+        </div>
+
+
+
+        <!-- Additional Discount -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            ＋
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              「さらに○％オフ」にも
+            </span>
+
+            <span data-lang="en">
+              Additional Discounts
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            店頭の「さらに○％オフ」や
+            円引きがあるときも、
+            続けて計算できます。
+          </p>
+
+          <p data-lang="en">
+            Add another percentage
+            or fixed-amount discount
+            when needed.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       GUIDE
+  ========================= -->
+
+  <section class="section-shell soft">
+
+    <div class="section-inner reveal">
+
+
+      <p class="section-label">
+        GUIDE
+      </p>
+
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          ご案内
+        </span>
+
+        <span data-lang="en">
+          Guidance
+        </span>
+
+      </h2>
+
+
+      <div class="panel">
+
+        <ul class="link-list">
+
+
+          <!-- How To -->
+
+          <li>
+
+            <a
+              href="howto.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                📖
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  使い方
+                </span>
+
+                <span data-lang="en">
+                  How to Use
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+          <!-- FAQ -->
+
+          <li>
+
+            <a
+              href="faq.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                ❓
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  ご質問（Q&amp;A）
+                </span>
+
+                <span data-lang="en">
+                  FAQ
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+          <!-- Privacy -->
+
+          <li>
+
+            <a
+              href="privacy.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                🔒
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  プライバシーポリシー
+                </span>
+
+                <span data-lang="en">
+                  Privacy Policy
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+          <!-- Terms -->
+
+          <li>
+
+            <a
+              href="terms.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                📋
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  利用規約
+                </span>
+
+                <span data-lang="en">
+                  Terms of Use
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+          <!-- Contact -->
+
+          <li>
+
+            <a
+              href="../contact.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                ✉️
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  お問い合わせ
+                </span>
+
+                <span data-lang="en">
+                  Contact
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+          <!-- Home -->
+
+          <li>
+
+            <a
+              href="../index.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                🏡
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  ちょこもふらぼ トップ
+                </span>
+
+                <span data-lang="en">
+                  Chocomofu Lab Home
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+
+    <p class="footer-logo">
+
+      <span data-lang="ja">
+        値引き計算機
+      </span>
+
+      <span data-lang="en">
+        Discount Calculator
+      </span>
+
+    </p>
+
+
+    <div class="footer-links">
+
+
+      <a href="../index.html">
+
+        <span data-lang="ja">
+          ちょこもふらぼ
+        </span>
+
+        <span data-lang="en">
+          Chocomofu Lab
+        </span>
+
+      </a>
+
+
+      <a href="privacy.html">
+
+        <span data-lang="ja">
+          プライバシーポリシー
+        </span>
+
+        <span data-lang="en">
+          Privacy Policy
+        </span>
+
+      </a>
+
+
+      <a href="terms.html">
+
+        <span data-lang="ja">
+          利用規約
+        </span>
+
+        <span data-lang="en">
+          Terms
+        </span>
+
+      </a>
+
+
+      <a href="../contact.html">
+
+        <span data-lang="ja">
+          お問い合わせ
+        </span>
+
+        <span data-lang="en">
+          Contact
+        </span>
+
+      </a>
+
+
+    </div>
+
+
+    <p style="margin-top:0.5rem;">
+      © 2026 Chocomofu Lab.
+    </p>
+
+
+  </footer>
+
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    let isEn = false;
+
+
+    function applyLang(
+      nextIsEn,
+      shouldUpdateUrl = true
+    ) {
+
+      isEn = nextIsEn;
+
+
+      document.body
+        .classList
+        .toggle(
+          'en',
+          isEn
+        );
+
+
+      document.documentElement.lang =
+        isEn
+          ? 'en'
+          : 'ja';
+
+
+      const langBtn =
+        document.getElementById(
+          'langBtn'
+        );
+
+
+      if (langBtn) {
+
+        langBtn.textContent =
+          isEn
+            ? 'JA'
+            : 'EN';
+
+
+        langBtn.setAttribute(
+
+          'aria-label',
+
+          isEn
+            ? '日本語表示に切り替える'
+            : 'Switch to English'
+
+        );
+
+      }
+
+
+      if (shouldUpdateUrl) {
+
+        const currentUrl =
+          new URL(
+            window.location.href
+          );
+
+
+        if (isEn) {
+
+          currentUrl
+            .searchParams
+            .set(
+              'lang',
+              'en'
+            );
+
+        } else {
+
+          currentUrl
+            .searchParams
+            .delete(
+              'lang'
+            );
+
+        }
+
+
+        window.history
+          .replaceState(
+            null,
+            '',
+            currentUrl.toString()
+          );
+
+      }
+
+
+      updateInternalLinksLang();
+
+    }
+
+
+
+    function toggleLang() {
+
+      applyLang(
+        !isEn,
+        true
+      );
+
+    }
+
+
+
+    function updateInternalLinksLang() {
+
+      const links =
+        document.querySelectorAll(
+          'a[href]'
+        );
+
+
+      links.forEach(
+        (link) => {
+
+          const originalHref =
+            link.getAttribute(
+              'href'
+            );
+
+
+          if (
+
+            !originalHref ||
+
+            originalHref
+              .startsWith('#') ||
+
+            originalHref
+              .startsWith('mailto:') ||
+
+            originalHref
+              .startsWith('tel:') ||
+
+            originalHref
+              .startsWith('javascript:')
+
+          ) {
+
+            return;
+
+          }
+
+
+          const linkUrl =
+            new URL(
+              originalHref,
+              window.location.href
+            );
+
+
+          if (
+            linkUrl.origin !==
+            window.location.origin
+          ) {
+
+            return;
+
+          }
+
+
+          if (isEn) {
+
+            linkUrl
+              .searchParams
+              .set(
+                'lang',
+                'en'
+              );
+
+          } else {
+
+            linkUrl
+              .searchParams
+              .delete(
+                'lang'
+              );
+
+          }
+
+
+          link.href =
+            linkUrl.toString();
+
+        }
+
+      );
+
+    }
+
+
+
+    const initialIsEn =
+      window.location.search
+        .indexOf(
+          'lang=en'
+        ) !== -1;
+
+
+    applyLang(
+      initialIsEn,
+      false
+    );
+
+
+
+    const reveals =
+      document.querySelectorAll(
+        '.reveal'
+      );
+
+
+    if (
+      'IntersectionObserver'
+      in window
+    ) {
+
+      const observer =
+        new IntersectionObserver(
+
+          (entries) => {
+
+            entries.forEach(
+              (entry) => {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  entry.target
+                    .classList
+                    .add(
+                      'visible'
+                    );
+
+                }
+
+              }
+
+            );
+
+          },
+
+          {
+            threshold: 0.12
+          }
+
+        );
+
+
+      reveals.forEach(
+        (item) =>
+          observer.observe(item)
+      );
+
+    } else {
+
+      reveals.forEach(
+        (item) =>
+          item
+            .classList
+            .add(
+              'visible'
+            )
+      );
+
+    }
+
+  </script>
+
+
+</body>
+</html>

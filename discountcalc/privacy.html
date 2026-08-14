@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>プライバシーポリシー | 値引き計算機</title>
+
+  <meta
+    name="description"
+    content="値引き計算機のプライバシーポリシーです。計算時に入力する情報、広告、トラッキング、お問い合わせフォームの取扱いについてご案内します。"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link
+    rel="canonical"
+    href="https://chocomofulab.com/discountcalc/privacy.html"
+  >
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:site_name"
+    content="ちょこもふらぼ | Chocomofu Lab"
+  >
+
+  <meta
+    property="og:title"
+    content="プライバシーポリシー | 値引き計算機"
+  >
+
+  <meta
+    property="og:description"
+    content="値引き計算機のプライバシーポリシーです。計算時に入力する情報、広告、トラッキングについてご案内します。"
+  >
+
+  <meta
+    property="og:url"
+    content="https://chocomofulab.com/discountcalc/privacy.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://chocomofulab.com/discountcalc/images/ogp-discountcalc.png"
+  >
+
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta
+    name="twitter:title"
+    content="プライバシーポリシー | 値引き計算機"
+  >
+
+  <meta
+    name="twitter:description"
+    content="値引き計算機のプライバシーポリシーです。計算時に入力する情報、広告、トラッキングについてご案内します。"
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://chocomofulab.com/discountcalc/images/ogp-discountcalc.png"
+  >
+
+  <!-- Icon -->
+  <link
+    rel="icon"
+    href="images/icon-discountcalc.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="images/icon-discountcalc.png"
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    :root {
+      --bg: #fbfaf7;
+      --bg-soft: #fff8f5;
+      --white: #fffefd;
+
+      --brown: #4c3527;
+      --brown-soft: #806f63;
+
+      --coral: #f47468;
+      --coral-soft: #ffe8e4;
+
+      --pink: #e98ab7;
+      --pink-soft: #fceaf3;
+
+      --mint: #62cbb4;
+      --mint-soft: #e7f8f3;
+
+      --blue: #78afe9;
+      --blue-strong: #388fe8;
+      --blue-soft: #eaf4ff;
+
+      --green: #35c866;
+      --green-soft: #e7f7eb;
+
+      --beige-soft: #f5eee9;
+
+      --line: rgba(228, 216, 207, 0.92);
+
+      --shadow:
+        rgba(76, 53, 39, 0.08);
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        'M PLUS Rounded 1c',
+        'Nunito',
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--brown);
+
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      background:
+        rgba(255, 253, 250, 0.96);
+
+      backdrop-filter: blur(10px);
+
+      z-index: 100;
+
+      padding:
+        0.9rem 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 1rem;
+
+      border-bottom:
+        1.5px solid rgba(228, 216, 207, 0.78);
+
+      box-shadow:
+        0 2px 14px rgba(76, 53, 39, 0.035);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      font-weight: 900;
+
+      color: #c88976;
+
+      line-height: 1.25;
+
+      white-space: nowrap;
+
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.7rem;
+
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 44px;
+
+      min-width: 62px;
+
+      padding:
+        0.45rem 1rem;
+
+      border-radius: 999px;
+
+      background: var(--beige-soft);
+
+      color: var(--brown);
+
+      font-family: inherit;
+
+      font-size: 0.86rem;
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      border:
+        2px solid rgba(228, 216, 207, 0.85);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+
+    /* =========================
+       PAGE HERO
+    ========================= */
+
+    .page-hero {
+      background:
+        linear-gradient(
+          180deg,
+          #fffdfb 0%,
+          #fff8f5 100%
+        );
+
+      padding:
+        7.4rem 2rem 3.2rem;
+
+      text-align: center;
+
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: -1px;
+
+      height: 44px;
+
+      background: var(--white);
+
+      clip-path:
+        ellipse(58% 100% at 50% 100%);
+    }
+
+    .page-hero-inner {
+      position: relative;
+
+      z-index: 1;
+
+      max-width: 760px;
+
+      margin: 0 auto;
+    }
+
+    .page-hero .icon {
+  font-size: 2.8rem;
+  margin-bottom: 0.55rem;
+}
+
+    .page-hero h1 {
+      font-size:
+        clamp(2rem, 5vw, 3rem);
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      line-height: 1.2;
+
+      text-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .page-hero .app-name {
+      display: inline-block;
+
+      margin-top: 0.95rem;
+
+      background:
+        rgba(255, 255, 255, 0.92);
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 999px;
+
+      padding:
+        0.45rem 1.15rem;
+
+      font-size: 0.88rem;
+
+      font-weight: 900;
+
+      color: var(--brown-soft);
+
+      box-shadow:
+        0 4px 14px rgba(76, 53, 39, 0.05);
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      max-width: 860px;
+
+      margin: 0 auto;
+
+      padding:
+        4rem 2rem 5rem;
+
+      background: var(--white);
+    }
+
+    .intro-box {
+      background:
+        rgba(255, 255, 255, 0.96);
+
+      border-radius: 26px;
+
+      padding: 2rem;
+
+      margin-bottom: 2.2rem;
+
+      border:
+        2px solid var(--line);
+
+      box-shadow:
+        0 8px 24px var(--shadow);
+
+      font-size: 0.97rem;
+
+      line-height: 1.95;
+
+      color: var(--brown-soft);
+
+      font-weight: 700;
+    }
+
+    .policy-section {
+      background:
+        rgba(255, 255, 255, 0.96);
+
+      border-radius: 24px;
+
+      padding: 2rem;
+
+      margin-bottom: 1.5rem;
+
+      border:
+        2px solid var(--line);
+
+      box-shadow:
+        0 6px 20px var(--shadow);
+    }
+
+    .policy-section h2 {
+      font-size: 1.1rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 1rem;
+
+      padding-bottom: 0.7rem;
+
+      border-bottom:
+        2px solid rgba(228, 216, 207, 0.8);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.5rem;
+
+      line-height: 1.55;
+    }
+
+    .policy-section h3 {
+      font-size: 0.95rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin:
+        1.2rem 0 0.6rem;
+
+      line-height: 1.65;
+    }
+
+    .policy-section p {
+      font-size: 0.95rem;
+
+      line-height: 1.95;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 0.8rem;
+
+      font-weight: 700;
+    }
+
+    .policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-section ul {
+      padding-left: 1.5rem;
+
+      margin-bottom: 0.8rem;
+
+      list-style: disc;
+    }
+
+    .policy-section ul li {
+      font-size: 0.95rem;
+
+      line-height: 1.9;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 0.35rem;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       BOXES
+    ========================= */
+
+    .notice-box {
+      background: #f5fcf8;
+
+      border-radius: 16px;
+
+      padding:
+        1.05rem 1.2rem;
+
+      border:
+        2px solid rgba(98, 203, 180, 0.4);
+
+      font-size: 0.9rem;
+
+      line-height: 1.85;
+
+      color: var(--brown-soft);
+
+      margin-top: 0.85rem;
+
+      font-weight: 700;
+    }
+
+    .warning-box {
+      background: #fff7f4;
+
+      border-radius: 16px;
+
+      padding:
+        1.05rem 1.2rem;
+
+      border:
+        2px solid rgba(244, 116, 104, 0.35);
+
+      font-size: 0.9rem;
+
+      line-height: 1.85;
+
+      color: var(--brown-soft);
+
+      margin-top: 0.85rem;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       LINKS
+    ========================= */
+
+    .text-link {
+      color: var(--blue-strong);
+
+      font-weight: 900;
+
+      text-decoration: underline;
+
+      text-decoration-thickness: 1.5px;
+
+      text-underline-offset: 3px;
+    }
+
+    .contact-link {
+      display: inline-block;
+
+      margin-top: 0.5rem;
+
+      color: var(--blue-strong);
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      border-bottom:
+        2px solid rgba(56, 143, 232, 0.45);
+
+      transition:
+        opacity 0.2s;
+    }
+
+    .contact-link:hover,
+    .text-link:hover {
+      opacity: 0.75;
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .policy-date {
+      text-align: right;
+
+      font-size: 0.85rem;
+
+      line-height: 1.8;
+
+      color: var(--brown-soft);
+
+      margin-top: 1.5rem;
+
+      padding:
+        0 0.5rem;
+
+      font-weight: 700;
+    }
+
+    .policy-date p {
+      margin-bottom: 0.2rem;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--brown);
+
+      color:
+        rgba(255,255,255,0.76);
+
+      text-align: center;
+
+      padding:
+        2rem 1.5rem;
+
+      font-size: 0.84rem;
+
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+
+      font-weight: 900;
+
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+
+      margin-top: 0.5rem;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color:
+        rgba(255,255,255,0.75);
+
+      text-decoration: none;
+
+      margin:
+        0 0.75rem;
+
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      nav {
+        padding:
+          0.7rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.82rem;
+
+        flex: 1;
+
+        min-width: 0;
+
+        max-width: none;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+      }
+
+      .lang-btn {
+        min-height: 40px;
+
+        padding:
+          0.38rem 0.75rem;
+
+        font-size: 0.78rem;
+      }
+
+      .content {
+        padding:
+          3rem 1rem 4rem;
+      }
+
+      .intro-box,
+      .policy-section {
+        padding: 1.45rem;
+
+        border-radius: 24px;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 520px) {
+
+      .page-hero {
+        padding:
+          6.6rem 1rem 2.7rem;
+      }
+
+      .footer-links li {
+        display: inline-block;
+
+        margin:
+          0.18rem 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav>
+
+  <a
+    href="../index.html"
+    class="nav-logo"
+  >
+    ちょこもふらぼ / Chocomofu Lab
+  </a>
+
+  <div class="nav-right">
+
+    <button
+      type="button"
+      class="lang-btn"
+      onclick="toggleLang()"
+      id="langBtn"
+      aria-label="Switch to English"
+    >
+      EN
+    </button>
+
+  </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<div class="page-hero">
+
+  <div class="page-hero-inner">
+
+    <div
+      class="icon"
+      aria-hidden="true"
+    >
+      🔒
+    </div>
+
+    <h1>
+
+      <span data-lang="ja">
+        プライバシーポリシー
+      </span>
+
+      <span data-lang="en">
+        Privacy Policy
+      </span>
+
+    </h1>
+
+    <span class="app-name">
+
+      <span data-lang="ja">
+        値引き計算機
+      </span>
+
+      <span data-lang="en">
+        Discount Calculator
+      </span>
+
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="content">
+
+
+  <!-- INTRO -->
+
+  <div class="intro-box">
+
+    <p data-lang="ja">
+      ちょこもふらぼ（個人開発者、以下「開発者」といいます。）は、アプリ「値引き計算機」（以下「本アプリ」といいます。）における利用者の情報の取扱いについて、以下のとおりプライバシーポリシーを定めます。
+    </p>
+
+    <p data-lang="en">
+      Chocomofu Lab (individual developer, hereinafter the "Developer") establishes the following Privacy Policy regarding the handling of user information in the app "Discount Calculator" (hereinafter the "App").
+    </p>
+
+  </div>
+
+
+
+  <!-- =========================
+       1
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      1.
+      <span data-lang="ja">
+        取得する情報について
+      </span>
+
+      <span data-lang="en">
+        Information We Collect
+      </span>
+    </h2>
+
+
+    <h3>
+
+      <span data-lang="ja">
+        （1）利用者が入力する情報
+      </span>
+
+      <span data-lang="en">
+        (1) Information Entered by Users
+      </span>
+
+    </h3>
+
+
+    <p data-lang="ja">
+      本アプリでは、値引き計算のために、商品の金額、割引率、割引額、税率その他の計算に必要な内容を入力できます。
+    </p>
+
+    <p data-lang="en">
+      The App allows users to enter information required for discount calculations, such as item prices, discount rates, discount amounts, and tax rates.
+    </p>
+
+
+    <p data-lang="ja">
+      入力した内容は、本アプリ内で値引き後の価格や支払い金額などを計算・表示するために利用されます。
+    </p>
+
+    <p data-lang="en">
+      Information entered by users is used within the App to calculate and display discounted prices and final payment amounts.
+    </p>
+
+
+    <div class="notice-box">
+
+      <span data-lang="ja">
+        ✅ 値引き計算のために入力した商品の金額、割引率、割引額、税率などの計算内容が、開発者に送信されることはありません。また、開発者がこれらの計算内容を取得・閲覧することもありません。
+      </span>
+
+      <span data-lang="en">
+        ✅ Item prices, discount rates, discount amounts, tax rates, and other calculation details entered in the App are not sent to the Developer. The Developer does not collect or view these calculation details.
+      </span>
+
+    </div>
+
+
+
+    <h3>
+
+      <span data-lang="ja">
+        （2）広告表示に関する情報
+      </span>
+
+      <span data-lang="en">
+        (2) Information Related to Advertising
+      </span>
+
+    </h3>
+
+
+    <p data-lang="ja">
+      本アプリでは、Google LLC が提供する広告配信サービス「Google AdMob」を利用しています。本アプリのトップ画面下部に広告が表示される場合があります。
+    </p>
+
+    <p data-lang="en">
+      The App uses Google AdMob, an advertising service provided by Google LLC. An advertisement may be displayed at the bottom of the App's home screen.
+    </p>
+
+
+    <p data-lang="ja">
+      広告配信事業者は、広告の表示、配信、効果測定、不正防止等に必要な範囲で、端末情報や広告配信に関する技術情報等を自動的に取得する場合があります。
+    </p>
+
+    <p data-lang="en">
+      The advertising provider may automatically collect device information and technical information related to ad delivery to the extent necessary for displaying and delivering ads, measuring ad performance, preventing fraud, and related purposes.
+    </p>
+
+
+    <p data-lang="ja">
+      これらの情報は広告配信事業者が取得・管理するものであり、開発者が直接取得または保管するものではありません。
+    </p>
+
+    <p data-lang="en">
+      This information is collected and managed by the advertising provider and is not directly collected or stored by the Developer.
+    </p>
+
+
+    <h3>
+
+      <span data-lang="ja">
+        （3）トラッキングについて
+      </span>
+
+      <span data-lang="en">
+        (3) Tracking
+      </span>
+
+    </h3>
+
+
+    <p data-lang="ja">
+      本アプリでは、広告表示に関して、Apple の App Tracking Transparency（ATT）を通じて、利用者がトラッキングを許可するかどうかを選択できる仕組みを採用しています。
+    </p>
+
+    <p data-lang="en">
+      For advertising purposes, the App uses Apple's App Tracking Transparency (ATT) framework, which allows users to choose whether to permit tracking.
+    </p>
+
+
+    <ul>
+
+      <li>
+
+        <span data-lang="ja">
+          トラッキングを許可した場合：広告配信事業者により、広告識別子（IDFA）等が広告配信のために利用されることがあります。
+        </span>
+
+        <span data-lang="en">
+          If tracking is permitted: The advertising provider may use advertising identifiers such as the IDFA for advertising purposes.
+        </span>
+
+      </li>
+
+
+      <li>
+
+        <span data-lang="ja">
+          トラッキングを許可しない場合：広告識別子を利用したトラッキングを行わない形で広告が表示される場合があります。
+        </span>
+
+        <span data-lang="en">
+          If tracking is not permitted: Ads may still be displayed without tracking that uses the advertising identifier.
+        </span>
+
+      </li>
+
+    </ul>
+
+
+    <div class="warning-box">
+
+      <span data-lang="ja">
+        トラッキングを許可しない場合でも、値引き計算機の機能に制限はありません。すべての計算機能をそのままご利用いただけます。
+      </span>
+
+      <span data-lang="en">
+        Even if tracking is not permitted, the App's calculation features remain fully available.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       2
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      2.
+      <span data-lang="ja">
+        情報の利用目的
+      </span>
+
+      <span data-lang="en">
+        Purpose of Use
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      利用者が入力した商品の金額、割引率、割引額、税率等の内容は、本アプリ内で値引き後の価格や支払い金額等を計算・表示するために利用されます。
+    </p>
+
+    <p data-lang="en">
+      Item prices, discount rates, discount amounts, tax rates, and other information entered by users are used within the App to calculate and display discounted prices and final payment amounts.
+    </p>
+
+
+    <p data-lang="ja">
+      広告配信事業者により取得される情報は、広告の表示、配信、効果測定、不正防止等の目的で利用される場合があります。詳細については、広告配信事業者のプライバシーポリシー等をご確認ください。
+    </p>
+
+    <p data-lang="en">
+      Information collected by the advertising provider may be used for displaying and delivering ads, measuring ad performance, preventing fraud, and related purposes. For details, please refer to the advertising provider's privacy policy.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       3
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      3.
+      <span data-lang="ja">
+        解析ツールについて
+      </span>
+
+      <span data-lang="en">
+        Usage Analysis Tools
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      本アプリでは、開発者独自の利用状況解析ツールは使用していません。開発者が、利用者が入力した計算内容や個々の計算結果を記録・分析することはありません。
+    </p>
+
+    <p data-lang="en">
+      The App does not use any developer-operated usage analysis tools. The Developer does not record or analyze calculation details entered by users or individual calculation results.
+    </p>
+
+
+    <p data-lang="ja">
+      ただし、Google AdMob 等の第三者サービスにおいて、広告配信等に必要な情報が処理される場合があります。
+    </p>
+
+    <p data-lang="en">
+      However, third-party services such as Google AdMob may process information necessary for advertising and related services.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       4
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      4.
+      <span data-lang="ja">
+        第三者による情報の取扱いについて
+      </span>
+
+      <span data-lang="en">
+        Third-Party Data Handling
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      広告配信事業者が取得する情報の取扱いについては、各事業者が定めるプライバシーポリシー等をご確認ください。
+    </p>
+
+    <p data-lang="en">
+      For information on how the advertising provider handles data, please refer to the privacy policy and related information provided by the respective provider.
+    </p>
+
+
+    <p data-lang="ja">
+      Google AdMob による情報の取扱いについては、
+      <a
+        href="https://policies.google.com/technologies/ads?hl=ja"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        Google の広告に関する説明
+      </a>
+      もあわせてご確認ください。
+    </p>
+
+    <p data-lang="en">
+      For information about how Google AdMob handles data, please also refer to
+      <a
+        href="https://policies.google.com/technologies/ads?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        Google's information about advertising
+      </a>.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       5
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      5.
+      <span data-lang="ja">
+        情報の第三者提供について
+      </span>
+
+      <span data-lang="en">
+        Sharing with Third Parties
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      開発者は、法令に基づく場合を除き、開発者が直接取得した利用者の情報を第三者に提供することはありません。
+    </p>
+
+    <p data-lang="en">
+      The Developer will not provide user information directly collected by the Developer to third parties, except as required by law.
+    </p>
+
+
+    <p data-lang="ja">
+      なお、Google AdMob 等の第三者サービスが取得する情報については、それぞれの事業者のプライバシーポリシー等に基づいて取り扱われます。
+    </p>
+
+    <p data-lang="en">
+      Information collected by third-party services such as Google AdMob is handled in accordance with the privacy policies and related terms of those providers.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       6
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      6.
+      <span data-lang="ja">
+        開発元「ちょこもふらぼ」公式サイトについて
+      </span>
+
+      <span data-lang="en">
+        About the Chocomofu Lab Official Website
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      本アプリのプライバシーポリシー、使い方、ご質問（Q&amp;A）、お問い合わせフォーム等は、本アプリの開発元である「ちょこもふらぼ」の公式サイトに掲載されています。
+    </p>
+
+    <p data-lang="en">
+      The App's Privacy Policy, instructions, FAQ, contact form, and related information are provided on the official Chocomofu Lab website.
+    </p>
+
+
+    <p data-lang="ja">
+      お問い合わせフォームで入力された情報の取扱いについては、ちょこもふらぼ公式サイトのプライバシーポリシーをご確認ください。
+    </p>
+
+    <p data-lang="en">
+      For information on how information entered through the contact form is handled, please refer to the Privacy Policy of the Chocomofu Lab official website.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       7
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      7.
+      <span data-lang="ja">
+        未成年の利用について
+      </span>
+
+      <span data-lang="en">
+        Use by Minors
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      未成年の方は、必要に応じて保護者の同意のもとで本アプリをご利用ください。
+    </p>
+
+    <p data-lang="en">
+      Minors should use the App with the consent of a parent or guardian when appropriate.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       8
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      8.
+      <span data-lang="ja">
+        プライバシーポリシーの変更
+      </span>
+
+      <span data-lang="en">
+        Changes to This Policy
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      開発者は、法令の変更、本アプリの機能変更、利用する外部サービスの変更等に応じて、本プライバシーポリシーを変更することがあります。変更後の内容は、公式サイトに掲載された時点で効力を生じるものとします。
+    </p>
+
+    <p data-lang="en">
+      The Developer may update this Privacy Policy in response to changes in laws, App features, or third-party services used by the App. Any changes will take effect when posted on the official website.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       9
+  ========================= -->
+
+  <section class="policy-section">
+
+    <h2>
+      9.
+      <span data-lang="ja">
+        お問い合わせ
+      </span>
+
+      <span data-lang="en">
+        Contact
+      </span>
+    </h2>
+
+
+    <p data-lang="ja">
+      本プライバシーポリシーに関するお問い合わせは、公式サイトのお問い合わせフォームよりご連絡ください。
+    </p>
+
+    <p data-lang="en">
+      For inquiries regarding this Privacy Policy, please use the contact form on our official website.
+    </p>
+
+
+    <a
+      href="../contact.html"
+      class="contact-link"
+    >
+
+      <span data-lang="ja">
+        お問い合わせフォームへ
+      </span>
+
+      <span data-lang="en">
+        Go to Contact Form
+      </span>
+
+    </a>
+
+  </section>
+
+
+
+  <!-- =========================
+       DATE
+  ========================= -->
+
+  <div class="policy-date">
+
+    <p data-lang="ja">
+      本ページは日本語を正本とし、英語表記は参考訳として掲載しています。
+    </p>
+
+    <p data-lang="en">
+      The Japanese version of this page is the original, and the English version is provided as a reference translation.
+    </p>
+
+
+   <p data-lang="ja">
+  制定日：2026年8月15日
+</p>
+
+<p data-lang="ja">
+  最終更新日：2026年8月15日
+</p>
+
+<p data-lang="en">
+  Established: August 15, 2026
+</p>
+
+<p data-lang="en">
+  Last updated: August 15, 2026
+</p>
+
+  </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <p class="footer-logo">
+
+    <span data-lang="ja">
+      値引き計算機
+    </span>
+
+    <span data-lang="en">
+      Discount Calculator
+    </span>
+
+  </p>
+
+
+  <ul class="footer-links">
+
+    <li>
+
+      <a href="index.html">
+
+        <span data-lang="ja">
+          アプリページ
+        </span>
+
+        <span data-lang="en">
+          App Page
+        </span>
+
+      </a>
+
+    </li>
+
+
+    <li>
+
+      <a href="privacy.html">
+
+        <span data-lang="ja">
+          プライバシーポリシー
+        </span>
+
+        <span data-lang="en">
+          Privacy Policy
+        </span>
+
+      </a>
+
+    </li>
+
+
+    <li>
+
+      <a href="terms.html">
+
+        <span data-lang="ja">
+          利用規約
+        </span>
+
+        <span data-lang="en">
+          Terms
+        </span>
+
+      </a>
+
+    </li>
+
+
+    <li>
+
+      <a href="howto.html">
+
+        <span data-lang="ja">
+          使い方
+        </span>
+
+        <span data-lang="en">
+          How to Use
+        </span>
+
+      </a>
+
+    </li>
+
+
+    <li>
+
+      <a href="faq.html">
+
+        <span data-lang="ja">
+          ご質問
+        </span>
+
+        <span data-lang="en">
+          FAQ
+        </span>
+
+      </a>
+
+    </li>
+
+
+    <li>
+
+      <a href="../contact.html">
+
+        <span data-lang="ja">
+          お問い合わせ
+        </span>
+
+        <span data-lang="en">
+          Contact
+        </span>
+
+      </a>
+
+    </li>
+
+  </ul>
+
+
+  <p style="margin-top:0.5rem;">
+    © 2026 Chocomofu Lab.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<script>
+
+  let isEn = false;
+
+
+  function applyLang(
+    nextIsEn,
+    shouldUpdateUrl = true
+  ) {
+
+    isEn = nextIsEn;
+
+
+    document.body
+      .classList
+      .toggle(
+        'en',
+        isEn
+      );
+
+
+    document.documentElement.lang =
+      isEn
+        ? 'en'
+        : 'ja';
+
+
+    const langBtn =
+      document.getElementById(
+        'langBtn'
+      );
+
+
+    if (langBtn) {
+
+      langBtn.textContent =
+        isEn
+          ? 'JA'
+          : 'EN';
+
+
+      langBtn.setAttribute(
+
+        'aria-label',
+
+        isEn
+          ? '日本語表示に切り替える'
+          : 'Switch to English'
+
+      );
+
+    }
+
+
+    if (shouldUpdateUrl) {
+
+      const currentUrl =
+        new URL(
+          window.location.href
+        );
+
+
+      if (isEn) {
+
+        currentUrl
+          .searchParams
+          .set(
+            'lang',
+            'en'
+          );
+
+      } else {
+
+        currentUrl
+          .searchParams
+          .delete(
+            'lang'
+          );
+
+      }
+
+
+      window.history
+        .replaceState(
+          null,
+          '',
+          currentUrl.toString()
+        );
+
+    }
+
+
+    updateInternalLinksLang();
+
+  }
+
+
+
+  function toggleLang() {
+
+    applyLang(
+      !isEn,
+      true
+    );
+
+  }
+
+
+
+  function updateInternalLinksLang() {
+
+    const links =
+      document.querySelectorAll(
+        'a[href]'
+      );
+
+
+    links.forEach(
+      (link) => {
+
+        const originalHref =
+          link.getAttribute(
+            'href'
+          );
+
+
+        if (
+          !originalHref ||
+          originalHref.startsWith('#') ||
+          originalHref.startsWith('mailto:') ||
+          originalHref.startsWith('tel:') ||
+          originalHref.startsWith('javascript:')
+        ) {
+
+          return;
+
+        }
+
+
+        const linkUrl =
+          new URL(
+            originalHref,
+            window.location.href
+          );
+
+
+        if (
+          linkUrl.origin !==
+          window.location.origin
+        ) {
+
+          return;
+
+        }
+
+
+        if (isEn) {
+
+          linkUrl
+            .searchParams
+            .set(
+              'lang',
+              'en'
+            );
+
+        } else {
+
+          linkUrl
+            .searchParams
+            .delete(
+              'lang'
+            );
+
+        }
+
+
+        link.href =
+          linkUrl.toString();
+
+      }
+
+    );
+
+  }
+
+
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const initialIsEn =
+    params.get('lang') === 'en';
+
+
+  applyLang(
+    initialIsEn,
+    false
+  );
+
+</script>
+
+
+</body>
+</html>
