@@ -521,10 +521,10 @@
 
 
     /* =========================
-       RELEASE STATUS
+       APP STORE
     ========================= */
 
-    .release-area {
+    .app-store-area {
 
       display: flex;
 
@@ -538,7 +538,7 @@
 
     }
 
-    .release-status {
+    .app-store-link {
 
       display: inline-flex;
 
@@ -546,44 +546,31 @@
 
       justify-content: center;
 
-      gap: 0.65rem;
+      text-decoration: none;
 
-      min-height: 54px;
-
-      padding:
-        0.7rem 1.35rem;
-
-      border-radius: 999px;
-
-      background: #ffffff;
-
-      border:
-        2px solid var(--line);
-
-      box-shadow:
-        0 6px 18px rgba(76, 53, 39, 0.07);
-
-      color: var(--brown);
-
-      font-size: 0.92rem;
-
-      font-weight: 900;
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
 
     }
 
-    .status-dot {
+    .app-store-link:hover {
 
-      width: 10px;
-      height: 10px;
+      transform: translateY(-1px);
 
-      border-radius: 50%;
+      opacity: 0.95;
 
-      background: var(--coral);
+    }
 
-      box-shadow:
-        0 0 0 5px var(--coral-soft);
+    .app-store-badge {
 
-      flex-shrink: 0;
+      width: 170px;
+
+      max-width: 100%;
+
+      height: auto;
+
+      display: block;
 
     }
 
@@ -707,29 +694,29 @@
 
     }
 
-   .screenshot-card {
+    .screenshot-card {
 
-  background:
-    #eef8ff;
+      background:
+        #eef8ff;
 
-  border-radius: 22px;
+      border-radius: 22px;
 
-  aspect-ratio: 9 / 19.5;
+      aspect-ratio: 9 / 19.5;
 
-  overflow: hidden;
+      overflow: hidden;
 
-  display: flex;
+      display: flex;
 
-  align-items: center;
+      align-items: center;
 
-  justify-content: center;
+      justify-content: center;
 
-  box-shadow:
-    0 8px 24px rgba(76, 53, 39, 0.11);
+      box-shadow:
+        0 8px 24px rgba(76, 53, 39, 0.11);
 
-  border: none;
+      border: none;
 
-}
+    }
 
     .screenshot-card img {
 
@@ -1400,14 +1387,9 @@
         display: none;
       }
 
-      .release-status {
+      .app-store-badge {
 
-        font-size: 0.84rem;
-
-        min-height: 50px;
-
-        padding:
-          0.65rem 1rem;
+        width: 160px;
 
       }
 
@@ -1655,29 +1637,33 @@
       </div>
 
 
-      <!--
-        App Store公開前はこの表示を使用します。
-        公開後はここをApp Storeバッジ＋リンクへ変更します。
-      -->
+      <!-- App Store -->
 
-      <div class="release-area">
+      <div class="app-store-area">
 
-        <div class="release-status">
+        <a
+         href="https://apps.apple.com/jp/app/値引き計算機/id6801680565"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-store-link"
+          aria-label="App Storeで値引き計算機を開く"
+        >
 
-          <span
-            class="status-dot"
-            aria-hidden="true"
-          ></span>
+          <img
+            src="../mofu-sheep/images/app-store-badge-ja.svg"
+            alt="App Storeからダウンロード"
+            class="app-store-badge"
+            data-lang="ja"
+          >
 
-          <span data-lang="ja">
-            App Store 公開準備中
-          </span>
+          <img
+            src="../mofu-sheep/images/app-store-badge-en.svg"
+            alt="Download on the App Store"
+            class="app-store-badge"
+            data-lang="en"
+          >
 
-          <span data-lang="en">
-            Preparing for App Store release
-          </span>
-
-        </div>
+        </a>
 
       </div>
 
