@@ -171,10 +171,16 @@
     }
 
     .app-links-grid {
-      display: flex;
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 120px));
       justify-content: center;
       gap: 1rem;
-      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .app-links-grid .app-link-card:last-child {
+      grid-column: 2;
     }
 
     .app-link-card {
@@ -426,6 +432,10 @@
     width: 100%;
   }
 
+  .app-links-grid .app-link-card:last-child {
+    grid-column: 2;
+  }
+
   .app-link-card {
     width: 100%;
     min-width: 0;
@@ -568,6 +578,28 @@
 
         <span data-lang="en">
           Discount Calculator
+        </span>
+      </a>
+
+
+      <!-- まどり日和 -->
+      <a
+        href="madoribiyori/index.html"
+        class="app-link-card"
+      >
+        <img
+          src="images/icon-madoribiyori.png"
+          alt="まどり日和 アイコン"
+          width="1024"
+          height="1024"
+        >
+
+        <span data-lang="ja">
+          まどり日和
+        </span>
+
+        <span data-lang="en">
+          MadoriBiyori
         </span>
       </a>
 
