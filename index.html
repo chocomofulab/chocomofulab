@@ -141,6 +141,14 @@
       --discount-mint: #62cbb4;
       --discount-blue: #78afe9;
       --discount-brown: #4c3527;
+
+      /* まどり日和 */
+      --madori-bg: #fbfaf6;
+      --madori-soft: #f8e8d5;
+      --madori-green: #789b72;
+      --madori-green-soft: #e4efe0;
+      --madori-accent: #c47b43;
+      --madori-brown: #433537;
     }
 
 
@@ -947,6 +955,94 @@
     }
 
 
+
+    /* =========================
+       MADORIBIYORI
+    ========================= */
+
+    .madori-card {
+      background:
+        linear-gradient(
+          135deg,
+          #c8ebf8,
+          #dff2fb
+        );
+
+      border:
+        2px solid
+        rgba(255,255,255,0.8);
+    }
+
+    .madori-title {
+      color: #573321;
+    }
+
+    .madori-title-brown {
+      color: #573321;
+    }
+
+    .madori-title-orange {
+      color: #f57a4a;
+    }
+
+    .madori-title-green {
+      color: #7a9e5c;
+    }
+
+    .madori-title-accent {
+      color: #f57a4a;
+    }
+
+    .madori-preview {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap: 0.6rem;
+
+      width: 100%;
+
+      background:
+        rgba(255,255,255,0.62);
+
+      border-radius: 16px;
+
+      padding: 1rem;
+    }
+
+    .madori-preview img {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 10px;
+
+      box-shadow:
+        0 4px 16px
+        rgba(0,0,0,0.12);
+    }
+
+    .app-status.madori-preparing {
+      border-color:
+        var(--madori-accent);
+
+      color:
+        var(--madori-accent);
+    }
+
+    .app-status.madori-preparing
+    .status-dot {
+      background:
+        var(--madori-accent);
+    }
+
+
     /* =========================
        APP STATUS
     ========================= */
@@ -1490,6 +1586,15 @@
       }
 
       .discount-preview img {
+        border-radius: 7px;
+      }
+
+      .madori-preview {
+        padding: 0.7rem;
+        gap: 0.35rem;
+      }
+
+      .madori-preview img {
         border-radius: 7px;
       }
 
@@ -2321,6 +2426,127 @@
       </a>
 
 
+      <!-- =========================
+           APP 4
+           まどり日和
+      ========================= -->
+
+      <a
+        href="madoribiyori/index.html"
+        class="app-card app-card-link madori-card reveal"
+      >
+
+        <div class="app-info">
+
+          <p class="app-number">
+
+            🏠
+
+            <span data-lang="ja">
+              4作目アプリ
+            </span>
+
+            <span data-lang="en">
+              4th App
+            </span>
+
+          </p>
+
+
+          <h3
+            class="app-name-ja app-name-single madori-title"
+            data-lang="ja"
+          >
+            <span class="madori-title-brown">まどり</span><span class="madori-title-orange">日</span><span class="madori-title-green">和</span>
+          </h3>
+
+
+          <h3
+            class="app-name-ja app-name-single madori-title"
+            data-lang="en"
+          >
+            Madori<span class="madori-title-accent">Biyori</span>
+          </h3>
+
+
+          <div class="app-status madori-preparing">
+
+            <div class="status-dot"></div>
+
+            <span data-lang="ja">
+              App Store 公開準備中
+            </span>
+
+            <span data-lang="en">
+              Coming Soon on the App Store
+            </span>
+
+          </div>
+
+
+          <p
+            class="app-desc"
+            data-lang="ja"
+          >
+            「まどり日和」は、<br>
+            間取りを気軽に作って、<br>
+            2Dと3Dで雰囲気を確認できる<br>
+            iPhone向け間取りアプリです。
+          </p>
+
+
+          <p
+            class="app-desc"
+            data-lang="en"
+          >
+            MadoriBiyori is an iPhone app<br>
+            for casually creating floor plans<br>
+            and viewing them in both 2D and 3D.
+          </p>
+
+
+          <span class="app-detail-btn">
+
+            <span data-lang="ja">
+              アプリの詳細を見る
+            </span>
+
+            <span data-lang="en">
+              View Details
+            </span>
+
+            <span class="app-detail-arrow">
+              →
+            </span>
+
+          </span>
+
+        </div>
+
+
+        <div class="app-visual">
+
+          <div class="madori-preview">
+
+            <img
+              src="madoribiyori/images/madoribiyori-top-2d.png"
+              alt="まどり日和 2D間取り編集画面"
+              loading="lazy"
+            >
+
+            <img
+              src="madoribiyori/images/madoribiyori-top-3d.png"
+              alt="まどり日和 3D間取り確認画面"
+              loading="lazy"
+            >
+
+          </div>
+
+        </div>
+
+      </a>
+
+
     </div>
 
   </section>
@@ -2622,6 +2848,55 @@
   A simple discount calculator<br>
   Available on the App Store
 </p>
+
+        </a>
+
+
+        <!-- MadoriBiyori -->
+
+        <a
+          href="madoribiyori/index.html"
+          class="gallery-card"
+        >
+
+          <div class="gallery-thumb-wrap">
+
+            <img
+              src="images/icon-madoribiyori.png"
+              alt="まどり日和 アイコン"
+              class="gallery-thumb"
+              width="1024"
+              height="1024"
+              loading="lazy"
+            >
+
+          </div>
+
+
+          <h4>
+
+            <span data-lang="ja">
+              <span class="madori-title-brown">まどり</span><span class="madori-title-orange">日</span><span class="madori-title-green">和</span>
+            </span>
+
+            <span data-lang="en">
+              MadoriBiyori
+            </span>
+
+          </h4>
+
+
+          <p data-lang="ja">
+            間取りを気軽に作って<br>
+            2Dと3Dで楽しむアプリ<br>
+            App Store 公開準備中
+          </p>
+
+
+          <p data-lang="en">
+            Create floor plans in 2D and 3D<br>
+            Coming Soon on the App Store
+          </p>
 
         </a>
 
