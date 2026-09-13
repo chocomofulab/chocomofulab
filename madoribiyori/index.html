@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>まどり日和 | MadoriBiyori</title>
+
+  <meta
+    name="description"
+    content="まどり日和は、間取りを気軽に作って、2Dと3Dで雰囲気を確認できるiPhone向けアプリです。壁やドア、家具を配置しながら、自分だけの間取りづくりを楽しめます。"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link
+    rel="canonical"
+    href="https://chocomofulab.com/madoribiyori/"
+  >
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta
+    property="og:site_name"
+    content="ちょこもふらぼ | Chocomofu Lab"
+  >
+  <meta
+    property="og:title"
+    content="まどり日和 | MadoriBiyori"
+  >
+  <meta
+    property="og:description"
+    content="間取りを気軽に作って、2Dと3Dで楽しめるiPhone向けアプリ。"
+  >
+  <meta
+    property="og:url"
+    content="https://chocomofulab.com/madoribiyori/"
+  >
+  <meta
+    property="og:image"
+    content="https://chocomofulab.com/madoribiyori/images/ogp-madoribiyori.png"
+  >
+  <meta
+    property="og:image:secure_url"
+    content="https://chocomofulab.com/madoribiyori/images/ogp-madoribiyori.png"
+  >
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta
+    property="og:image:alt"
+    content="まどり日和 - 間取りを気軽に作って2Dと3Dで眺められるiPhoneアプリ"
+  >
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:title"
+    content="まどり日和 | MadoriBiyori"
+  >
+  <meta
+    name="twitter:description"
+    content="間取りを気軽に作って、2Dと3Dで楽しめるiPhone向けアプリ。"
+  >
+  <meta
+    name="twitter:image"
+    content="https://chocomofulab.com/madoribiyori/images/ogp-madoribiyori.png"
+  >
+  <meta
+    name="twitter:image:alt"
+    content="まどり日和 - 間取りを気軽に作って2Dと3Dで眺められるiPhoneアプリ"
+  >
+
+  <!-- Icon
+       アプリアイコン完成後に images/icon-madoribiyori.png を置けばそのまま使えます。 -->
+  <link
+    rel="icon"
+    href="images/icon-madoribiyori.png"
+  >
+  <link
+    rel="apple-touch-icon"
+    href="images/icon-madoribiyori.png"
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       COLOR
+       ========================= */
+
+    :root {
+      --bg: #fbfaf6;
+      --bg-soft: #fffaf4;
+      --bg-green: #f6faf3;
+
+      --nav: rgba(255, 253, 249, 0.96);
+      --white: #fffefd;
+
+      --brown: #433537;
+      --brown-soft: #8a7d72;
+
+      --accent: #c47b43;
+      --accent-strong: #b96d35;
+      --accent-soft: #f8e8d5;
+      --accent-pale: #fff4e7;
+
+      --green: #789b72;
+      --green-soft: #e4efe0;
+
+      --line: rgba(219, 210, 200, 0.92);
+      --shadow: rgba(67, 53, 55, 0.08);
+    }
+
+
+    /* =========================
+       RESET
+       ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        'M PLUS Rounded 1c',
+        'Nunito',
+        sans-serif;
+
+      background: var(--bg);
+      color: var(--brown);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       NAV
+       ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      background: var(--nav);
+      backdrop-filter: blur(10px);
+
+      border-bottom:
+        1.5px solid rgba(219, 210, 200, 0.78);
+
+      box-shadow:
+        0 2px 14px rgba(67, 53, 55, 0.035);
+
+      z-index: 100;
+
+      padding:
+        0.9rem 2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1.25;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+      min-width: 86px;
+
+      padding:
+        0.55rem 1.4rem;
+
+      border-radius: 999px;
+      background: #f4eee7;
+      color: var(--brown);
+
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-decoration: none;
+
+      border:
+        2px solid rgba(219, 210, 200, 0.86);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fffdf9 0%,
+          #fbfaf6 64%,
+          #fff7ee 100%
+        );
+
+      padding:
+        8rem 2rem 6.8rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(248, 232, 213, 0.58);
+      top: 15%;
+      left: -190px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 68px;
+      background: var(--white);
+      clip-path:
+        ellipse(56% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      max-width: 820px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-mark {
+      width: 94px;
+      height: 94px;
+      margin: 0 auto 1.5rem;
+
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          #f6d8b8 0%,
+          #e8a56a 100%
+        );
+
+      display: grid;
+      place-items: center;
+
+      box-shadow:
+        0 14px 34px rgba(67, 53, 55, 0.11);
+
+      animation:
+        fadeDown 0.72s ease both;
+    }
+
+    .hero-mark-inner {
+      width: 52px;
+      height: 52px;
+      position: relative;
+    }
+
+    .hero-mark-inner::before,
+    .hero-mark-inner::after {
+      content: "";
+      position: absolute;
+      background: #fff;
+      border-radius: 4px;
+    }
+
+    .hero-mark-inner::before {
+      width: 44px;
+      height: 5px;
+      left: 4px;
+      top: 11px;
+      box-shadow:
+        0 25px 0 #fff;
+    }
+
+    .hero-mark-inner::after {
+      width: 5px;
+      height: 30px;
+      left: 4px;
+      top: 11px;
+      box-shadow:
+        39px 0 0 #fff,
+        19px 0 0 rgba(255, 255, 255, 0.88);
+    }
+
+
+    /* =========================
+       TITLE
+       ========================= */
+
+    .app-title-ja {
+      font-size:
+        clamp(2.8rem, 8vw, 5.2rem);
+
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.65rem;
+      color: var(--brown);
+
+      text-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.82);
+
+      animation:
+        fadeDown 0.72s ease 0.08s both;
+    }
+
+    .app-title-en {
+      font-size:
+        clamp(1rem, 2.6vw, 1.3rem);
+
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1.7rem;
+
+      animation:
+        fadeDown 0.72s ease 0.14s both;
+    }
+
+
+    /* =========================
+       HERO DESCRIPTION
+       ========================= */
+
+    .hero-catch {
+      font-size:
+        clamp(1.25rem, 3vw, 1.75rem);
+
+      line-height: 1.6;
+      color: var(--brown);
+      font-weight: 900;
+      margin-bottom: 0.7rem;
+
+      animation:
+        fadeDown 0.75s ease 0.22s both;
+    }
+
+    .hero-desc {
+      font-size:
+        clamp(1rem, 2.2vw, 1.12rem);
+
+      line-height: 1.95;
+      color: var(--brown-soft);
+      max-width: 650px;
+      margin: 0 auto;
+
+      animation:
+        fadeDown 0.75s ease 0.28s both;
+    }
+
+
+    /* =========================
+       HERO PILLS
+       ========================= */
+
+    .hero-pills {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+
+      animation:
+        fadeDown 0.75s ease 0.4s both;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        0.48rem 0.95rem;
+
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+
+      border:
+        1.5px solid rgba(219, 210, 200, 0.86);
+
+      color: var(--brown-soft);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+
+
+
+    /* =========================
+       HERO SCREENSHOTS
+       ========================= */
+
+    .hero-preview {
+      max-width: 720px;
+      margin: 2.15rem auto 0;
+
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+
+      align-items: start;
+
+      animation:
+        fadeDown 0.75s ease 0.46s both;
+    }
+
+    .hero-preview-card {
+      margin: 0;
+      padding: 0.65rem;
+
+      border-radius: 28px;
+
+      background:
+        rgba(255, 255, 255, 0.94);
+
+      border:
+        2px solid var(--line);
+
+      box-shadow:
+        0 12px 30px rgba(67, 53, 55, 0.09);
+    }
+
+    .hero-preview-card.two-d {
+      border-color:
+        rgba(196, 123, 67, 0.32);
+    }
+
+    .hero-preview-card.three-d {
+      border-color:
+        rgba(120, 155, 114, 0.34);
+    }
+
+    .hero-preview-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 34px;
+
+      margin:
+        0.05rem auto 0.6rem;
+
+      padding:
+        0.32rem 0.8rem;
+
+      border-radius: 999px;
+
+      font-size: 0.82rem;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .hero-preview-card.two-d
+    .hero-preview-label {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .hero-preview-card.three-d
+    .hero-preview-label {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .hero-preview-frame {
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      background: #f8f5ef;
+
+      border:
+        1.5px solid rgba(219, 210, 200, 0.9);
+    }
+
+    .hero-preview-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+
+    /* =========================
+       APP STORE PLACEHOLDER
+       ========================= */
+
+    .app-store-area {
+      display: flex;
+      justify-content: center;
+      margin: 2rem auto 0;
+
+      animation:
+        fadeDown 0.75s ease 0.52s both;
+    }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+      padding: 0.7rem 1.4rem;
+
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+
+      border:
+        2px solid rgba(196, 123, 67, 0.2);
+
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+
+    /* =========================
+       SECTIONS
+       ========================= */
+
+    .section-shell {
+      padding:
+        4.7rem 2rem;
+
+      background: var(--white);
+    }
+
+    .section-shell.soft {
+      background: var(--bg-soft);
+    }
+
+    .section-shell.green {
+      background: var(--bg-green);
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size:
+        clamp(1.5rem, 3vw, 2rem);
+
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 2rem;
+    }
+
+
+    /* =========================
+       PANELS
+       ========================= */
+
+    .panel {
+      background:
+        rgba(255, 255, 255, 0.95);
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 30px;
+      padding: 2rem;
+
+      box-shadow:
+        0 8px 26px var(--shadow);
+    }
+
+
+    /* =========================
+       ABOUT
+       ========================= */
+
+    .desc-box p {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--brown-soft);
+      margin-bottom: 1rem;
+    }
+
+    .desc-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .desc-emphasis {
+      color: var(--brown) !important;
+      font-weight: 900;
+      font-size: 1.08rem !important;
+    }
+
+
+    /* =========================
+       2D / 3D
+       ========================= */
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .mode-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      padding: 1.6rem;
+
+      box-shadow:
+        0 7px 22px rgba(67, 53, 55, 0.06);
+    }
+
+    .mode-card.two-d {
+      background:
+        linear-gradient(
+          180deg,
+          #fffdfb 0%,
+          #fff3e7 100%
+        );
+
+      border:
+        2px solid #efc59d;
+    }
+
+    .mode-card.three-d {
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f2f7ef 100%
+        );
+
+      border:
+        2px solid #cddfc8;
+    }
+
+    .mode-icon {
+      width: 62px;
+      height: 62px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .mode-card.two-d .mode-icon {
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+    }
+
+    .mode-card.three-d .mode-icon {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .mode-card h3 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.65rem;
+    }
+
+    .mode-card p {
+      font-size: 0.94rem;
+      line-height: 1.85;
+      color: var(--brown-soft);
+    }
+
+    .mode-note {
+      margin-top: 1rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 0.88rem;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .mode-card.two-d .mode-note {
+      color: var(--accent-strong);
+    }
+
+    .mode-card.three-d .mode-note {
+      color: #668c60;
+    }
+
+
+    /* =========================
+       START OPTIONS
+       ========================= */
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 24px;
+      padding: 1.3rem;
+
+      box-shadow:
+        0 5px 18px rgba(67, 53, 55, 0.055);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 0.7rem;
+
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .feature-card:nth-child(2) .feature-icon {
+      background: #f3e5cb;
+      color: #8e673f;
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--brown-soft);
+    }
+
+
+    /* =========================
+       GUIDE LINKS
+       ========================= */
+
+    .link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fffaf4 100%
+        );
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 20px;
+
+      padding:
+        1rem 1.2rem;
+
+      text-decoration: none;
+      color: var(--brown);
+      font-weight: 900;
+
+      box-shadow:
+        0 4px 14px rgba(67, 53, 55, 0.06);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .link-item:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 18px rgba(67, 53, 55, 0.1);
+    }
+
+    .link-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: #f8f1e8;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .link-text {
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .link-arrow {
+      font-size: 1rem;
+      color: var(--brown-soft);
+      flex-shrink: 0;
+    }
+
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      background: var(--brown);
+      color: rgba(255, 255, 255, 0.76);
+      text-align: center;
+
+      padding:
+        2rem 1.5rem;
+
+      font-size: 0.84rem;
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .footer-links {
+      margin-top: 0.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+
+    /* =========================
+       LANGUAGE
+       ========================= */
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en .coming-soon[data-lang="en"] {
+      display: inline-flex;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+    body.en .hero-pills[data-lang="en"] {
+      display: flex;
+    }
+
+
+    /* =========================
+       ANIMATION
+       ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 860px) {
+
+      nav {
+        padding:
+          0.8rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.94rem;
+      }
+
+      .lang-btn {
+        min-height: 48px;
+        padding:
+          0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 640px) {
+
+      nav {
+        gap: 0.5rem;
+        padding:
+          0.6rem 0.8rem;
+      }
+
+      .nav-logo {
+        font-size: 0.82rem;
+        flex: 1;
+        min-width: 0;
+        max-width:
+          calc(100% - 70px);
+        white-space: nowrap;
+        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-right {
+        gap: 0.45rem;
+      }
+
+      .lang-btn {
+        min-width: 58px;
+        font-size: 0.8rem;
+        min-height: 42px;
+        padding: 0.4rem;
+      }
+
+      .hero {
+        padding:
+          7rem 1.15rem 6.5rem;
+      }
+
+      .hero::before {
+        width: 230px;
+        height: 230px;
+        left: -155px;
+        top: 17%;
+      }
+
+      .hero-mark {
+        width: 82px;
+        height: 82px;
+        border-radius: 24px;
+      }
+
+      .hero-mark-inner {
+        transform: scale(0.88);
+      }
+
+      .hero-preview {
+        gap: 0.6rem;
+        margin-top: 1.7rem;
+      }
+
+      .hero-preview-card {
+        padding: 0.42rem;
+        border-radius: 20px;
+      }
+
+      .hero-preview-frame {
+        border-radius: 16px;
+      }
+
+      .hero-preview-label {
+        min-height: 30px;
+        margin-bottom: 0.42rem;
+        padding: 0.25rem 0.55rem;
+        font-size: 0.72rem;
+      }
+
+      .app-title-ja {
+        font-size:
+          clamp(2.45rem, 12vw, 3.45rem);
+      }
+
+/* まどり日和 タイトルカラー */
+
+.app-title-ja.title-colored {
+  text-shadow: none;
+}
+
+.title-brown {
+  color: #573321;
+}
+
+.title-orange {
+  color: #f57a4a;
+}
+
+.title-green {
+  color: #7a9e5c;
+}
+
+      .hero-desc br {
+        display: none;
+      }
+
+      .section-shell {
+        padding:
+          4rem 1rem;
+      }
+
+      .panel {
+        padding:
+          1.4rem 1rem;
+        border-radius: 24px;
+      }
+
+      .mode-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-card {
+        padding: 1.25rem;
+        border-radius: 22px;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        margin:
+          0.18rem 0.4rem;
+      }
+    }
+
+
+    /* =========================
+       REDUCED MOTION
+       ========================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          0.01ms !important;
+        animation-iteration-count:
+          1 !important;
+        transition-duration:
+          0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAV
+       ========================= -->
+
+  <nav>
+
+    <a
+      href="../index.html"
+      class="nav-logo"
+    >
+      ちょこもふらぼ / Chocomofu Lab
+    </a>
+
+    <div class="nav-right">
+
+      <button
+        type="button"
+        class="lang-btn"
+        onclick="toggleLang()"
+        id="langBtn"
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+       ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div
+        class="hero-mark"
+        aria-hidden="true"
+      >
+        <div class="hero-mark-inner"></div>
+      </div>
+
+      <!-- Japanese -->
+
+      <div data-lang="ja">
+
+       <h1 class="app-title-ja title-colored">
+  <span class="title-brown">まどり</span><span class="title-orange">日</span><span class="title-green">和</span>
+</h1>
+
+        <p class="app-title-en">
+          
+        </p>
+
+        <p class="hero-catch">
+          間取りを、気軽に作って眺める。
+        </p>
+
+      </div>
+
+
+      <!-- English -->
+
+      <div data-lang="en">
+
+        <h1 class="app-title-ja">
+          MadoriBiyori
+        </h1>
+
+        <p class="app-title-en">
+          Floor Plan Creator
+        </p>
+
+        <p class="hero-catch">
+          Create floor plans and enjoy them in 2D and 3D.
+        </p>
+
+      </div>
+
+
+      <!-- Description -->
+
+      <p
+        class="hero-desc"
+        data-lang="ja"
+      >
+        壁やドア、家具などを置きながら間取りを作り、<br>
+        2Dと3Dを切り替えて雰囲気を確認できます。
+      </p>
+
+      <p
+        class="hero-desc"
+        data-lang="en"
+      >
+        Build a floor plan with walls, doors, furniture and more,
+        then switch between 2D and 3D to see how it feels.
+      </p>
+
+
+      <!-- Pills -->
+
+      <div
+        class="hero-pills"
+        data-lang="ja"
+      >
+
+        <span class="hero-pill">
+          iPhone向け
+        </span>
+
+        <span class="hero-pill">
+          2D / 3D
+        </span>
+
+        <span class="hero-pill">
+          日本語アプリ
+        </span>
+
+      </div>
+
+      <div
+        class="hero-pills"
+        data-lang="en"
+      >
+
+        <span class="hero-pill">
+          For iPhone
+        </span>
+
+        <span class="hero-pill">
+          2D / 3D
+        </span>
+
+        <span class="hero-pill">
+          Japanese App
+        </span>
+
+      </div>
+
+
+
+
+      <!-- Top screenshots -->
+
+      <div class="hero-preview">
+
+        <figure class="hero-preview-card two-d">
+
+          <figcaption class="hero-preview-label">
+
+            <span data-lang="ja">
+              2Dで作る
+            </span>
+
+            <span data-lang="en">
+              Create in 2D
+            </span>
+
+          </figcaption>
+
+          <div class="hero-preview-frame">
+
+            <img
+              src="images/madoribiyori-top-2d.png"
+              alt="まどり日和の2D間取り編集画面"
+              width="750"
+              height="1334"
+              loading="eager"
+              fetchpriority="high"
+            >
+
+          </div>
+
+        </figure>
+
+
+        <figure class="hero-preview-card three-d">
+
+          <figcaption class="hero-preview-label">
+
+            <span data-lang="ja">
+              3Dで確認
+            </span>
+
+            <span data-lang="en">
+              View in 3D
+            </span>
+
+          </figcaption>
+
+          <div class="hero-preview-frame">
+
+            <img
+              src="images/madoribiyori-top-3d.png"
+              alt="まどり日和の3D間取り確認画面"
+              width="750"
+              height="1334"
+              loading="eager"
+            >
+
+          </div>
+
+        </figure>
+
+      </div>
+
+
+      <!-- App Store：公開後にバッジへ差し替える予定 -->
+
+      <div class="app-store-area">
+
+        <span
+          class="coming-soon"
+          data-lang="ja"
+        >
+          App Store 公開準備中
+        </span>
+
+        <span
+          class="coming-soon"
+          data-lang="en"
+        >
+          Coming Soon on the App Store
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+       ========================= -->
+
+  <section class="section-shell soft">
+
+    <div class="section-inner reveal">
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          アプリについて
+        </span>
+
+        <span data-lang="en">
+          ABOUT
+        </span>
+
+      </p>
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          どんなアプリ？
+        </span>
+
+        <span data-lang="en">
+          About the App
+        </span>
+
+      </h2>
+
+      <div class="panel desc-box">
+
+        <p
+          class="desc-emphasis"
+          data-lang="ja"
+        >
+          「こんな間取りにしてみたい」を、気軽に形に。
+        </p>
+
+        <p
+          class="desc-emphasis"
+          data-lang="en"
+        >
+          Turn your floor plan ideas into something you can see and enjoy.
+        </p>
+
+        <p data-lang="ja">
+          「まどり日和」は、壁を描いたり、ドアや窓、
+          水回りや家具を配置したりしながら、
+          自由に間取りづくりを楽しめるiPhone向けアプリです。
+        </p>
+
+        <p data-lang="en">
+          MadoriBiyori is an iPhone app for casually creating floor plans
+          by drawing walls and placing doors, windows, fixtures and furniture.
+        </p>
+
+        <p data-lang="ja">
+          専門的な建築図面を作るためのCADではなく、
+          間取りを考えたり、家具を置いたり、
+          3Dで眺めたりする時間を気軽に楽しむことを大切にしています。
+        </p>
+
+        <p data-lang="en">
+          It is not professional CAD software.
+          The app is designed for casually exploring layouts,
+          arranging furniture and viewing your ideas in 3D.
+        </p>
+
+        <p data-lang="ja">
+          アプリ本体は現在、日本語のみ対応しています。
+        </p>
+
+        <p data-lang="en">
+          The app itself is currently available in Japanese only.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       2D / 3D
+       ========================= -->
+
+  <section class="section-shell">
+
+    <div class="section-inner reveal">
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          2D &amp; 3D
+        </span>
+
+        <span data-lang="en">
+          2D &amp; 3D
+        </span>
+
+      </p>
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          作ると見るを、すぐ切り替え
+        </span>
+
+        <span data-lang="en">
+          Create and View with a Quick Switch
+        </span>
+
+      </h2>
+
+      <div class="mode-grid">
+
+        <!-- 2D -->
+
+        <div class="mode-card two-d">
+
+          <div
+            class="mode-icon"
+            aria-hidden="true"
+          >
+            2D
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              2Dで間取りを作る
+            </span>
+
+            <span data-lang="en">
+              Create in 2D
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            マス目を見ながら壁を描き、
+            ドア・窓・水回り・家具などを配置できます。
+            作りたい間取りを少しずつ形にしていけます。
+          </p>
+
+          <p data-lang="en">
+            Use the grid to draw walls and place doors,
+            windows, fixtures, furniture and more.
+          </p>
+
+          <div class="mode-note">
+
+            <span data-lang="ja">
+              1マス = 45cm
+            </span>
+
+            <span data-lang="en">
+              1 grid square = 45 cm
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- 3D -->
+
+        <div class="mode-card three-d">
+
+          <div
+            class="mode-icon"
+            aria-hidden="true"
+          >
+            3D
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              3Dで雰囲気を見る
+            </span>
+
+            <span data-lang="en">
+              View in 3D
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            作った間取りは、編集画面から3Dへ切り替えて確認できます。
+            ミニチュアを見るような感覚で、
+            部屋全体の雰囲気を眺められます。
+          </p>
+
+          <p data-lang="en">
+            Switch from the editing screen to a 3D view
+            and enjoy your layout like a small miniature model.
+          </p>
+
+          <div class="mode-note">
+
+            <span data-lang="ja">
+              色テーマも選べます
+            </span>
+
+            <span data-lang="en">
+              Choose from different color themes
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       START OPTIONS
+       ========================= -->
+
+  <section class="section-shell green">
+
+    <div class="section-inner reveal">
+
+      <p class="section-label">
+
+        <span data-lang="ja">
+          はじめ方
+        </span>
+
+        <span data-lang="en">
+          GET STARTED
+        </span>
+
+      </p>
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          自分に合ったところから
+        </span>
+
+        <span data-lang="en">
+          Start the Way You Like
+        </span>
+
+      </h2>
+
+      <div class="feature-grid">
+
+        <!-- New -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            ＋
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              新しく作る
+            </span>
+
+            <span data-lang="en">
+              Start from Scratch
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            敷地サイズを選んで、
+            何もないところから自由に間取りを作れます。
+          </p>
+
+          <p data-lang="en">
+            Choose a site size and create your own layout from scratch.
+          </p>
+
+        </div>
+
+
+        <!-- Template -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            □
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              テンプレートから
+            </span>
+
+            <span data-lang="en">
+              Start with a Template
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            1R・1LDK・2LDK・3LDK・4LDKの
+            用意された間取りから選んで編集できます。
+          </p>
+
+          <p data-lang="en">
+            Choose from prepared 1R, 1LDK, 2LDK, 3LDK and 4LDK layouts,
+            then edit them freely.
+          </p>
+
+        </div>
+
+
+        <!-- Saved -->
+
+        <div class="feature-card">
+
+          <div
+            class="feature-icon"
+            aria-hidden="true"
+          >
+            ↓
+          </div>
+
+          <h3>
+
+            <span data-lang="ja">
+              保存した間取りから
+            </span>
+
+            <span data-lang="en">
+              Open a Saved Plan
+            </span>
+
+          </h3>
+
+          <p data-lang="ja">
+            作った間取りを保存して、
+            あとから開いて続きを編集できます。
+          </p>
+
+          <p data-lang="en">
+            Save your floor plans and open them again later to continue editing.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GUIDE
+       ========================= -->
+
+  <section class="section-shell soft">
+
+    <div class="section-inner reveal">
+
+      <p class="section-label">
+        GUIDE
+      </p>
+
+      <h2 class="section-title">
+
+        <span data-lang="ja">
+          詳しくはこちら
+        </span>
+
+        <span data-lang="en">
+          More Information
+        </span>
+
+      </h2>
+
+      <div class="panel">
+
+        <ul class="link-list">
+
+          <!-- How To -->
+
+          <li>
+
+            <a
+              href="howto.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                📖
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  使い方
+                </span>
+
+                <span data-lang="en">
+                  How to Use
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- FAQ -->
+
+          <li>
+
+            <a
+              href="faq.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                ❓
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  ご質問（Q&amp;A）
+                </span>
+
+                <span data-lang="en">
+                  FAQ
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Privacy -->
+
+          <li>
+
+            <a
+              href="privacy.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                🔒
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  プライバシーポリシー
+                </span>
+
+                <span data-lang="en">
+                  Privacy Policy
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Terms -->
+
+          <li>
+
+            <a
+              href="terms.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                📋
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  利用規約
+                </span>
+
+                <span data-lang="en">
+                  Terms of Use
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Contact -->
+
+          <li>
+
+            <a
+              href="../contact.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                ✉️
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  お問い合わせ
+                </span>
+
+                <span data-lang="en">
+                  Contact
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Home -->
+
+          <li>
+
+            <a
+              href="../index.html"
+              class="link-item"
+            >
+
+              <span class="link-icon">
+                🏡
+              </span>
+
+              <span class="link-text">
+
+                <span data-lang="ja">
+                  ちょこもふらぼ トップ
+                </span>
+
+                <span data-lang="en">
+                  Chocomofu Lab Home
+                </span>
+
+              </span>
+
+              <span class="link-arrow">
+                ›
+              </span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+    <p class="footer-logo">
+
+      <span data-lang="ja">
+        まどり日和
+      </span>
+
+      <span data-lang="en">
+        MadoriBiyori
+      </span>
+
+    </p>
+
+    <div class="footer-links">
+
+      <a href="../index.html">
+
+        <span data-lang="ja">
+          ちょこもふらぼ
+        </span>
+
+        <span data-lang="en">
+          Chocomofu Lab
+        </span>
+
+      </a>
+
+      <a href="privacy.html">
+
+        <span data-lang="ja">
+          プライバシーポリシー
+        </span>
+
+        <span data-lang="en">
+          Privacy Policy
+        </span>
+
+      </a>
+
+      <a href="terms.html">
+
+        <span data-lang="ja">
+          利用規約
+        </span>
+
+        <span data-lang="en">
+          Terms
+        </span>
+
+      </a>
+
+      <a href="../contact.html">
+
+        <span data-lang="ja">
+          お問い合わせ
+        </span>
+
+        <span data-lang="en">
+          Contact
+        </span>
+
+      </a>
+
+    </div>
+
+    <p style="margin-top:0.5rem;">
+      © 2026 Chocomofu Lab.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPT
+       ========================= -->
+
+  <script>
+
+    let isEn = false;
+
+
+    function applyLang(
+      nextIsEn,
+      shouldUpdateUrl = true
+    ) {
+
+      isEn = nextIsEn;
+
+      document.body
+        .classList
+        .toggle(
+          'en',
+          isEn
+        );
+
+      document.documentElement.lang =
+        isEn
+          ? 'en'
+          : 'ja';
+
+      const langBtn =
+        document.getElementById(
+          'langBtn'
+        );
+
+      if (langBtn) {
+
+        langBtn.textContent =
+          isEn
+            ? 'JA'
+            : 'EN';
+
+        langBtn.setAttribute(
+          'aria-label',
+          isEn
+            ? '日本語表示に切り替える'
+            : 'Switch to English'
+        );
+
+      }
+
+      if (shouldUpdateUrl) {
+
+        const currentUrl =
+          new URL(
+            window.location.href
+          );
+
+        if (isEn) {
+
+          currentUrl
+            .searchParams
+            .set(
+              'lang',
+              'en'
+            );
+
+        } else {
+
+          currentUrl
+            .searchParams
+            .delete(
+              'lang'
+            );
+
+        }
+
+        window.history
+          .replaceState(
+            null,
+            '',
+            currentUrl.toString()
+          );
+
+      }
+
+      updateInternalLinksLang();
+
+    }
+
+
+    function toggleLang() {
+
+      applyLang(
+        !isEn,
+        true
+      );
+
+    }
+
+
+    function updateInternalLinksLang() {
+
+      const links =
+        document.querySelectorAll(
+          'a[href]'
+        );
+
+      links.forEach(
+        (link) => {
+
+          const originalHref =
+            link.getAttribute(
+              'href'
+            );
+
+          if (
+            !originalHref ||
+            originalHref.startsWith('#') ||
+            originalHref.startsWith('mailto:') ||
+            originalHref.startsWith('tel:') ||
+            originalHref.startsWith('javascript:')
+          ) {
+            return;
+          }
+
+          const linkUrl =
+            new URL(
+              originalHref,
+              window.location.href
+            );
+
+          if (
+            linkUrl.origin !==
+            window.location.origin
+          ) {
+            return;
+          }
+
+          if (isEn) {
+
+            linkUrl
+              .searchParams
+              .set(
+                'lang',
+                'en'
+              );
+
+          } else {
+
+            linkUrl
+              .searchParams
+              .delete(
+                'lang'
+              );
+
+          }
+
+          link.href =
+            linkUrl.toString();
+
+        }
+      );
+
+    }
+
+
+    const initialIsEn =
+      window.location.search
+        .indexOf(
+          'lang=en'
+        ) !== -1;
+
+    applyLang(
+      initialIsEn,
+      false
+    );
+
+
+    const reveals =
+      document.querySelectorAll(
+        '.reveal'
+      );
+
+    if (
+      'IntersectionObserver'
+      in window
+    ) {
+
+      const observer =
+        new IntersectionObserver(
+
+          (entries) => {
+
+            entries.forEach(
+              (entry) => {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  entry.target
+                    .classList
+                    .add(
+                      'visible'
+                    );
+
+                }
+
+              }
+            );
+
+          },
+
+          {
+            threshold: 0.12
+          }
+
+        );
+
+      reveals.forEach(
+        (item) =>
+          observer.observe(item)
+      );
+
+    } else {
+
+      reveals.forEach(
+        (item) =>
+          item
+            .classList
+            .add(
+              'visible'
+            )
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,3187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>使い方 | まどり日和</title>
+
+  <meta
+    name="description"
+    content="まどり日和の使い方ページです。サイズを選んで間取りを作り、2Dと3Dを切り替えながら気軽に確認できます。テンプレートから始めることもできます。"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link
+    rel="canonical"
+    href="https://chocomofulab.com/madoribiyori/howto.html"
+  >
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:site_name"
+    content="ちょこもふらぼ | Chocomofu Lab"
+  >
+
+  <meta
+    property="og:title"
+    content="使い方 | まどり日和"
+  >
+
+  <meta
+    property="og:description"
+    content="2Dで間取りを作って、3Dですぐに雰囲気を確認。まどり日和の基本的な使い方をご紹介します。"
+  >
+
+  <meta
+    property="og:url"
+    content="https://chocomofulab.com/madoribiyori/howto.html"
+  >
+
+  <!-- OGP画像は後から追加予定
+  <meta
+    property="og:image"
+    content="https://chocomofulab.com/madoribiyori/images/ogp-madoribiyori.png"
+  >
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  -->
+
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta
+    name="twitter:title"
+    content="使い方 | まどり日和"
+  >
+
+  <meta
+    name="twitter:description"
+    content="2Dで間取りを作って、3Dですぐに雰囲気を確認。まどり日和の基本的な使い方をご紹介します。"
+  >
+
+  <!-- Iconは後から追加予定
+  <link
+    rel="icon"
+    href="images/icon-madoribiyori.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="images/icon-madoribiyori.png"
+  >
+  -->
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================
+       COLORS
+    ========================= */
+
+    :root {
+      --bg: #fbfaf6;
+      --bg-soft: #f8f3ea;
+      --white: #fffefd;
+
+      --brown: #443537;
+      --brown-soft: #8a7d72;
+
+      --orange: #c37a43;
+      --orange-strong: #b96932;
+      --orange-soft: #f8ead7;
+
+      --green: #819878;
+      --green-soft: #e7efe3;
+
+      --beige-soft: #f3eadc;
+
+      --line: rgba(220, 211, 199, 0.95);
+
+      --shadow:
+        rgba(68, 53, 55, 0.08);
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        'M PLUS Rounded 1c',
+        'Nunito',
+        sans-serif;
+
+      background: var(--bg);
+
+      color: var(--brown);
+
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       NAV
+    ========================= */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      background:
+        rgba(255, 253, 249, 0.96);
+
+      backdrop-filter: blur(10px);
+
+      z-index: 100;
+
+      padding:
+        0.9rem 2rem;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 1rem;
+
+      border-bottom:
+        1.5px solid rgba(220, 211, 199, 0.8);
+
+      box-shadow:
+        0 2px 14px rgba(68, 53, 55, 0.035);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+
+      font-size: 1rem;
+
+      font-weight: 900;
+
+      color: var(--orange);
+
+      line-height: 1.25;
+
+      white-space: nowrap;
+
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.7rem;
+
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 44px;
+
+      min-width: 62px;
+
+      padding:
+        0.45rem 1rem;
+
+      border-radius: 999px;
+
+      background: var(--beige-soft);
+
+      color: var(--brown);
+
+      font-family: inherit;
+
+      font-size: 0.86rem;
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      border:
+        2px solid rgba(220, 211, 199, 0.92);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+
+    /* =========================
+       PAGE HERO
+    ========================= */
+
+    .page-hero {
+      background:
+        linear-gradient(
+          180deg,
+          #fffdf9 0%,
+          #f8f1e7 100%
+        );
+
+      padding:
+        7.4rem 2rem 3.4rem;
+
+      text-align: center;
+
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: -1px;
+
+      height: 44px;
+
+      background: var(--white);
+
+      clip-path:
+        ellipse(58% 100% at 50% 100%);
+    }
+
+    .page-hero-inner {
+      position: relative;
+
+      z-index: 1;
+
+      max-width: 760px;
+
+      margin: 0 auto;
+    }
+
+    .page-hero .icon {
+      width: 62px;
+      height: 62px;
+
+      margin:
+        0 auto 0.75rem;
+
+      border-radius: 20px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: var(--orange-soft);
+
+      color: var(--orange);
+
+      font-size: 1.55rem;
+
+      font-weight: 900;
+
+      border:
+        2px solid rgba(195, 122, 67, 0.16);
+    }
+
+    .page-hero h1 {
+      font-size:
+        clamp(2rem, 5vw, 3rem);
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      line-height: 1.2;
+
+      text-shadow:
+        4px 4px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .page-hero .app-name {
+      display: inline-block;
+
+      margin-top: 0.95rem;
+
+      background:
+        rgba(255, 255, 255, 0.92);
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 999px;
+
+      padding:
+        0.45rem 1.15rem;
+
+      font-size: 0.88rem;
+
+      font-weight: 900;
+
+      color: var(--brown-soft);
+
+      box-shadow:
+        0 4px 14px rgba(68, 53, 55, 0.05);
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      padding:
+        4rem 2rem 5rem;
+
+      background: var(--white);
+    }
+
+    .intro-text {
+      text-align: center;
+
+      color: var(--brown-soft);
+
+      font-size: 0.98rem;
+
+      font-weight: 700;
+
+      line-height: 1.95;
+
+      margin:
+        0 auto 2rem;
+
+      max-width: 700px;
+    }
+
+    .howto-section {
+      background:
+        rgba(255, 255, 255, 0.96);
+
+      border-radius: 28px;
+
+      padding: 2rem;
+
+      margin-bottom: 1.6rem;
+
+      border:
+        2px solid var(--line);
+
+      box-shadow:
+        0 8px 26px var(--shadow);
+    }
+
+    .howto-section h2 {
+      font-size: 1.1rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 1rem;
+
+      padding-bottom: 0.75rem;
+
+      border-bottom:
+        2px solid rgba(220, 211, 199, 0.82);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.55rem;
+
+      line-height: 1.55;
+    }
+
+    .section-icon {
+      width: 38px;
+      height: 38px;
+
+      flex-shrink: 0;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 13px;
+
+      background: var(--orange-soft);
+
+      color: var(--orange);
+
+      font-size: 0.9rem;
+
+      font-weight: 900;
+    }
+
+    .section-icon.green {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .section-icon.beige {
+      background: var(--beige-soft);
+      color: var(--brown-soft);
+    }
+
+    .howto-section p {
+      font-size: 0.96rem;
+
+      line-height: 1.95;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 0.8rem;
+
+      font-weight: 700;
+    }
+
+    .howto-section p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       STEP LIST
+    ========================= */
+
+    .step-list {
+      display: grid;
+
+      gap: 0.95rem;
+    }
+
+    .step-item {
+      display: grid;
+
+      grid-template-columns:
+        auto 1fr;
+
+      gap: 1rem;
+
+      align-items: start;
+
+      background: #fffaf4;
+
+      border:
+        2px solid rgba(224, 177, 136, 0.56);
+
+      border-radius: 24px;
+
+      padding:
+        1.15rem 1.25rem;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      color: #fff;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 1.05rem;
+
+      font-weight: 900;
+
+      flex-shrink: 0;
+
+      box-shadow:
+        0 5px 14px rgba(195, 122, 67, 0.18);
+    }
+
+    .step-text {
+      color: var(--brown-soft);
+
+      line-height: 1.85;
+
+      font-size: 0.98rem;
+
+      font-weight: 800;
+    }
+
+    .step-text strong {
+      display: inline-block;
+
+      color: var(--brown);
+
+      font-size: 1.02rem;
+
+      font-weight: 900;
+
+      margin-bottom: 0.1rem;
+    }
+
+
+    /* =========================
+       START CARDS
+    ========================= */
+
+    .start-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 1rem;
+
+      margin-top: 1rem;
+    }
+
+    .start-card {
+      border-radius: 24px;
+
+      padding: 1.35rem;
+
+      box-shadow:
+        0 5px 18px rgba(68, 53, 55, 0.05);
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fff8ef 100%
+        );
+
+      border:
+        2px solid rgba(224, 177, 136, 0.56);
+    }
+
+    .start-card.green {
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f3f7f1 100%
+        );
+
+      border:
+        2px solid rgba(129, 152, 120, 0.32);
+    }
+
+    .start-card.beige {
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f7f2ea 100%
+        );
+
+      border:
+        2px solid var(--line);
+    }
+
+    .start-card h3 {
+      font-size: 1.02rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 0.55rem;
+
+      line-height: 1.55;
+    }
+
+    .start-card p {
+      font-size: 0.9rem;
+
+      line-height: 1.8;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       FEATURE CARDS
+    ========================= */
+
+    .feature-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 1rem;
+
+      margin-top: 1rem;
+    }
+
+    .feature-card {
+      background: #fffdf9;
+
+      border:
+        2px solid var(--line);
+
+      border-radius: 24px;
+
+      padding: 1.25rem;
+
+      box-shadow:
+        0 5px 18px rgba(68, 53, 55, 0.05);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+
+      border-radius: 16px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: var(--orange-soft);
+
+      color: var(--orange);
+
+      font-size: 0.9rem;
+
+      font-weight: 900;
+
+      margin-bottom: 0.65rem;
+    }
+
+    .feature-card:nth-child(even)
+    .feature-icon {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+
+      font-weight: 900;
+
+      color: var(--brown);
+
+      margin-bottom: 0.5rem;
+
+      line-height: 1.55;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+
+      line-height: 1.8;
+
+      color: var(--brown-soft);
+
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       INFO BOXES
+    ========================= */
+
+    .safe-box {
+      background: #f3f7f1;
+
+      border-radius: 16px;
+
+      padding:
+        1.05rem 1.2rem;
+
+      border:
+        2px solid rgba(129, 152, 120, 0.28);
+
+      font-size: 0.9rem;
+
+      line-height: 1.85;
+
+      color: var(--brown-soft);
+
+      margin-top: 0.85rem;
+    }
+
+    .notice-box {
+      background: #fff8ef;
+
+      border-radius: 16px;
+
+      padding:
+        1.05rem 1.2rem;
+
+      border:
+        2px solid rgba(195, 122, 67, 0.28);
+
+      font-size: 0.9rem;
+
+      line-height: 1.85;
+
+      color: var(--brown-soft);
+
+      margin-top: 0.85rem;
+    }
+
+    .safe-box ul,
+    .notice-box ul {
+      padding-left: 1.3rem;
+
+      list-style: disc;
+    }
+
+    .safe-box li,
+    .notice-box li {
+      margin-bottom: 0.35rem;
+
+      line-height: 1.85;
+
+      font-weight: 700;
+    }
+
+    .safe-box li:last-child,
+    .notice-box li:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-link {
+      display: inline-block;
+
+      margin-top: 0.5rem;
+
+      color: var(--orange-strong);
+
+      font-weight: 900;
+
+      text-decoration: none;
+
+      border-bottom:
+        2px solid rgba(185, 105, 50, 0.35);
+
+      transition:
+        opacity 0.2s;
+    }
+
+    .contact-link:hover {
+      opacity: 0.75;
+    }
+
+    .link-row {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 1rem;
+
+      align-items: center;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--brown);
+
+      color:
+        rgba(255,255,255,0.76);
+
+      text-align: center;
+
+      padding:
+        2rem 1.5rem;
+
+      font-size: 0.84rem;
+
+      line-height: 1.95;
+    }
+
+    .footer-logo {
+      font-size: 1.15rem;
+
+      font-weight: 900;
+
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+
+      margin-top: 0.5rem;
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color:
+        rgba(255,255,255,0.75);
+
+      text-decoration: none;
+
+      margin:
+        0 0.75rem;
+
+      font-size: 0.82rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+
+    /* =========================
+       LANGUAGE
+    ========================= */
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.en [data-lang="ja"] {
+      display: none;
+    }
+
+    body.en [data-lang="en"] {
+      display: block;
+    }
+
+    body.en span[data-lang="en"] {
+      display: inline;
+    }
+
+    body.en span[data-lang="ja"] {
+      display: none;
+    }
+
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      nav {
+        padding:
+          0.7rem 1rem;
+      }
+
+      .nav-logo {
+        font-size: 0.82rem;
+
+        flex: 1;
+
+        min-width: 0;
+
+        max-width: none;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+      }
+
+      .lang-btn {
+        min-height: 40px;
+
+        padding:
+          0.38rem 0.75rem;
+
+        font-size: 0.78rem;
+      }
+
+      .content {
+        padding:
+          3rem 1rem 4rem;
+      }
+
+      .howto-section {
+        padding: 1.45rem;
+
+        border-radius: 24px;
+      }
+
+      .start-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 520px) {
+
+      .page-hero {
+        padding:
+          6.6rem 1rem 2.7rem;
+      }
+
+      .step-item {
+        grid-template-columns: 1fr;
+
+        gap: 0.7rem;
+      }
+
+      .step-num {
+        width: 38px;
+        height: 38px;
+      }
+
+      .footer-links li {
+        display: inline-block;
+
+        margin:
+          0.18rem 0;
+      }
+
+    }
+
+
+    /* =========================
+       REDUCED MOTION
+    ========================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration:
+          0.01ms !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAV
+========================= -->
+
+<nav>
+
+  <a
+    href="../index.html"
+    class="nav-logo"
+  >
+    ちょこもふらぼ / Chocomofu Lab
+  </a>
+
+  <div class="nav-right">
+
+    <button
+      type="button"
+      class="lang-btn"
+      onclick="toggleLang()"
+      id="langBtn"
+      aria-label="Switch to English"
+    >
+      EN
+    </button>
+
+  </div>
+
+</nav>
+
+
+
+<!-- =========================
+     PAGE HERO
+========================= -->
+
+<div class="page-hero">
+
+  <div class="page-hero-inner">
+
+    <div
+      class="icon"
+      aria-hidden="true"
+    >
+      📖
+    </div>
+
+    <h1>
+
+      <span data-lang="ja">
+        使い方
+      </span>
+
+      <span data-lang="en">
+        How to Use
+      </span>
+
+    </h1>
+
+    <span class="app-name">
+
+      <span data-lang="ja">
+        まどり日和
+      </span>
+
+      <span data-lang="en">
+        MadoriBiyori
+      </span>
+
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="content">
+
+  <p
+    class="intro-text"
+    data-lang="ja"
+  >
+    まどり日和は、2Dで間取りを作りながら<br>いつでも3Dへ切り替えて雰囲気を確認できます。<br>
+    まずは好きな始め方を選んで、気軽に間取り作りを楽しんでください。
+  </p>
+
+  <p
+    class="intro-text"
+    data-lang="en"
+  >
+    MadoriBiyori lets you create a floor plan in 2D
+    and switch to 3D whenever you want to check the overall feel.
+    Choose how you want to begin and enjoy creating your layout.
+  </p>
+
+
+  <!-- =========================
+       START
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        1
+      </span>
+
+      <span data-lang="ja">
+        まずは始め方を選びます
+      </span>
+
+      <span data-lang="en">
+        Choose How to Start
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      トップ画面では、3つの方法から間取り作りを始められます。
+    </p>
+
+    <p data-lang="en">
+      From the home screen, you can begin in one of three ways.
+    </p>
+
+    <div class="start-grid">
+
+      <div class="start-card">
+
+        <h3>
+          <span data-lang="ja">
+            新しく作る
+          </span>
+
+          <span data-lang="en">
+            Create New
+          </span>
+        </h3>
+
+        <p data-lang="ja">
+          敷地サイズを選んで、何もない状態から自由に間取りを作ります。
+        </p>
+
+        <p data-lang="en">
+          Choose a site size and create a floor plan freely from an empty layout.
+        </p>
+
+      </div>
+
+
+      <div class="start-card beige">
+
+        <h3>
+          <span data-lang="ja">
+            テンプレートから始める
+          </span>
+
+          <span data-lang="en">
+            Start from a Template
+          </span>
+        </h3>
+
+        <p data-lang="ja">
+          用意された間取りを選び、そこから自由に編集できます。
+        </p>
+
+        <p data-lang="en">
+          Choose a prepared floor plan and edit it freely.
+        </p>
+
+      </div>
+
+
+      <div class="start-card green">
+
+        <h3>
+          <span data-lang="ja">
+            保存した間取り
+          </span>
+
+          <span data-lang="en">
+            Saved Floor Plans
+          </span>
+        </h3>
+
+        <p data-lang="ja">
+          前に保存した間取りを開いて、続きから編集できます。
+        </p>
+
+        <p data-lang="en">
+          Open a previously saved floor plan and continue editing it.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BASIC FLOW
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        2
+      </span>
+
+      <span data-lang="ja">
+        基本の流れ
+      </span>
+
+      <span data-lang="en">
+        Basic Flow
+      </span>
+
+    </h2>
+
+    <div class="step-list">
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          1
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              敷地サイズを選ぶ
+            </span>
+
+            <span data-lang="en">
+              Choose a site size
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            「新しく作る」では、最初に間取りを作るための敷地サイズを選びます。
+          </span>
+
+          <span data-lang="en">
+            When creating a new plan, first choose the site size you want to use.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          2
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              2Dで間取りを作る
+            </span>
+
+            <span data-lang="en">
+              Create the floor plan in 2D
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            壁を描き、ドアや窓、水回り、家具などを配置して間取りを作ります。
+          </span>
+
+          <span data-lang="en">
+            Draw walls and place doors, windows, water-area items, furniture, and more.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          3
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              3Dへ切り替えて確認
+            </span>
+
+            <span data-lang="en">
+              Switch to 3D
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            編集画面上部の「3D」を押すと、作った間取りをミニチュア風の3Dで確認できます。
+          </span>
+
+          <span data-lang="en">
+            Tap “3D” at the top of the editor to view your floor plan as a miniature-style 3D scene.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          4
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              必要なら2Dへ戻って編集
+            </span>
+
+            <span data-lang="en">
+              Return to 2D when needed
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            2Dと3Dは切り替えながら使えます。3Dで見て気になったところは、2Dへ戻って調整できます。
+          </span>
+
+          <span data-lang="en">
+            You can switch between 2D and 3D as you work. Return to 2D whenever you want to make changes.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          5
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              保存する
+            </span>
+
+            <span data-lang="en">
+              Save your floor plan
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            作った間取りは保存できます。保存した間取りは、トップ画面の「保存した間取り」から開けます。
+          </span>
+
+          <span data-lang="en">
+            Save the floor plan you created and open it later from “Saved Floor Plans.”
+          </span>
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       2D
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        2D
+      </span>
+
+      <span data-lang="ja">
+        2Dで間取りを作る
+      </span>
+
+      <span data-lang="en">
+        Create Your Floor Plan in 2D
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      2D編集画面は、間取り作りの中心となる画面です。
+      上部の「構造」「開口部」「水回り」「家具」「その他」を切り替えながら、
+      壁やドア、窓、設備、家具、床などを配置していきます。
+    </p>
+
+    <p data-lang="en">
+      The 2D editor is the main screen for creating your floor plan.
+      Switch between Structure, Openings, Water Area, Furniture, and More
+      to place walls, doors, windows, fixtures, furniture, flooring, and other items.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       WALL DRAWING
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        壁
+      </span>
+
+      <span data-lang="ja">
+        壁を描く
+      </span>
+
+      <span data-lang="en">
+        Draw Walls
+      </span>
+
+    </h2>
+
+    <div class="step-list">
+
+      <div class="step-item">
+
+        <span class="step-num">
+          1
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              「壁を描く」を選ぶ
+            </span>
+
+            <span data-lang="en">
+              Select “Draw Wall”
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            「構造」→「壁を描く」を押すと、間取りの中央に壁を描き始めるための◎が表示されます。
+          </span>
+
+          <span data-lang="en">
+            Tap Structure → Draw Wall to show the circular starting control in the center of the floor plan.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          2
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+  壁を描きたいところの近くに指を置く
+</span>
+
+<span data-lang="en">
+  Place your finger near where you want to draw the wall
+</span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            指を置くと指の少し上に◎が移動して表示されます。
+            そのまま指を動かすと、動かした方向へ壁を描けます。
+          </span>
+
+          <span data-lang="en">
+            When you touch the circle, the control shifts slightly above your finger.
+            Keep dragging to draw the wall in the direction you move.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          3
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              最初に動かした方向で縦・横が決まります
+            </span>
+
+            <span data-lang="en">
+              The first movement sets the direction
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            描き始めに縦方向へ動かした場合は縦方向だけ、横方向へ動かした場合は横方向だけに壁が伸びます。
+            壁が安定して描きやすいように、縦・横のどちらかに固定される仕組みです。
+          </span>
+
+          <span data-lang="en">
+            If your first movement is vertical, the wall continues vertically. If it is horizontal, the wall continues horizontally.
+            This direction lock helps keep walls straight instead of becoming diagonal or uneven.
+          </span>
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       WALL ERASER
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        消
+      </span>
+
+      <span data-lang="ja">
+        壁を消す
+      </span>
+
+      <span data-lang="en">
+        Erase Walls
+      </span>
+
+    </h2>
+
+   <p data-lang="ja">
+  「構造」から「消す」を選ぶと、間取りの中央に壁を消すための◎が表示されます。
+  そのまま消したい壁の近くに指を置くと◎が移動し、その壁を消すことができます。
+</p>
+
+<p data-lang="en">
+  Choose “Erase” under Structure to display the ◎ control for removing walls in the center of the floor plan.
+  Place your finger near the wall you want to remove, and the ◎ will move to that position so you can erase the wall.
+</p>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            「消す」で消えるのは壁です。壁に付いているドアや窓などの開口部も、その壁と一緒に消えます。
+          </span>
+
+          <span data-lang="en">
+            The Erase tool removes walls. Doors, windows, and other openings attached to that wall are removed together with it.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            家具や水回り、床などは「消す」では消えません。
+          </span>
+
+          <span data-lang="en">
+            Furniture, water-area items, and flooring are not removed by the Erase tool.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            家具などを削除したい場合は、そのパーツを選択して表示されるゴミ箱ボタンを使います。
+          </span>
+
+          <span data-lang="en">
+            To delete furniture or similar placed items, select the item and use its trash button.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       OPENINGS
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        開
+      </span>
+
+      <span data-lang="ja">
+        ドア・窓などの開口部を置く
+      </span>
+
+      <span data-lang="en">
+        Place Doors and Windows
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      「開口部」では、ドア・開き戸・窓などを配置できます。
+      開口部は壁に近づけると、壁に沿って配置しやすいよう吸着します。
+    </p>
+
+    <p data-lang="en">
+      Under Openings, you can place doors, hinged doors, windows, and similar items.
+      Openings snap to nearby walls to make placement easier.
+    </p>
+
+    <div class="step-list">
+
+      <div class="step-item">
+
+        <span class="step-num">
+          1
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              開口部を選んで配置
+            </span>
+
+            <span data-lang="en">
+              Choose and place an opening
+            </span>
+
+          </strong>
+
+          <br>
+
+         <span data-lang="ja">
+  配置したいドアや窓を選ぶと、間取りの中央部に表示されます。
+</span>
+
+<span data-lang="en">
+  Choose the door or window you want to place, and it will appear in the center of the floor plan.
+</span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          2
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+        <span data-lang="ja">
+  左上の角度変更で壁の向きに合わせる
+</span>
+
+<span data-lang="en">
+  Use the upper-left rotate button to match the wall direction
+</span>
+
+</strong>
+
+<br>
+
+<span data-lang="ja">
+  縦の壁に置きたいとき、横の壁に置きたいときは、
+  選択中に表示される左上側の角度変更ボタンで向きを合わせます。
+</span>
+
+<span data-lang="en">
+  When placing it on a vertical or horizontal wall,
+  use the rotate button shown at the upper left of the selected item to match the wall direction.
+</span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          3
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              壁へ近づけると吸着
+            </span>
+
+            <span data-lang="en">
+              Move it near the wall to snap
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            壁の向きに合わせた開口部を壁へ近づけると、壁に沿う位置へ吸着します。
+          </span>
+
+          <span data-lang="en">
+            After matching the direction, move the opening near the wall and it will snap into position along the wall.
+          </span>
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PLACED ITEMS
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon green"
+        aria-hidden="true"
+      >
+        移
+      </span>
+
+      <span data-lang="ja">
+        配置したパーツを動かす・回す・削除する
+      </span>
+
+      <span data-lang="en">
+        Move, Rotate, or Delete Placed Items
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      開口部や水回り、家具などを選択すると、パーツのまわりに操作ボタンが表示されます。
+    </p>
+
+    <p data-lang="en">
+      When you select an opening, water-area item, furniture item, or similar placed object,
+      editing controls appear around it.
+    </p>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <div
+          class="feature-icon"
+          aria-hidden="true"
+        >
+          ↻
+        </div>
+
+        <h3>
+  <span data-lang="ja">
+    左上：角度変更
+  </span>
+
+  <span data-lang="en">
+    Upper Left: Rotate
+  </span>
+</h3>
+
+<p data-lang="ja">
+  左上側のボタンで向きを変更できます。
+</p>
+
+<p data-lang="en">
+  Use the upper-left button to rotate the selected item.
+</p>
+
+</div>
+
+
+<div class="feature-card">
+
+  <div
+    class="feature-icon"
+    aria-hidden="true"
+  >
+    削
+  </div>
+
+  <h3>
+    <span data-lang="ja">
+      右上：ゴミ箱
+    </span>
+
+    <span data-lang="en">
+      Upper Right: Delete
+    </span>
+  </h3>
+
+  <p data-lang="ja">
+    右上側のゴミ箱ボタンで、選択しているパーツを削除できます。
+  </p>
+
+  <p data-lang="en">
+    Use the trash button at the upper right to delete the selected item.
+  </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div
+          class="feature-icon"
+          aria-hidden="true"
+        >
+          ↕
+        </div>
+
+        <h3>
+          <span data-lang="ja">
+            下：移動
+          </span>
+
+          <span data-lang="en">
+            Bottom: Move
+          </span>
+        </h3>
+
+        <p data-lang="ja">
+          下側の移動ボタンを使って、好きな位置へ動かせます。
+        </p>
+
+        <p data-lang="en">
+          Use the bottom move control to reposition the item.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div
+          class="feature-icon"
+          aria-hidden="true"
+        >
+          ✓
+        </div>
+
+        <h3>
+          <span data-lang="ja">
+            ほかの場所を押して配置を確定
+          </span>
+
+          <span data-lang="en">
+            Tap elsewhere to finish
+          </span>
+        </h3>
+
+        <p data-lang="ja">
+          位置や向きを決めたら、パーツ以外の場所を押すとその位置で配置されます。
+        </p>
+
+        <p data-lang="en">
+          After adjusting the position and angle, tap elsewhere to finish placing the item there.
+        </p>
+
+      </div>
+
+    </div>
+<div class="notice-box">
+
+  <ul>
+
+    <li>
+      <span data-lang="ja">
+        家具や設備などを回転したとき、変更後の向きに壁やほかのパーツが重なる場合は、角度を変更できません。
+      </span>
+
+      <span data-lang="en">
+        An item cannot be rotated if its new position would overlap a wall or another placed item.
+      </span>
+    </li>
+
+    <li>
+      <span data-lang="ja">
+        家具や設備などのパーツ同士を重ねて配置することはできません。
+      </span>
+
+      <span data-lang="en">
+        Furniture, fixtures, and other placed items cannot overlap each other.
+      </span>
+    </li>
+
+    <li>
+      <span data-lang="ja">
+        ベッドやソファなどの大きな家具は、まわりに十分な空きがある場所で先に向きを変えてから、置きたい場所へ移動すると配置しやすくなります。
+      </span>
+
+      <span data-lang="en">
+        For larger items such as beds and sofas, it may be easier to rotate them first in an open area, then move them into the desired position.
+      </span>
+    </li>
+
+  </ul>
+
+</div>
+  </section>
+
+
+
+  <!-- =========================
+       FLOOR
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        床
+      </span>
+
+      <span data-lang="ja">
+        床を置く・編集する
+      </span>
+
+      <span data-lang="en">
+        Place and Edit Flooring
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      「その他」→「床」から、タイル・白石床・畳・木目床・クリームなどの床を選べます。
+    </p>
+
+    <p data-lang="en">
+      Under More → Floor, choose a flooring type such as tile, stone, tatami, wood, or cream.
+    </p>
+
+    <div class="step-list">
+
+      <div class="step-item">
+
+        <span class="step-num">
+          1
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              床の種類を選ぶ
+            </span>
+
+            <span data-lang="en">
+              Choose a flooring type
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            使いたい床を選ぶと、その床が選択状態になります。
+          </span>
+
+          <span data-lang="en">
+            Tap the flooring type you want to place to make it active.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          2
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              選択中はスタンプのように続けて置けます
+            </span>
+
+            <span data-lang="en">
+              Stamp flooring while it is selected
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            床が選択されている間は、マスを押すたびに同じ床をそのまま続けて配置できます。
+            スタンプを押すような感覚で床を増やしていけます。
+          </span>
+
+          <span data-lang="en">
+            While a flooring type remains selected, each grid tap places another tile of the same type,
+            so you can add flooring continuously like using a stamp.
+          </span>
+
+        </p>
+
+      </div>
+
+
+      <div class="step-item">
+
+        <span class="step-num">
+          3
+        </span>
+
+        <p class="step-text">
+
+          <strong>
+
+            <span data-lang="ja">
+              床の選択を解除すると、1マスずつ編集できます
+            </span>
+
+            <span data-lang="en">
+              Deselect flooring to edit one tile at a time
+            </span>
+
+          </strong>
+
+          <br>
+
+          <span data-lang="ja">
+            床の選択を解除したあと、配置済みの床を1マス押すと、その1マスを選択できます。
+            家具などと同じように、角度変更・ゴミ箱・移動の操作ができます。
+          </span>
+
+          <span data-lang="en">
+            After deselecting the flooring tool, tap one placed floor tile to select that tile individually.
+            You can then rotate, delete, or move it using controls similar to other placed items.
+          </span>
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       DELETE
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        削
+      </span>
+
+      <span data-lang="ja">
+        画面上部のゴミ箱について
+      </span>
+
+      <span data-lang="en">
+        About the Main Trash Button
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      編集画面上部のゴミ箱は、間取り全体を整理したいときに使う機能です。
+    </p>
+
+    <p data-lang="en">
+      The main trash button at the top of the editor is used when you want to clear larger parts of the floor plan.
+    </p>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            「壁だけを消す」または「壁と家具をすべて消す」操作に使います。
+          </span>
+
+          <span data-lang="en">
+            It can be used to clear walls only, or to clear all walls and furniture.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            床だけを一括ですべて削除する機能はありません。
+          </span>
+
+          <span data-lang="en">
+            There is no separate function for deleting all flooring at once.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            床を消したい場合は、床の選択を解除してから消したい床を1マスずつ選び、ゴミ箱ボタンで削除します。
+          </span>
+
+          <span data-lang="en">
+            To remove flooring, deselect the flooring tool, select the floor tile you want to remove, and delete it individually.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FURNITURE SIZE
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon green"
+        aria-hidden="true"
+      >
+        家
+      </span>
+
+      <span data-lang="ja">
+        家具の大きさについて
+      </span>
+
+      <span data-lang="en">
+        About Furniture Sizes
+      </span>
+
+    </h2>
+
+    <div class="safe-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            アプリ内の家具や設備の大きさは、おおよその目安です。
+          </span>
+
+          <span data-lang="en">
+            Furniture and fixture sizes shown in the app are approximate.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            実際の家具・家電・設備などの製品寸法を正確に再現したものではありません。
+          </span>
+
+          <span data-lang="en">
+            They do not represent the exact dimensions of real furniture, appliances, or fixtures.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            実際に家具などを購入・設置する際は、製品の寸法と設置する場所の広さをご確認ください。
+          </span>
+
+          <span data-lang="en">
+            Before purchasing or installing real items, please check the actual product dimensions and available space.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       TATAMI
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        畳
+      </span>
+
+      <span data-lang="ja">
+        畳数を確認する
+      </span>
+
+      <span data-lang="en">
+        Check Approximate Tatami Size
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      壁で囲われた空間は、畳数と面積の目安を表示できます。
+    </p>
+
+    <p data-lang="en">
+      Enclosed spaces can display an approximate tatami-mat size and floor area.
+    </p>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            まどり日和では、1マスを45cmとして扱っています。
+          </span>
+
+          <span data-lang="en">
+            In MadoriBiyori, one grid square represents 45 cm.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            押し入れ・クローゼットなどの収納は、まどり日和では家具と同じように配置する仕様です。そのため、収納を置いただけでは、その部分が居室の畳数から自動的に差し引かれることはありません。
+          </span>
+
+          <span data-lang="en">
+            Storage items such as closets are placed in the same way as furniture in MadoriBiyori. Because of this, simply placing storage does not automatically subtract that area from the room's displayed tatami size.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            収納部分を居室とは別に確認したい場合は、収納部分を壁で区切ることで、別の空間として確認しやすくなります。
+          </span>
+
+          <span data-lang="en">
+            If you want to check the storage area separately from the living space, dividing it with walls can make it easier to treat it as a separate space.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            表示される畳数・面積は、間取り作りを楽しむための目安としてお使いください。
+          </span>
+
+          <span data-lang="en">
+            Tatami and area values are approximate and are intended as a guide while creating layouts.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       3D
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon green"
+        aria-hidden="true"
+      >
+        3D
+      </span>
+
+      <span data-lang="ja">
+        3Dで雰囲気を確認する
+      </span>
+
+      <span data-lang="en">
+        Check the Layout in 3D
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      3Dでは、2Dで作った間取りをミニチュアのような見え方で確認できます。
+      正確な建築シミュレーションではなく、部屋のつながりや家具の雰囲気を眺めるための機能です。
+    </p>
+
+    <p data-lang="en">
+      3D mode shows the floor plan you created in 2D as a miniature-style scene.
+      It is intended for casually checking the overall feel rather than precise architectural simulation.
+    </p>
+
+    <div class="safe-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            「2D」「3D」を押して、いつでも表示を切り替えられます。
+          </span>
+
+          <span data-lang="en">
+            Use the “2D” and “3D” buttons to switch views whenever you like.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            色テーマを変更して、壁・机・布・床などの雰囲気を変えて楽しめます。
+          </span>
+
+          <span data-lang="en">
+            Change the color theme to enjoy different looks for walls, tables, fabrics, floors, and more.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            3D画面上部の「確認」を押すと「確認部屋」が開きます。確認部屋では、編集用の操作部分を少なくしたすっきりした画面で、「2D確認」と「3D確認」を切り替えながら間取りを見ることができます。
+          </span>
+
+          <span data-lang="en">
+            Tap “Check” at the top of the 3D screen to open the Preview Room. There, you can switch between the 2D and 3D views and look over your floor plan on a cleaner screen with fewer editing controls.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       TEMPLATE
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        □
+      </span>
+
+      <span data-lang="ja">
+        テンプレートから始める
+      </span>
+
+      <span data-lang="en">
+        Start from a Template
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      ゼロから作るのがむずかしく感じるときは、
+      用意された間取りテンプレートから始めることもできます。
+    </p>
+
+    <p data-lang="en">
+      If starting from an empty layout feels difficult,
+      you can begin with one of the prepared floor plan templates.
+    </p>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            テンプレートを選んだあとも、壁・ドア・窓・設備・家具などを自由に編集できます。
+          </span>
+
+          <span data-lang="en">
+            After choosing a template, you can freely edit walls, doors, windows, fixtures, furniture, and more.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            テンプレートは完成形ではなく、間取り作りを始めやすくするための下地として用意しています。
+          </span>
+
+          <span data-lang="en">
+            Templates are starting points designed to make it easier to begin creating your own layout.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       SAVE
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon green"
+        aria-hidden="true"
+      >
+        保存
+      </span>
+
+      <span data-lang="ja">
+        保存した間取りを開く
+      </span>
+
+      <span data-lang="en">
+        Open a Saved Floor Plan
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      作成した間取りは保存して、あとからもう一度開くことができます。
+      保存一覧から開きたい間取りを選んで、続きから編集できます。
+    </p>
+
+    <p data-lang="en">
+      Save your floor plans and open them again later.
+      Choose a plan from the saved list and continue editing.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       DRAFT
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        下
+      </span>
+
+      <span data-lang="ja">
+        下書きについて
+      </span>
+
+      <span data-lang="en">
+        About Drafts
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      作成途中の間取りは、保存し忘れて消えてしまわないよう「下書き」として一時的に残る仕組みになっています。
+    </p>
+
+    <p data-lang="en">
+      A floor plan you are still editing is temporarily kept as a draft so that your work is less likely to be lost before you save it.
+    </p>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            作成途中で保存せず編集画面を離れた場合や、テンプレートを開いてから「戻る」を押した場合なども、編集中の内容が下書きとして残ることがあります。
+          </span>
+
+          <span data-lang="en">
+            If you leave the editor before saving, or open a template and then tap Back, your current work may remain as a draft.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            下書きがある状態で新しい間取りを作ろうとすると、「編集中の下書きがあります」と表示されます。
+          </span>
+
+          <span data-lang="en">
+            If you try to start another floor plan while a draft exists, a message will tell you that there is a draft currently being edited.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            その場合は「下書きを開く」から現在の下書きを開き、先に保存してください。
+          </span>
+
+          <span data-lang="en">
+            In that case, choose “Open Draft,” open the current draft, and save it first.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            下書きを保存すると、新しく間取りを作ったり、別のテンプレートから始めたりできるようになります。
+          </span>
+
+          <span data-lang="en">
+            Once the draft is saved, you can create a new floor plan or start again from another template.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       NOTE
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon beige"
+        aria-hidden="true"
+      >
+        !
+      </span>
+
+      <span data-lang="ja">
+        まどり日和について
+      </span>
+
+      <span data-lang="en">
+        About MadoriBiyori
+      </span>
+
+    </h2>
+
+    <div class="notice-box">
+
+      <ul>
+
+        <li>
+          <span data-lang="ja">
+            まどり日和は、気軽に間取り作りを楽しむためのアプリです。
+          </span>
+
+          <span data-lang="en">
+            MadoriBiyori is an app for casually enjoying floor plan creation.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            建築設計・施工図面・法令確認を目的とした専門的なCADアプリではありません。
+          </span>
+
+          <span data-lang="en">
+            It is not a professional CAD app for architectural design, construction drawings, or legal compliance checks.
+          </span>
+        </li>
+
+        <li>
+          <span data-lang="ja">
+            寸法・面積・畳数などの表示は目安としてお使いください。
+          </span>
+
+          <span data-lang="en">
+            Dimensions, floor area, and tatami values should be treated as approximate guides.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section class="howto-section">
+
+    <h2>
+
+      <span
+        class="section-icon"
+        aria-hidden="true"
+      >
+        ?
+      </span>
+
+      <span data-lang="ja">
+        分からないときは
+      </span>
+
+      <span data-lang="en">
+        Need Help?
+      </span>
+
+    </h2>
+
+    <p data-lang="ja">
+      よくあるご質問は、ご質問（Q&amp;A）でもご案内しています。
+      そのほか、ご意見・不具合などがありましたらお問い合わせフォームよりご連絡ください。
+    </p>
+
+    <p data-lang="en">
+      Please check the FAQ for common questions.
+      For feedback or bug reports, contact us through the contact form.
+    </p>
+
+    <div class="link-row">
+
+      <a
+        href="faq.html"
+        class="contact-link"
+      >
+
+        <span data-lang="ja">
+          ご質問（Q&amp;A）
+        </span>
+
+        <span data-lang="en">
+          FAQ
+        </span>
+
+      </a>
+
+      <a
+        href="../contact.html"
+        class="contact-link"
+      >
+
+        <span data-lang="ja">
+          お問い合わせフォームへ
+        </span>
+
+        <span data-lang="en">
+          Contact Form
+        </span>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <p class="footer-logo">
+
+    <span data-lang="ja">
+      まどり日和
+    </span>
+
+    <span data-lang="en">
+      MadoriBiyori
+    </span>
+
+  </p>
+
+  <ul class="footer-links">
+
+    <li>
+
+      <a href="index.html">
+
+        <span data-lang="ja">
+          アプリページ
+        </span>
+
+        <span data-lang="en">
+          App Page
+        </span>
+
+      </a>
+
+    </li>
+
+    <li>
+
+      <a href="privacy.html">
+
+        <span data-lang="ja">
+          プライバシーポリシー
+        </span>
+
+        <span data-lang="en">
+          Privacy Policy
+        </span>
+
+      </a>
+
+    </li>
+
+    <li>
+
+      <a href="terms.html">
+
+        <span data-lang="ja">
+          利用規約
+        </span>
+
+        <span data-lang="en">
+          Terms
+        </span>
+
+      </a>
+
+    </li>
+
+    <li>
+
+      <a href="faq.html">
+
+        <span data-lang="ja">
+          ご質問
+        </span>
+
+        <span data-lang="en">
+          FAQ
+        </span>
+
+      </a>
+
+    </li>
+
+    <li>
+
+      <a href="../contact.html">
+
+        <span data-lang="ja">
+          お問い合わせ
+        </span>
+
+        <span data-lang="en">
+          Contact
+        </span>
+
+      </a>
+
+    </li>
+
+  </ul>
+
+  <p style="margin-top:0.5rem;">
+    © 2026 Chocomofu Lab.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<script>
+
+  let isEn = false;
+
+
+  function applyLang(
+    nextIsEn,
+    shouldUpdateUrl = true
+  ) {
+
+    isEn = nextIsEn;
+
+
+    document.body
+      .classList
+      .toggle(
+        'en',
+        isEn
+      );
+
+
+    document.documentElement.lang =
+      isEn
+        ? 'en'
+        : 'ja';
+
+
+    const langBtn =
+      document.getElementById(
+        'langBtn'
+      );
+
+
+    if (langBtn) {
+
+      langBtn.textContent =
+        isEn
+          ? 'JA'
+          : 'EN';
+
+
+      langBtn.setAttribute(
+
+        'aria-label',
+
+        isEn
+          ? '日本語表示に切り替える'
+          : 'Switch to English'
+
+      );
+
+    }
+
+
+    if (shouldUpdateUrl) {
+
+      const currentUrl =
+        new URL(
+          window.location.href
+        );
+
+
+      if (isEn) {
+
+        currentUrl
+          .searchParams
+          .set(
+            'lang',
+            'en'
+          );
+
+      } else {
+
+        currentUrl
+          .searchParams
+          .delete(
+            'lang'
+          );
+
+      }
+
+
+      window.history
+        .replaceState(
+          null,
+          '',
+          currentUrl.toString()
+        );
+
+    }
+
+
+    updateInternalLinksLang();
+
+  }
+
+
+
+  function toggleLang() {
+
+    applyLang(
+      !isEn,
+      true
+    );
+
+  }
+
+
+
+  function updateInternalLinksLang() {
+
+    const links =
+      document.querySelectorAll(
+        'a[href]'
+      );
+
+
+    links.forEach(
+      (link) => {
+
+        const originalHref =
+          link.getAttribute(
+            'href'
+          );
+
+
+        if (
+          !originalHref ||
+          originalHref.startsWith('#') ||
+          originalHref.startsWith('mailto:') ||
+          originalHref.startsWith('tel:') ||
+          originalHref.startsWith('javascript:')
+        ) {
+
+          return;
+
+        }
+
+
+        const linkUrl =
+          new URL(
+            originalHref,
+            window.location.href
+          );
+
+
+        if (
+          linkUrl.origin !==
+          window.location.origin
+        ) {
+
+          return;
+
+        }
+
+
+        if (isEn) {
+
+          linkUrl
+            .searchParams
+            .set(
+              'lang',
+              'en'
+            );
+
+        } else {
+
+          linkUrl
+            .searchParams
+            .delete(
+              'lang'
+            );
+
+        }
+
+
+        link.href =
+          linkUrl.toString();
+
+      }
+
+    );
+
+  }
+
+
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const initialIsEn =
+    params.get('lang') === 'en';
+
+
+  applyLang(
+    initialIsEn,
+    false
+  );
+
+</script>
+
+
+</body>
+</html>
