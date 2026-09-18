@@ -560,35 +560,39 @@
 
 
     /* =========================
-       APP STORE PLACEHOLDER
+       APP STORE
        ========================= */
 
     .app-store-area {
       display: flex;
       justify-content: center;
-      margin: 2rem auto 0;
+      margin: 3.5rem auto 0;
 
       animation:
         fadeDown 0.75s ease 0.52s both;
     }
 
-    .coming-soon {
+    .app-store-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
 
-      min-height: 52px;
-      padding: 0.7rem 1.4rem;
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+    }
 
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-strong);
+    .app-store-link:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
 
-      border:
-        2px solid rgba(196, 123, 67, 0.2);
-
-      font-size: 0.9rem;
-      font-weight: 900;
+    .app-store-badge {
+      width: 170px;
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
 
@@ -979,10 +983,6 @@
       display: inline;
     }
 
-    body.en .coming-soon[data-lang="en"] {
-      display: inline-flex;
-    }
-
     body.en span[data-lang="ja"] {
       display: none;
     }
@@ -1156,6 +1156,10 @@
         display: none;
       }
 
+      .app-store-badge {
+        width: 160px;
+      }
+
       .section-shell {
         padding:
           4rem 1rem;
@@ -1270,7 +1274,7 @@
         </p>
 
         <p class="hero-catch">
-          間取りを、気軽に作って眺める。
+          間取りを、気軽に作って楽しむ。
         </p>
 
       </div>
@@ -1422,23 +1426,31 @@
       </div>
 
 
-      <!-- App Store：公開後にバッジへ差し替える予定 -->
+      <!-- App Store -->
 
       <div class="app-store-area">
 
-        <span
-          class="coming-soon"
-          data-lang="ja"
+        <a
+          href="https://apps.apple.com/jp/app/まどり日和/id6811641050"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="app-store-link"
+          aria-label="App Storeでまどり日和を開く"
         >
-          App Store 公開準備中
-        </span>
+          <img
+            src="../mofu-sheep/images/app-store-badge-ja.svg"
+            alt="App Storeからダウンロード"
+            class="app-store-badge"
+            data-lang="ja"
+          >
 
-        <span
-          class="coming-soon"
-          data-lang="en"
-        >
-          Coming Soon on the App Store
-        </span>
+          <img
+            src="../mofu-sheep/images/app-store-badge-en.svg"
+            alt="Download on the App Store"
+            class="app-store-badge"
+            data-lang="en"
+          >
+        </a>
 
       </div>
 
@@ -1481,22 +1493,6 @@
 
     <div class="panel desc-box">
 
-  <p
-    class="desc-emphasis"
-    data-lang="ja"
-  >
-    「こんな間取りにしてみたい」を<br>
-    気軽に形に。
-  </p>
-
-  <p
-    class="desc-emphasis"
-    data-lang="en"
-  >
-    Turn your floor plan ideas<br>
-    into something you can see and enjoy.
-  </p>
-
   <p data-lang="ja">
     「まどり日和」は、壁を描いたり、ドアや窓、
     水回りや家具を配置したりしながら、
@@ -1522,6 +1518,22 @@
   </p>
 
   <p data-lang="ja">
+    マス目に沿って壁を描いたり、家具などを配置する仕様のため、
+    斜めの壁や斜めの家具配置、細かな位置調整には対応していません。
+    用意された壁・家具・設備・パーツなどを組み合わせながら、
+    2Dと3Dで気軽に間取りづくりを楽しむ用途としてお使いください。
+  </p>
+
+  <p data-lang="en">
+    Walls, furniture, and other items are placed along the grid,
+    so diagonal walls, diagonal furniture placement,
+    and fine position adjustments are not supported.
+    MadoriBiyori is designed for casually enjoying floor plan creation
+    in 2D and 3D by combining the provided walls, furniture,
+    fixtures, and other parts.
+  </p>
+
+  <p data-lang="ja">
     アプリ本体は現在、日本語のみ対応しています。
   </p>
 
@@ -1530,7 +1542,6 @@
   </p>
 
 </div>
-
 </div>
 
 </section>
