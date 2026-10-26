@@ -886,19 +886,33 @@
 
        ========================= */
 
-    .app-store-area {
+    
+.app-store-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 3.5rem auto 0;
+  animation: fadeDown 0.75s ease 0.52s both;
+}
 
-      display: flex;
+/* App Storeバナー下の文字リンク */
+.app-store-text-link {
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.7;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.18s ease;
+}
 
-      justify-content: center;
+.app-store-text-link:hover {
+  opacity: 0.75;
+}
 
-      margin: 3.5rem auto 0;
-
-      animation:
-
-        fadeDown 0.75s ease 0.52s both;
-
-    }
 
     .app-store-link {
 
@@ -2422,55 +2436,63 @@
 
       </div>
 
-      <!-- App Store -->
+     
+<!-- App Store -->
 
-      <div class="app-store-area">
+<div class="app-store-area">
 
-        <a
+  <a
+    href="https://apps.apple.com/jp/app/まどり日和/id6811641050"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="app-store-link"
+    aria-label="App Storeでまどり日和を開く"
+  >
 
-          href="https://apps.apple.com/jp/app/まどり日和/id6811641050"
+    <img
+      src="../mofu-sheep/images/app-store-badge-ja.svg"
+      alt="App Storeからダウンロード"
+      class="app-store-badge"
+      data-lang="ja"
+    >
 
-          target="_blank"
+    <img
+      src="../mofu-sheep/images/app-store-badge-en.svg"
+      alt="Download on the App Store"
+      class="app-store-badge"
+      data-lang="en"
+    >
 
-          rel="noopener noreferrer"
+  </a>
 
-          class="app-store-link"
+  <!-- App Store 文字リンク -->
 
-          aria-label="App Storeでまどり日和を開く"
+  <a
+    href="https://apps.apple.com/jp/app/まどり日和/id6811641050"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="app-store-text-link"
+    data-lang="ja"
+  >
+    App Storeでまどり日和を見る →
+  </a>
 
-        >
+  <a
+    href="https://apps.apple.com/jp/app/まどり日和/id6811641050"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="app-store-text-link"
+    data-lang="en"
+  >
+    View MadoriBiyori on the App Store →
+  </a>
 
-          <img
+</div>
 
-            src="../mofu-sheep/images/app-store-badge-ja.svg"
+</div>
 
-            alt="App Storeからダウンロード"
+</section>
 
-            class="app-store-badge"
-
-            data-lang="ja"
-
-          >
-
-          <img
-
-            src="../mofu-sheep/images/app-store-badge-en.svg"
-
-            alt="Download on the App Store"
-
-            class="app-store-badge"
-
-            data-lang="en"
-
-          >
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
 
   <!-- =========================
 
@@ -2598,93 +2620,87 @@
 
 </section>
 
-  <!-- =========================
+ 
+<!-- =========================
+     UPDATE / WHAT'S NEW
+     ========================= -->
 
-       UPDATE / WHAT'S NEW
+<section class="section-shell update-section">
 
-       ========================= -->
+  <div class="section-inner reveal">
 
-  <section class="section-shell update-section">
+    <p class="section-label">
+      <span data-lang="ja">アップデート</span>
+      <span data-lang="en">UPDATE</span>
+    </p>
 
-    <div class="section-inner reveal">
+    <h2 class="section-title">
+      <span data-lang="ja">
+        壁をもっと描きやすく<br>そして新機能「柵」も追加
+      </span>
+      <span data-lang="en">
+        Easier Wall Drawing and New Fences
+      </span>
+    </h2>
 
-      <p class="section-label">
+    <p class="update-lead" data-lang="ja">
+      アップデートにより壁の始点・終点を確定しながら、
+      方向キーで位置を1マスずつ微調整できるようになりました。
+      また、階段の種類の追加や下書き操作の見直しに加え、
+      新たに5種類の「柵」や新しい大窓、家具・車なども追加しました。
+      一部の操作性も改善しています。
+    </p>
 
-        <span data-lang="ja">アップデート</span>
+    <p class="update-lead" data-lang="en">
+      Wall drawing has been improved.
+      Confirm the start and end points and use the direction
+      buttons to adjust positions one grid square at a time.
+      We've also added more staircase types,
+      improved draft handling, and introduced five fence types,
+      a new large window, additional furniture and cars.
+      Some controls have also been improved.
+    </p>
 
-        <span data-lang="en">UPDATE</span>
+    <div class="update-guide">
 
-      </p>
+      <div class="update-guide-links">
 
-      <h2 class="section-title">
+        <a href="howto.html" class="update-guide-link">
+          <span data-lang="ja">
+            📖 新しい使い方を見る
+          </span>
+          <span data-lang="en">
+            📖 Updated How-to Guide
+          </span>
+        </a>
 
-        <span data-lang="ja">壁をもっと描きやすく</span>
-
-        <span data-lang="en">Easier Wall Drawing</span>
-
-      </h2>
-
-      <p class="update-lead" data-lang="ja">
-
-        壁を描く操作を見直し、始点・終点を「確定」しながら、
-
-        方向キーで1マスずつ位置を調整できるようになりました。
-
-      </p>
-
-      <p class="update-lead" data-lang="en">
-
-        Wall drawing has been improved. Confirm the start and end points,
-
-        and use the direction buttons to adjust their positions one grid square at a time.
-
-        </p>
-
-      
-
-
-      <div class="update-guide">
-
-        <div class="update-guide-links">
-
-          <a href="howto.html" class="update-guide-link">
-
-            <span data-lang="ja">📖 新しい使い方を見る</span>
-
-            <span data-lang="en">📖 Updated How-to Guide</span>
-
-          </a>
-
-          <a href="howto-old.html" class="update-guide-link old">
-
-            <span data-lang="ja">📘 使い方（旧）</span>
-
-            <span data-lang="en">📘 How to Use (Previous Version)</span>
-
-          </a>
-
-        </div>
-
-        <p data-lang="ja">
-
-          旧バージョンをお使いの場合は、画面や操作方法が一部異なることがあります。
-
-
-        </p>
-
-        <p data-lang="en">
-
-          Screens and controls may differ if you are using a previous version of the App.
-
-          Please refer to the previous-version guide until you update.
-
-        </p>
+        <a href="howto-old.html" class="update-guide-link old">
+          <span data-lang="ja">
+            📘 使い方（旧）
+          </span>
+          <span data-lang="en">
+            📘 How to Use (Previous Version)
+          </span>
+        </a>
 
       </div>
 
+      <p data-lang="ja">
+        旧バージョンをお使いの場合は、
+        画面や操作方法が一部異なることがあります。
+      </p>
+
+      <p data-lang="en">
+        Screens and controls may differ if you are using
+        a previous version of the App.
+        Please refer to the previous-version guide until you update.
+      </p>
+
     </div>
 
-  </section>
+  </div>
+
+</section>
 
   <!-- =========================
 
